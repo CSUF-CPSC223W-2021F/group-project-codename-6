@@ -12,6 +12,7 @@
 		7AA2FA2926F405C20003E9EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA2FA2326F405C20003E9EA /* ViewController.swift */; };
 		7AA2FA2A26F405C20003E9EA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 7AA2FA2426F405C20003E9EA /* Base.lproj */; };
 		7AA2FA2B26F405C20003E9EA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AA2FA2526F405C20003E9EA /* Info.plist */; };
+		7AA2FA6926F408FE0003E9EA /* ElectricStationStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA2FA6826F408FE0003E9EA /* ElectricStationStoryBoard.storyboard */; };
 		7AA95E9626F3F2CC00AFEF0E /* ElectricStationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA95E9526F3F2CC00AFEF0E /* ElectricStationApp.swift */; };
 		7AA95E9826F3F2CC00AFEF0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA95E9726F3F2CC00AFEF0E /* ContentView.swift */; };
 		7AA95E9A26F3F2CD00AFEF0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA95E9926F3F2CD00AFEF0E /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 		7AA2FA2326F405C20003E9EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../Downloads/ElectricStation/ElectricStation/ViewController.swift; sourceTree = "<group>"; };
 		7AA2FA2426F405C20003E9EA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = ../../../Downloads/ElectricStation/ElectricStation/Base.lproj; sourceTree = "<group>"; };
 		7AA2FA2526F405C20003E9EA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../Downloads/ElectricStation/ElectricStation/Info.plist; sourceTree = "<group>"; };
+		7AA2FA6826F408FE0003E9EA /* ElectricStationStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ElectricStationStoryBoard.storyboard; sourceTree = "<group>"; };
 		7AA95E9226F3F2CC00AFEF0E /* ElectricStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7AA95E9526F3F2CC00AFEF0E /* ElectricStationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricStationApp.swift; sourceTree = "<group>"; };
 		7AA95E9726F3F2CC00AFEF0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -116,6 +118,7 @@
 				7AA2FA2026F405C20003E9EA /* SceneDelegate.swift */,
 				7AA2FA2326F405C20003E9EA /* ViewController.swift */,
 				7AA95E9B26F3F2CD00AFEF0E /* Preview Content */,
+				7AA2FA6826F408FE0003E9EA /* ElectricStationStoryBoard.storyboard */,
 			);
 			path = ElectricStation;
 			sourceTree = "<group>";
@@ -250,6 +253,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				7AA95E9D26F3F2CD00AFEF0E /* Preview Assets.xcassets in Resources */,
+				7AA2FA6926F408FE0003E9EA /* ElectricStationStoryBoard.storyboard in Resources */,
 				7AA95EC126F3F2FF00AFEF0E /* .gitignore in Resources */,
 				7AA2FA2B26F405C20003E9EA /* Info.plist in Resources */,
 				7AA2FA2A26F405C20003E9EA /* Base.lproj in Resources */,
