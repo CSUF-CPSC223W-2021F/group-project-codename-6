@@ -1,0 +1,579 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		7AA95E9626F3F2CC00AFEF0E /* ElectricStationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA95E9526F3F2CC00AFEF0E /* ElectricStationApp.swift */; };
+		7AA95E9826F3F2CC00AFEF0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA95E9726F3F2CC00AFEF0E /* ContentView.swift */; };
+		7AA95E9A26F3F2CD00AFEF0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA95E9926F3F2CD00AFEF0E /* Assets.xcassets */; };
+		7AA95E9D26F3F2CD00AFEF0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA95E9C26F3F2CD00AFEF0E /* Preview Assets.xcassets */; };
+		7AA95EA826F3F2CD00AFEF0E /* ElectricStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA95EA726F3F2CD00AFEF0E /* ElectricStationTests.swift */; };
+		7AA95EB326F3F2CD00AFEF0E /* ElectricStationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA95EB226F3F2CD00AFEF0E /* ElectricStationUITests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		7AA95EA426F3F2CD00AFEF0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AA95E8A26F3F2CC00AFEF0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AA95E9126F3F2CC00AFEF0E;
+			remoteInfo = ElectricStation;
+		};
+		7AA95EAF26F3F2CD00AFEF0E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 7AA95E8A26F3F2CC00AFEF0E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 7AA95E9126F3F2CC00AFEF0E;
+			remoteInfo = ElectricStation;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		7AA95E9226F3F2CC00AFEF0E /* ElectricStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AA95E9526F3F2CC00AFEF0E /* ElectricStationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricStationApp.swift; sourceTree = "<group>"; };
+		7AA95E9726F3F2CC00AFEF0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		7AA95E9926F3F2CD00AFEF0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7AA95E9C26F3F2CD00AFEF0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		7AA95E9E26F3F2CD00AFEF0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AA95EA326F3F2CD00AFEF0E /* ElectricStationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectricStationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AA95EA726F3F2CD00AFEF0E /* ElectricStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricStationTests.swift; sourceTree = "<group>"; };
+		7AA95EA926F3F2CD00AFEF0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AA95EAE26F3F2CD00AFEF0E /* ElectricStationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectricStationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AA95EB226F3F2CD00AFEF0E /* ElectricStationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricStationUITests.swift; sourceTree = "<group>"; };
+		7AA95EB426F3F2CD00AFEF0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		7AA95E8F26F3F2CC00AFEF0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AA95EA026F3F2CD00AFEF0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AA95EAB26F3F2CD00AFEF0E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		7AA95E8926F3F2CC00AFEF0E = {
+			isa = PBXGroup;
+			children = (
+				7AA95E9426F3F2CC00AFEF0E /* ElectricStation */,
+				7AA95EA626F3F2CD00AFEF0E /* ElectricStationTests */,
+				7AA95EB126F3F2CD00AFEF0E /* ElectricStationUITests */,
+				7AA95E9326F3F2CC00AFEF0E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		7AA95E9326F3F2CC00AFEF0E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				7AA95E9226F3F2CC00AFEF0E /* ElectricStation.app */,
+				7AA95EA326F3F2CD00AFEF0E /* ElectricStationTests.xctest */,
+				7AA95EAE26F3F2CD00AFEF0E /* ElectricStationUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		7AA95E9426F3F2CC00AFEF0E /* ElectricStation */ = {
+			isa = PBXGroup;
+			children = (
+				7AA95E9526F3F2CC00AFEF0E /* ElectricStationApp.swift */,
+				7AA95E9726F3F2CC00AFEF0E /* ContentView.swift */,
+				7AA95E9926F3F2CD00AFEF0E /* Assets.xcassets */,
+				7AA95E9E26F3F2CD00AFEF0E /* Info.plist */,
+				7AA95E9B26F3F2CD00AFEF0E /* Preview Content */,
+			);
+			path = ElectricStation;
+			sourceTree = "<group>";
+		};
+		7AA95E9B26F3F2CD00AFEF0E /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				7AA95E9C26F3F2CD00AFEF0E /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		7AA95EA626F3F2CD00AFEF0E /* ElectricStationTests */ = {
+			isa = PBXGroup;
+			children = (
+				7AA95EA726F3F2CD00AFEF0E /* ElectricStationTests.swift */,
+				7AA95EA926F3F2CD00AFEF0E /* Info.plist */,
+			);
+			path = ElectricStationTests;
+			sourceTree = "<group>";
+		};
+		7AA95EB126F3F2CD00AFEF0E /* ElectricStationUITests */ = {
+			isa = PBXGroup;
+			children = (
+				7AA95EB226F3F2CD00AFEF0E /* ElectricStationUITests.swift */,
+				7AA95EB426F3F2CD00AFEF0E /* Info.plist */,
+			);
+			path = ElectricStationUITests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		7AA95E9126F3F2CC00AFEF0E /* ElectricStation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AA95EB726F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStation" */;
+			buildPhases = (
+				7AA95E8E26F3F2CC00AFEF0E /* Sources */,
+				7AA95E8F26F3F2CC00AFEF0E /* Frameworks */,
+				7AA95E9026F3F2CC00AFEF0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ElectricStation;
+			productName = ElectricStation;
+			productReference = 7AA95E9226F3F2CC00AFEF0E /* ElectricStation.app */;
+			productType = "com.apple.product-type.application";
+		};
+		7AA95EA226F3F2CD00AFEF0E /* ElectricStationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AA95EBA26F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStationTests" */;
+			buildPhases = (
+				7AA95E9F26F3F2CD00AFEF0E /* Sources */,
+				7AA95EA026F3F2CD00AFEF0E /* Frameworks */,
+				7AA95EA126F3F2CD00AFEF0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7AA95EA526F3F2CD00AFEF0E /* PBXTargetDependency */,
+			);
+			name = ElectricStationTests;
+			productName = ElectricStationTests;
+			productReference = 7AA95EA326F3F2CD00AFEF0E /* ElectricStationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		7AA95EAD26F3F2CD00AFEF0E /* ElectricStationUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 7AA95EBD26F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStationUITests" */;
+			buildPhases = (
+				7AA95EAA26F3F2CD00AFEF0E /* Sources */,
+				7AA95EAB26F3F2CD00AFEF0E /* Frameworks */,
+				7AA95EAC26F3F2CD00AFEF0E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7AA95EB026F3F2CD00AFEF0E /* PBXTargetDependency */,
+			);
+			name = ElectricStationUITests;
+			productName = ElectricStationUITests;
+			productReference = 7AA95EAE26F3F2CD00AFEF0E /* ElectricStationUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		7AA95E8A26F3F2CC00AFEF0E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1250;
+				LastUpgradeCheck = 1250;
+				TargetAttributes = {
+					7AA95E9126F3F2CC00AFEF0E = {
+						CreatedOnToolsVersion = 12.5.1;
+					};
+					7AA95EA226F3F2CD00AFEF0E = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 7AA95E9126F3F2CC00AFEF0E;
+					};
+					7AA95EAD26F3F2CD00AFEF0E = {
+						CreatedOnToolsVersion = 12.5.1;
+						TestTargetID = 7AA95E9126F3F2CC00AFEF0E;
+					};
+				};
+			};
+			buildConfigurationList = 7AA95E8D26F3F2CC00AFEF0E /* Build configuration list for PBXProject "ElectricStation" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 7AA95E8926F3F2CC00AFEF0E;
+			productRefGroup = 7AA95E9326F3F2CC00AFEF0E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				7AA95E9126F3F2CC00AFEF0E /* ElectricStation */,
+				7AA95EA226F3F2CD00AFEF0E /* ElectricStationTests */,
+				7AA95EAD26F3F2CD00AFEF0E /* ElectricStationUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		7AA95E9026F3F2CC00AFEF0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AA95E9D26F3F2CD00AFEF0E /* Preview Assets.xcassets in Resources */,
+				7AA95E9A26F3F2CD00AFEF0E /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AA95EA126F3F2CD00AFEF0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AA95EAC26F3F2CD00AFEF0E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		7AA95E8E26F3F2CC00AFEF0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AA95E9826F3F2CC00AFEF0E /* ContentView.swift in Sources */,
+				7AA95E9626F3F2CC00AFEF0E /* ElectricStationApp.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AA95E9F26F3F2CD00AFEF0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AA95EA826F3F2CD00AFEF0E /* ElectricStationTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		7AA95EAA26F3F2CD00AFEF0E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				7AA95EB326F3F2CD00AFEF0E /* ElectricStationUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		7AA95EA526F3F2CD00AFEF0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AA95E9126F3F2CC00AFEF0E /* ElectricStation */;
+			targetProxy = 7AA95EA426F3F2CD00AFEF0E /* PBXContainerItemProxy */;
+		};
+		7AA95EB026F3F2CD00AFEF0E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 7AA95E9126F3F2CC00AFEF0E /* ElectricStation */;
+			targetProxy = 7AA95EAF26F3F2CD00AFEF0E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		7AA95EB526F3F2CD00AFEF0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		7AA95EB626F3F2CD00AFEF0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		7AA95EB826F3F2CD00AFEF0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"ElectricStation/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ElectricStation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.fullerton.ecs.electricstation.ElectricStation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		7AA95EB926F3F2CD00AFEF0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_ASSET_PATHS = "\"ElectricStation/Preview Content\"";
+				ENABLE_PREVIEWS = YES;
+				INFOPLIST_FILE = ElectricStation/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.fullerton.ecs.electricstation.ElectricStation;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		7AA95EBB26F3F2CD00AFEF0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ElectricStationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.fullerton.ecs.electricstation.ElectricStationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ElectricStation.app/ElectricStation";
+			};
+			name = Debug;
+		};
+		7AA95EBC26F3F2CD00AFEF0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ElectricStationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.fullerton.ecs.electricstation.ElectricStationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/ElectricStation.app/ElectricStation";
+			};
+			name = Release;
+		};
+		7AA95EBE26F3F2CD00AFEF0E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ElectricStationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.fullerton.ecs.electricstation.ElectricStationUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ElectricStation;
+			};
+			name = Debug;
+		};
+		7AA95EBF26F3F2CD00AFEF0E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				INFOPLIST_FILE = ElectricStationUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = edu.fullerton.ecs.electricstation.ElectricStationUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = ElectricStation;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		7AA95E8D26F3F2CC00AFEF0E /* Build configuration list for PBXProject "ElectricStation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AA95EB526F3F2CD00AFEF0E /* Debug */,
+				7AA95EB626F3F2CD00AFEF0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AA95EB726F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AA95EB826F3F2CD00AFEF0E /* Debug */,
+				7AA95EB926F3F2CD00AFEF0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AA95EBA26F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AA95EBB26F3F2CD00AFEF0E /* Debug */,
+				7AA95EBC26F3F2CD00AFEF0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7AA95EBD26F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStationUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7AA95EBE26F3F2CD00AFEF0E /* Debug */,
+				7AA95EBF26F3F2CD00AFEF0E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 7AA95E8A26F3F2CC00AFEF0E /* Project object */;
+}
