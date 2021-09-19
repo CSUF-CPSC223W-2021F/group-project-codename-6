@@ -2,12 +2,10 @@
 //  AppDelegate.swift
 //  ElectricStation
 //
-//  Created by csuftitan on 9/16/21.
+//  Created by csuftitan on 9/19/21.
 //
 
 import UIKit
-
-
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {

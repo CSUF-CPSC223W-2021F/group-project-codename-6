@@ -7,75 +7,66 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7AA2FA2626F405C20003E9EA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA2FA2026F405C20003E9EA /* SceneDelegate.swift */; };
-		7AA2FA2726F405C20003E9EA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA2FA2126F405C20003E9EA /* AppDelegate.swift */; };
-		7AA2FA2926F405C20003E9EA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA2FA2326F405C20003E9EA /* ViewController.swift */; };
-		7AA2FA2A26F405C20003E9EA /* Base.lproj in Resources */ = {isa = PBXBuildFile; fileRef = 7AA2FA2426F405C20003E9EA /* Base.lproj */; };
-		7AA2FA2B26F405C20003E9EA /* Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 7AA2FA2526F405C20003E9EA /* Info.plist */; };
-		7AA2FA6926F408FE0003E9EA /* ElectricStationStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AA2FA6826F408FE0003E9EA /* ElectricStationStoryBoard.storyboard */; };
-		7AA95E9626F3F2CC00AFEF0E /* ElectricStationApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA95E9526F3F2CC00AFEF0E /* ElectricStationApp.swift */; };
-		7AA95E9826F3F2CC00AFEF0E /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA95E9726F3F2CC00AFEF0E /* ContentView.swift */; };
-		7AA95E9A26F3F2CD00AFEF0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA95E9926F3F2CD00AFEF0E /* Assets.xcassets */; };
-		7AA95E9D26F3F2CD00AFEF0E /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AA95E9C26F3F2CD00AFEF0E /* Preview Assets.xcassets */; };
-		7AA95EA826F3F2CD00AFEF0E /* ElectricStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA95EA726F3F2CD00AFEF0E /* ElectricStationTests.swift */; };
-		7AA95EB326F3F2CD00AFEF0E /* ElectricStationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AA95EB226F3F2CD00AFEF0E /* ElectricStationUITests.swift */; };
-		7AA95EC126F3F2FF00AFEF0E /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7AA95EC026F3F2FF00AFEF0E /* .gitignore */; };
+		7AF7A92126F7394200FDFB8D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF7A92026F7394200FDFB8D /* AppDelegate.swift */; };
+		7AF7A92326F7394200FDFB8D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF7A92226F7394200FDFB8D /* SceneDelegate.swift */; };
+		7AF7A92526F7394200FDFB8D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF7A92426F7394200FDFB8D /* ViewController.swift */; };
+		7AF7A92826F7394200FDFB8D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF7A92626F7394200FDFB8D /* Main.storyboard */; };
+		7AF7A92A26F7394300FDFB8D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7AF7A92926F7394300FDFB8D /* Assets.xcassets */; };
+		7AF7A92D26F7394300FDFB8D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7AF7A92B26F7394300FDFB8D /* LaunchScreen.storyboard */; };
+		7AF7A93826F7394300FDFB8D /* ElectricStationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF7A93726F7394300FDFB8D /* ElectricStationTests.swift */; };
+		7AF7A94326F7394300FDFB8D /* ElectricStationUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AF7A94226F7394300FDFB8D /* ElectricStationUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		7AA95EA426F3F2CD00AFEF0E /* PBXContainerItemProxy */ = {
+		7AF7A93426F7394300FDFB8D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7AA95E8A26F3F2CC00AFEF0E /* Project object */;
+			containerPortal = 7AF7A91526F7394200FDFB8D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7AA95E9126F3F2CC00AFEF0E;
+			remoteGlobalIDString = 7AF7A91C26F7394200FDFB8D;
 			remoteInfo = ElectricStation;
 		};
-		7AA95EAF26F3F2CD00AFEF0E /* PBXContainerItemProxy */ = {
+		7AF7A93F26F7394300FDFB8D /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 7AA95E8A26F3F2CC00AFEF0E /* Project object */;
+			containerPortal = 7AF7A91526F7394200FDFB8D /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 7AA95E9126F3F2CC00AFEF0E;
+			remoteGlobalIDString = 7AF7A91C26F7394200FDFB8D;
 			remoteInfo = ElectricStation;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		7AA2FA2026F405C20003E9EA /* SceneDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SceneDelegate.swift; path = ../../../Downloads/ElectricStation/ElectricStation/SceneDelegate.swift; sourceTree = "<group>"; };
-		7AA2FA2126F405C20003E9EA /* AppDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = ../../../Downloads/ElectricStation/ElectricStation/AppDelegate.swift; sourceTree = "<group>"; };
-		7AA2FA2326F405C20003E9EA /* ViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ViewController.swift; path = ../../../Downloads/ElectricStation/ElectricStation/ViewController.swift; sourceTree = "<group>"; };
-		7AA2FA2426F405C20003E9EA /* Base.lproj */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Base.lproj; path = ../../../Downloads/ElectricStation/ElectricStation/Base.lproj; sourceTree = "<group>"; };
-		7AA2FA2526F405C20003E9EA /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../../../Downloads/ElectricStation/ElectricStation/Info.plist; sourceTree = "<group>"; };
-		7AA2FA6826F408FE0003E9EA /* ElectricStationStoryBoard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = ElectricStationStoryBoard.storyboard; sourceTree = "<group>"; };
-		7AA95E9226F3F2CC00AFEF0E /* ElectricStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		7AA95E9526F3F2CC00AFEF0E /* ElectricStationApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricStationApp.swift; sourceTree = "<group>"; };
-		7AA95E9726F3F2CC00AFEF0E /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		7AA95E9926F3F2CD00AFEF0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		7AA95E9C26F3F2CD00AFEF0E /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		7AA95EA326F3F2CD00AFEF0E /* ElectricStationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectricStationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7AA95EA726F3F2CD00AFEF0E /* ElectricStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricStationTests.swift; sourceTree = "<group>"; };
-		7AA95EA926F3F2CD00AFEF0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7AA95EAE26F3F2CD00AFEF0E /* ElectricStationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectricStationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		7AA95EB226F3F2CD00AFEF0E /* ElectricStationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricStationUITests.swift; sourceTree = "<group>"; };
-		7AA95EB426F3F2CD00AFEF0E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		7AA95EC026F3F2FF00AFEF0E /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		7AF7A91D26F7394200FDFB8D /* ElectricStation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElectricStation.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AF7A92026F7394200FDFB8D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		7AF7A92226F7394200FDFB8D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		7AF7A92426F7394200FDFB8D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		7AF7A92726F7394200FDFB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		7AF7A92926F7394300FDFB8D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		7AF7A92C26F7394300FDFB8D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		7AF7A92E26F7394300FDFB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AF7A93326F7394300FDFB8D /* ElectricStationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectricStationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AF7A93726F7394300FDFB8D /* ElectricStationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricStationTests.swift; sourceTree = "<group>"; };
+		7AF7A93926F7394300FDFB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7AF7A93E26F7394300FDFB8D /* ElectricStationUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElectricStationUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		7AF7A94226F7394300FDFB8D /* ElectricStationUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElectricStationUITests.swift; sourceTree = "<group>"; };
+		7AF7A94426F7394300FDFB8D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		7AA95E8F26F3F2CC00AFEF0E /* Frameworks */ = {
+		7AF7A91A26F7394200FDFB8D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7AA95EA026F3F2CD00AFEF0E /* Frameworks */ = {
+		7AF7A93026F7394300FDFB8D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7AA95EAB26F3F2CD00AFEF0E /* Frameworks */ = {
+		7AF7A93B26F7394300FDFB8D /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -85,66 +76,54 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		7AA95E8926F3F2CC00AFEF0E = {
+		7AF7A91426F7394200FDFB8D = {
 			isa = PBXGroup;
 			children = (
-				7AA95EC026F3F2FF00AFEF0E /* .gitignore */,
-				7AA95E9426F3F2CC00AFEF0E /* ElectricStation */,
-				7AA95EA626F3F2CD00AFEF0E /* ElectricStationTests */,
-				7AA95EB126F3F2CD00AFEF0E /* ElectricStationUITests */,
-				7AA95E9326F3F2CC00AFEF0E /* Products */,
+				7AF7A91F26F7394200FDFB8D /* ElectricStation */,
+				7AF7A93626F7394300FDFB8D /* ElectricStationTests */,
+				7AF7A94126F7394300FDFB8D /* ElectricStationUITests */,
+				7AF7A91E26F7394200FDFB8D /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		7AA95E9326F3F2CC00AFEF0E /* Products */ = {
+		7AF7A91E26F7394200FDFB8D /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7AA95E9226F3F2CC00AFEF0E /* ElectricStation.app */,
-				7AA95EA326F3F2CD00AFEF0E /* ElectricStationTests.xctest */,
-				7AA95EAE26F3F2CD00AFEF0E /* ElectricStationUITests.xctest */,
+				7AF7A91D26F7394200FDFB8D /* ElectricStation.app */,
+				7AF7A93326F7394300FDFB8D /* ElectricStationTests.xctest */,
+				7AF7A93E26F7394300FDFB8D /* ElectricStationUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		7AA95E9426F3F2CC00AFEF0E /* ElectricStation */ = {
+		7AF7A91F26F7394200FDFB8D /* ElectricStation */ = {
 			isa = PBXGroup;
 			children = (
-				7AA95E9526F3F2CC00AFEF0E /* ElectricStationApp.swift */,
-				7AA95E9726F3F2CC00AFEF0E /* ContentView.swift */,
-				7AA95E9926F3F2CD00AFEF0E /* Assets.xcassets */,
-				7AA2FA2126F405C20003E9EA /* AppDelegate.swift */,
-				7AA2FA2426F405C20003E9EA /* Base.lproj */,
-				7AA2FA2526F405C20003E9EA /* Info.plist */,
-				7AA2FA2026F405C20003E9EA /* SceneDelegate.swift */,
-				7AA2FA2326F405C20003E9EA /* ViewController.swift */,
-				7AA95E9B26F3F2CD00AFEF0E /* Preview Content */,
-				7AA2FA6826F408FE0003E9EA /* ElectricStationStoryBoard.storyboard */,
+				7AF7A92026F7394200FDFB8D /* AppDelegate.swift */,
+				7AF7A92226F7394200FDFB8D /* SceneDelegate.swift */,
+				7AF7A92426F7394200FDFB8D /* ViewController.swift */,
+				7AF7A92626F7394200FDFB8D /* Main.storyboard */,
+				7AF7A92926F7394300FDFB8D /* Assets.xcassets */,
+				7AF7A92B26F7394300FDFB8D /* LaunchScreen.storyboard */,
+				7AF7A92E26F7394300FDFB8D /* Info.plist */,
 			);
 			path = ElectricStation;
 			sourceTree = "<group>";
 		};
-		7AA95E9B26F3F2CD00AFEF0E /* Preview Content */ = {
+		7AF7A93626F7394300FDFB8D /* ElectricStationTests */ = {
 			isa = PBXGroup;
 			children = (
-				7AA95E9C26F3F2CD00AFEF0E /* Preview Assets.xcassets */,
-			);
-			path = "Preview Content";
-			sourceTree = "<group>";
-		};
-		7AA95EA626F3F2CD00AFEF0E /* ElectricStationTests */ = {
-			isa = PBXGroup;
-			children = (
-				7AA95EA726F3F2CD00AFEF0E /* ElectricStationTests.swift */,
-				7AA95EA926F3F2CD00AFEF0E /* Info.plist */,
+				7AF7A93726F7394300FDFB8D /* ElectricStationTests.swift */,
+				7AF7A93926F7394300FDFB8D /* Info.plist */,
 			);
 			path = ElectricStationTests;
 			sourceTree = "<group>";
 		};
-		7AA95EB126F3F2CD00AFEF0E /* ElectricStationUITests */ = {
+		7AF7A94126F7394300FDFB8D /* ElectricStationUITests */ = {
 			isa = PBXGroup;
 			children = (
-				7AA95EB226F3F2CD00AFEF0E /* ElectricStationUITests.swift */,
-				7AA95EB426F3F2CD00AFEF0E /* Info.plist */,
+				7AF7A94226F7394300FDFB8D /* ElectricStationUITests.swift */,
+				7AF7A94426F7394300FDFB8D /* Info.plist */,
 			);
 			path = ElectricStationUITests;
 			sourceTree = "<group>";
@@ -152,13 +131,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		7AA95E9126F3F2CC00AFEF0E /* ElectricStation */ = {
+		7AF7A91C26F7394200FDFB8D /* ElectricStation */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7AA95EB726F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStation" */;
+			buildConfigurationList = 7AF7A94726F7394300FDFB8D /* Build configuration list for PBXNativeTarget "ElectricStation" */;
 			buildPhases = (
-				7AA95E8E26F3F2CC00AFEF0E /* Sources */,
-				7AA95E8F26F3F2CC00AFEF0E /* Frameworks */,
-				7AA95E9026F3F2CC00AFEF0E /* Resources */,
+				7AF7A91926F7394200FDFB8D /* Sources */,
+				7AF7A91A26F7394200FDFB8D /* Frameworks */,
+				7AF7A91B26F7394200FDFB8D /* Resources */,
 			);
 			buildRules = (
 			);
@@ -166,68 +145,68 @@
 			);
 			name = ElectricStation;
 			productName = ElectricStation;
-			productReference = 7AA95E9226F3F2CC00AFEF0E /* ElectricStation.app */;
+			productReference = 7AF7A91D26F7394200FDFB8D /* ElectricStation.app */;
 			productType = "com.apple.product-type.application";
 		};
-		7AA95EA226F3F2CD00AFEF0E /* ElectricStationTests */ = {
+		7AF7A93226F7394300FDFB8D /* ElectricStationTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7AA95EBA26F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStationTests" */;
+			buildConfigurationList = 7AF7A94A26F7394300FDFB8D /* Build configuration list for PBXNativeTarget "ElectricStationTests" */;
 			buildPhases = (
-				7AA95E9F26F3F2CD00AFEF0E /* Sources */,
-				7AA95EA026F3F2CD00AFEF0E /* Frameworks */,
-				7AA95EA126F3F2CD00AFEF0E /* Resources */,
+				7AF7A92F26F7394300FDFB8D /* Sources */,
+				7AF7A93026F7394300FDFB8D /* Frameworks */,
+				7AF7A93126F7394300FDFB8D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7AA95EA526F3F2CD00AFEF0E /* PBXTargetDependency */,
+				7AF7A93526F7394300FDFB8D /* PBXTargetDependency */,
 			);
 			name = ElectricStationTests;
 			productName = ElectricStationTests;
-			productReference = 7AA95EA326F3F2CD00AFEF0E /* ElectricStationTests.xctest */;
+			productReference = 7AF7A93326F7394300FDFB8D /* ElectricStationTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		7AA95EAD26F3F2CD00AFEF0E /* ElectricStationUITests */ = {
+		7AF7A93D26F7394300FDFB8D /* ElectricStationUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 7AA95EBD26F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStationUITests" */;
+			buildConfigurationList = 7AF7A94D26F7394300FDFB8D /* Build configuration list for PBXNativeTarget "ElectricStationUITests" */;
 			buildPhases = (
-				7AA95EAA26F3F2CD00AFEF0E /* Sources */,
-				7AA95EAB26F3F2CD00AFEF0E /* Frameworks */,
-				7AA95EAC26F3F2CD00AFEF0E /* Resources */,
+				7AF7A93A26F7394300FDFB8D /* Sources */,
+				7AF7A93B26F7394300FDFB8D /* Frameworks */,
+				7AF7A93C26F7394300FDFB8D /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				7AA95EB026F3F2CD00AFEF0E /* PBXTargetDependency */,
+				7AF7A94026F7394300FDFB8D /* PBXTargetDependency */,
 			);
 			name = ElectricStationUITests;
 			productName = ElectricStationUITests;
-			productReference = 7AA95EAE26F3F2CD00AFEF0E /* ElectricStationUITests.xctest */;
+			productReference = 7AF7A93E26F7394300FDFB8D /* ElectricStationUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		7AA95E8A26F3F2CC00AFEF0E /* Project object */ = {
+		7AF7A91526F7394200FDFB8D /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1250;
 				LastUpgradeCheck = 1250;
 				TargetAttributes = {
-					7AA95E9126F3F2CC00AFEF0E = {
+					7AF7A91C26F7394200FDFB8D = {
 						CreatedOnToolsVersion = 12.5.1;
 					};
-					7AA95EA226F3F2CD00AFEF0E = {
+					7AF7A93226F7394300FDFB8D = {
 						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 7AA95E9126F3F2CC00AFEF0E;
+						TestTargetID = 7AF7A91C26F7394200FDFB8D;
 					};
-					7AA95EAD26F3F2CD00AFEF0E = {
+					7AF7A93D26F7394300FDFB8D = {
 						CreatedOnToolsVersion = 12.5.1;
-						TestTargetID = 7AA95E9126F3F2CC00AFEF0E;
+						TestTargetID = 7AF7A91C26F7394200FDFB8D;
 					};
 				};
 			};
-			buildConfigurationList = 7AA95E8D26F3F2CC00AFEF0E /* Build configuration list for PBXProject "ElectricStation" */;
+			buildConfigurationList = 7AF7A91826F7394200FDFB8D /* Build configuration list for PBXProject "ElectricStation" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
@@ -235,40 +214,37 @@
 				en,
 				Base,
 			);
-			mainGroup = 7AA95E8926F3F2CC00AFEF0E;
-			productRefGroup = 7AA95E9326F3F2CC00AFEF0E /* Products */;
+			mainGroup = 7AF7A91426F7394200FDFB8D;
+			productRefGroup = 7AF7A91E26F7394200FDFB8D /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				7AA95E9126F3F2CC00AFEF0E /* ElectricStation */,
-				7AA95EA226F3F2CD00AFEF0E /* ElectricStationTests */,
-				7AA95EAD26F3F2CD00AFEF0E /* ElectricStationUITests */,
+				7AF7A91C26F7394200FDFB8D /* ElectricStation */,
+				7AF7A93226F7394300FDFB8D /* ElectricStationTests */,
+				7AF7A93D26F7394300FDFB8D /* ElectricStationUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		7AA95E9026F3F2CC00AFEF0E /* Resources */ = {
+		7AF7A91B26F7394200FDFB8D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AA95E9D26F3F2CD00AFEF0E /* Preview Assets.xcassets in Resources */,
-				7AA2FA6926F408FE0003E9EA /* ElectricStationStoryBoard.storyboard in Resources */,
-				7AA95EC126F3F2FF00AFEF0E /* .gitignore in Resources */,
-				7AA2FA2B26F405C20003E9EA /* Info.plist in Resources */,
-				7AA2FA2A26F405C20003E9EA /* Base.lproj in Resources */,
-				7AA95E9A26F3F2CD00AFEF0E /* Assets.xcassets in Resources */,
+				7AF7A92D26F7394300FDFB8D /* LaunchScreen.storyboard in Resources */,
+				7AF7A92A26F7394300FDFB8D /* Assets.xcassets in Resources */,
+				7AF7A92826F7394200FDFB8D /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7AA95EA126F3F2CD00AFEF0E /* Resources */ = {
+		7AF7A93126F7394300FDFB8D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7AA95EAC26F3F2CD00AFEF0E /* Resources */ = {
+		7AF7A93C26F7394300FDFB8D /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -278,51 +254,68 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		7AA95E8E26F3F2CC00AFEF0E /* Sources */ = {
+		7AF7A91926F7394200FDFB8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AA2FA2926F405C20003E9EA /* ViewController.swift in Sources */,
-				7AA2FA2726F405C20003E9EA /* AppDelegate.swift in Sources */,
-				7AA95E9826F3F2CC00AFEF0E /* ContentView.swift in Sources */,
-				7AA95E9626F3F2CC00AFEF0E /* ElectricStationApp.swift in Sources */,
-				7AA2FA2626F405C20003E9EA /* SceneDelegate.swift in Sources */,
+				7AF7A92526F7394200FDFB8D /* ViewController.swift in Sources */,
+				7AF7A92126F7394200FDFB8D /* AppDelegate.swift in Sources */,
+				7AF7A92326F7394200FDFB8D /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7AA95E9F26F3F2CD00AFEF0E /* Sources */ = {
+		7AF7A92F26F7394300FDFB8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AA95EA826F3F2CD00AFEF0E /* ElectricStationTests.swift in Sources */,
+				7AF7A93826F7394300FDFB8D /* ElectricStationTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		7AA95EAA26F3F2CD00AFEF0E /* Sources */ = {
+		7AF7A93A26F7394300FDFB8D /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7AA95EB326F3F2CD00AFEF0E /* ElectricStationUITests.swift in Sources */,
+				7AF7A94326F7394300FDFB8D /* ElectricStationUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		7AA95EA526F3F2CD00AFEF0E /* PBXTargetDependency */ = {
+		7AF7A93526F7394300FDFB8D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7AA95E9126F3F2CC00AFEF0E /* ElectricStation */;
-			targetProxy = 7AA95EA426F3F2CD00AFEF0E /* PBXContainerItemProxy */;
+			target = 7AF7A91C26F7394200FDFB8D /* ElectricStation */;
+			targetProxy = 7AF7A93426F7394300FDFB8D /* PBXContainerItemProxy */;
 		};
-		7AA95EB026F3F2CD00AFEF0E /* PBXTargetDependency */ = {
+		7AF7A94026F7394300FDFB8D /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 7AA95E9126F3F2CC00AFEF0E /* ElectricStation */;
-			targetProxy = 7AA95EAF26F3F2CD00AFEF0E /* PBXContainerItemProxy */;
+			target = 7AF7A91C26F7394200FDFB8D /* ElectricStation */;
+			targetProxy = 7AF7A93F26F7394300FDFB8D /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
+/* Begin PBXVariantGroup section */
+		7AF7A92626F7394200FDFB8D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7AF7A92726F7394200FDFB8D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		7AF7A92B26F7394300FDFB8D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				7AF7A92C26F7394300FDFB8D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
 /* Begin XCBuildConfiguration section */
-		7AA95EB526F3F2CD00AFEF0E /* Debug */ = {
+		7AF7A94526F7394300FDFB8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -383,7 +376,7 @@
 			};
 			name = Debug;
 		};
-		7AA95EB626F3F2CD00AFEF0E /* Release */ = {
+		7AF7A94626F7394300FDFB8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -438,16 +431,13 @@
 			};
 			name = Release;
 		};
-		7AA95EB826F3F2CD00AFEF0E /* Debug */ = {
+		7AF7A94826F7394300FDFB8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"ElectricStation/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ElectricStation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -459,16 +449,13 @@
 			};
 			name = Debug;
 		};
-		7AA95EB926F3F2CD00AFEF0E /* Release */ = {
+		7AF7A94926F7394300FDFB8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_ASSET_PATHS = "\"ElectricStation/Preview Content\"";
-				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = ElectricStation/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -480,14 +467,14 @@
 			};
 			name = Release;
 		};
-		7AA95EBB26F3F2CD00AFEF0E /* Debug */ = {
+		7AF7A94B26F7394300FDFB8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ElectricStationTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -501,14 +488,14 @@
 			};
 			name = Debug;
 		};
-		7AA95EBC26F3F2CD00AFEF0E /* Release */ = {
+		7AF7A94C26F7394300FDFB8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = ElectricStationTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.5;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -522,7 +509,7 @@
 			};
 			name = Release;
 		};
-		7AA95EBE26F3F2CD00AFEF0E /* Debug */ = {
+		7AF7A94E26F7394300FDFB8D /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -541,7 +528,7 @@
 			};
 			name = Debug;
 		};
-		7AA95EBF26F3F2CD00AFEF0E /* Release */ = {
+		7AF7A94F26F7394300FDFB8D /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
@@ -563,43 +550,43 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		7AA95E8D26F3F2CC00AFEF0E /* Build configuration list for PBXProject "ElectricStation" */ = {
+		7AF7A91826F7394200FDFB8D /* Build configuration list for PBXProject "ElectricStation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7AA95EB526F3F2CD00AFEF0E /* Debug */,
-				7AA95EB626F3F2CD00AFEF0E /* Release */,
+				7AF7A94526F7394300FDFB8D /* Debug */,
+				7AF7A94626F7394300FDFB8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7AA95EB726F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStation" */ = {
+		7AF7A94726F7394300FDFB8D /* Build configuration list for PBXNativeTarget "ElectricStation" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7AA95EB826F3F2CD00AFEF0E /* Debug */,
-				7AA95EB926F3F2CD00AFEF0E /* Release */,
+				7AF7A94826F7394300FDFB8D /* Debug */,
+				7AF7A94926F7394300FDFB8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7AA95EBA26F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStationTests" */ = {
+		7AF7A94A26F7394300FDFB8D /* Build configuration list for PBXNativeTarget "ElectricStationTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7AA95EBB26F3F2CD00AFEF0E /* Debug */,
-				7AA95EBC26F3F2CD00AFEF0E /* Release */,
+				7AF7A94B26F7394300FDFB8D /* Debug */,
+				7AF7A94C26F7394300FDFB8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		7AA95EBD26F3F2CD00AFEF0E /* Build configuration list for PBXNativeTarget "ElectricStationUITests" */ = {
+		7AF7A94D26F7394300FDFB8D /* Build configuration list for PBXNativeTarget "ElectricStationUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				7AA95EBE26F3F2CD00AFEF0E /* Debug */,
-				7AA95EBF26F3F2CD00AFEF0E /* Release */,
+				7AF7A94E26F7394300FDFB8D /* Debug */,
+				7AF7A94F26F7394300FDFB8D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 7AA95E8A26F3F2CC00AFEF0E /* Project object */;
+	rootObject = 7AF7A91526F7394200FDFB8D /* Project object */;
 }
