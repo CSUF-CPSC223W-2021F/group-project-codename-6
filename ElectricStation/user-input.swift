@@ -1,6 +1,6 @@
-Import Foundation
+import Foundation
 
-Struct userInput {
+struct userInput {
   var input: String
 }
 //Ben Martinez
