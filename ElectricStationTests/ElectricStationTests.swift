@@ -1,14 +1,14 @@
 //
-//  GasStationTests.swift
-//  GasStationTests
+//  ElectricStationTests.swift
+//  ElectricStationTests
 //
 //  Created by csuftitan on 9/19/21.
 //
 
 import XCTest
-@testable import GasStation
+@testable import ElectricStation
 
-class GasStationTests: XCTestCase {
+class ElectricStationTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
