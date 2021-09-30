@@ -1,13 +1,12 @@
-
 //
 //  direction.swift
 //  ElectricStation
 //
-//  Created by csuftitan on 9/21/21.
-//
-//  By: Anthony Ngon
-import Foundation
+//  Created by csuftitan on 9/23/21.
+//  Anthony Ngon
 
-struct Direction {
-    
+import Foundation
+struct Direction
+{
+  
 }
