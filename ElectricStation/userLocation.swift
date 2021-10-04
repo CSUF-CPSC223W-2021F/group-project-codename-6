@@ -1,6 +1,6 @@
 //
 //  find users location
-//  GasStation
+//  ElestricStation
 //
 //  By Amritpaul Sidhu
 //
