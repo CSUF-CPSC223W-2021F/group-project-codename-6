@@ -1,12 +1,12 @@
 //
-//  ElectricStationTests.swift
-//  ElectricStationTests
+//  GasStationTests.swift
+//  GasStationTests
 //
 //  Created by csuftitan on 9/19/21.
 //
 
 import XCTest
-@testable import ElectricStation
+@testable import GasStation
 
 class ElectricStationTests: XCTestCase {
 
@@ -29,5 +29,4 @@ class ElectricStationTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
-
 }
