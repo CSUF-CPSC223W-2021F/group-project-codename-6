@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  GasStation
+//  ElectricStation
 //
 //  Created by csuftitan on 9/19/21.
 //
