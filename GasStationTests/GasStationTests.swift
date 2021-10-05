@@ -29,4 +29,19 @@ class GasStationTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testValid() {
+        let interface = Direction()
+        XCTAssertEqual(interface.valid, true)
+    }
+    
+    func testCheckAddress() {
+        let interface = Direction()
+        XCTAssertEqual(interface.street_address, "")
+    }
+    
+    func testCheckPossibleGasStation() {
+        let interface = Direction()
+        XCTAssertEqual(interface.possibleGasStation, ["none"])
+    }
 }

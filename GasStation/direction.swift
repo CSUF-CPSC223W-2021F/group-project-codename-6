@@ -7,8 +7,20 @@
 
 import Foundation
 
-struct Direction
-{
+struct Direction {
     var valid: Bool = true
-    var street_address: String
+    var street_address: String = ""
+    var possibleGasStation: [String] = ["none"]
+
+    func checkStreetAddress() -> String {
+        return street_address
+    }
+
+    func checkValid() -> Bool {
+        return valid
+    }
+
+    func checkPossibleGasStation() -> [String] {
+        return possibleGasStation
+    }
 }
