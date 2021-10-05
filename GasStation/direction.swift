@@ -9,5 +9,6 @@ import Foundation
 
 struct Direction
 {
-  
+    var valid: Bool = true
+    var street_address: String
 }
