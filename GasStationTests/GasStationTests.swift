@@ -44,4 +44,19 @@ class GasStationTests: XCTestCase {
         let interface = Direction()
         XCTAssertEqual(interface.possibleGasStation, ["none"])
     }
+    
+    func testMethod_checkStreetAddress() {
+        let interface = Direction()
+        XCTAssertEqual(interface.checkStreetAddress(), "")
+    }
+    
+    func testMethod_checkValid() {
+        let interface = Direction()
+        XCTAssertEqual(interface.checkValid(), true)
+    }
+    
+    func testMethod_checkPossibleGasStation() {
+        let interface = Direction()
+        XCTAssertEqual(interface.checkPossibleGasStation(), ["none"])x
+    }
 }
