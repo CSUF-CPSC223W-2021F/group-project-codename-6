@@ -5,11 +5,10 @@
 //  Created by csuftitan on 9/19/21.
 //
 
-import XCTest
 @testable import GasStation
+import XCTest
 
 class ElectricStationTests: XCTestCase {
-
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -28,5 +27,27 @@ class ElectricStationTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+
+    func testinit() {
+        let interface = userLocation(user: "Amritpaul Sidhu", userName: "Demonslaayer", location: "Cal State Fullerton")
+        XCTAssertEqual(interface.user, "Amritpaul Sidhu")
+        XCTAssertEqual(interface.userName, "Demonslaayer")
+        XCTAssertEqual(interface.location, "Cal State Fullerton")
+    }
+
+    func testfindUser() {
+        let interface = userLocation()
+        XCTAssertEqual(interface.user, "")
+    }
+
+    func testfindLocation() {
+        let interface = userLocation()
+        XCTAssertEqual(interface.location, "")
+    }
+
+    func testdisplayUserName() {
+        let interface = userLocation()
+        XCTAssertEqual(interface.userName, "")
     }
 }
