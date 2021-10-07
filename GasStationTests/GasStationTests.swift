@@ -29,4 +29,17 @@ class ElectricStationTests: XCTestCase {
             // Put the code you want to measure the time of here.
         }
     }
+    
+    func testPrice()  {
+
+        var priceOfGas = Displaying_gas_price(price: 3)
+        
+        XCTAssertEqual(priceOfGas.getCurrentPrice(), 3)
+        
+        priceOfGas.changePrice(price: 5)
+        XCTAssertEqual(priceOfGas.getCurrentPrice(), 5)
+        
+    }
+    
+    
 }
