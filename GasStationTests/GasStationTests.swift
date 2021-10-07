@@ -36,18 +36,36 @@ class ElectricStationTests: XCTestCase {
         XCTAssertEqual(interface.location, "Cal State Fullerton")
     }
 
-    func testfindUser() {
+    func testUser() {
         let interface = userLocation()
         XCTAssertEqual(interface.user, "")
     }
 
-    func testfindLocation() {
+    func testLocation() {
         let interface = userLocation()
         XCTAssertEqual(interface.location, "")
     }
 
-    func testdisplayUserName() {
+    func testUserName() {
         let interface = userLocation()
         XCTAssertEqual(interface.userName, "")
+    }
+    
+    func testfindUser()
+    {
+        let interface = userLocation()
+        xCTAssertEqual(interface.findUser(), "")
+    }
+    
+    func testfindLocation()
+    {
+        let interface = userLocation()
+        xCTAssertEqual(interface.findLocation(), "")
+    }
+    
+    func testdisplayUserName()
+    {        
+        let interface = userLocation()
+        xCTAssertEqual(interface.displayUserName(), "")
     }
 }
