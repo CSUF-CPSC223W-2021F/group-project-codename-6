@@ -8,7 +8,7 @@
 import XCTest
 @testable import GasStation
 
-class ElectricStationTests: XCTestCase {
+class GasStationTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
@@ -28,5 +28,10 @@ class ElectricStationTests: XCTestCase {
         self.measure {
             // Put the code you want to measure the time of here.
         }
+    }
+    
+    func testInput() {
+        let test = userInput(input: "800 N State College Blvd, Fullerton, CA 92831")
+        XCTAssertEqual(test.input, "800 N State COllege Blvd, Fullerton, CA 92831")
     }
 }
