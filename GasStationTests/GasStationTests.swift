@@ -38,16 +38,27 @@ class ElectricStationTests: XCTestCase {
 
     func testUser() {
         let interface = userLocation()
+        XCTAssertEqual(user1.firstName, "Amritpaul")
+        XCTAssertEqual(user1.lastName, "Sidhu")
+        XCTAssertEqual(user1.phoneNumber, 9099048124)
+        XCTAssertEqual(user1.birthDate, "10-22-2001")
+        XCTAssertEqual(user1.email, "asidhu2001@gmail.com")
         XCTAssertEqual(interface.user, "")
     }
 
     func testLocation() {
         let interface = userLocation()
+        XCTAssertEqual(gas3.address,  "327 beach st")
+        XCTAssertEqual(user1.homeAddress, "You dont need to know this")
+        XCTAssertEqual(user2.homeAddress, "12123 deex bin street")
+        XCTAssertEqual(gas1.coordinates,  ["Latitude": 11, "Longitude": 0])
         XCTAssertEqual(interface.location, "")
     }
 
     func testUserName() {
         let interface = userLocation()
+        XCTAssertEqual(gas5.name,  "76")
+        XCTAssertEqual(user1.userName, "DemonSlayer")
         XCTAssertEqual(interface.userName, "")
     }
     
