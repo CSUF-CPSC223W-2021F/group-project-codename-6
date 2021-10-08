@@ -31,7 +31,7 @@ class GasStationTests: XCTestCase {
     }
     
     func testInput() {
-        let test = userInput(input: "800 N State College Blvd, Fullerton, CA 92831")
-        XCTAssertEqual(test.input, "800 N State COllege Blvd, Fullerton, CA 92831")
+        let test = userInput()
+        XCTAssertEqual(test.input, "")
     }
 }
