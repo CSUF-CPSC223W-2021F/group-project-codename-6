@@ -15,6 +15,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private var myLocationManager = CLLocationManager()
     private var myCurrentLocation: CLLocationCoordinate2D?
     @IBOutlet weak var myMapview: MKMapView!
+    private var destinations : [MKPointAnnotation]  = []
+    private var currentRoute: MKRoute?
     
     
     override func viewDidLoad() {
@@ -90,6 +92,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if let updateLocation = locations.first?.coordinate {
             myCurrentLocation = updateLocation
           zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance1, distance1: zoomDistance2)
+            
+            
+            //construcRoute(userlocation: updateLocation, gasStation: <#gasStation#>)
+
         }
         
         
@@ -103,6 +109,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     @IBAction func cheapGasStation(_ sender: UIButton) {
     
+        let cheapestGasStation = GasStationData()
+
+        
+        construcRoute(userlocation: myCurrentLocation!, gasStation: cheapestGasStation.cheapest())
+
+        
+        
     }
     
     
@@ -141,11 +154,96 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        // to show annotation image
+        var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
+        
+        if annotationView == nil {
+            
+           
+            annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
+            
+        }
         
         
+        if let title = annotation.title, title == "arco" {
+            
+            annotationView?.image = UIImage(named: "argo.jpg")
+        }
+        
+        
+        if let title = annotation.title, title == "shell" {
+            
+            annotationView?.image = UIImage(named: "shell.png")
+        }
+        
+        if let title = annotation.title, title == "costco" {
+            
+            annotationView?.image = UIImage(named: "costco.png")
+        }
+        
+        
+        annotationView?.canShowCallout = true
         return nil
         
     }
+    
+    
+    
+    
+   
+    
+    func construcRoute(userlocation:CLLocationCoordinate2D, gasStation:gasStation)  {
+        
+        
+        let gastationArray = GasStationData().getDtationData()
+        let nebil = CLLocationCoordinate2D(latitude: gasStation.getlatitude(), longitude: gasStation.getlongitude())
+        
+        let directionRequest = MKDirections.Request()
+        directionRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: userlocation))
+        directionRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: nebil))
+        
+        directionRequest.requestsAlternateRoutes = true
+        directionRequest.transportType = .automobile
+        
+        let direction = MKDirections(request: directionRequest)
+        
+        direction.calculate {[weak self] (directionResponce, error) in
+            
+            guard let strongSelf = self else { return}
+        
+            if let error = error {
+                print(error.localizedDescription)
+            }
+            else if let responce = directionResponce, (responce.routes.count > 0) {
+                
+                strongSelf.currentRoute = responce.routes[0]
+                strongSelf.myMapview.addOverlay(responce.routes[0].polyline)
+                strongSelf.myMapview.setVisibleMapRect(responce.routes[0].polyline.boundingMapRect, animated: true)
+                
+            }
+                
+        
+        
+        }
+        
+   
+    }
+    
+    
+    
+    func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
+        guard let currentRoute = currentRoute else {
+            
+            return MKOverlayRenderer()
+        }
+        
+        let polyLineRenderer = MKPolylineRenderer(overlay: currentRoute.polyline)
+        polyLineRenderer.strokeColor = UIColor.orange
+        polyLineRenderer.lineWidth = 8
+    return polyLineRenderer
+    }
+    
+    
     
     
     

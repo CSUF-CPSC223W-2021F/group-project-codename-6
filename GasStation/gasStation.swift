@@ -12,12 +12,14 @@ class gasStation {
     var latitude:Double
     var longitude:Double
     var price :Int
+    var imageName:String
     
-    init(title :String ,latitude :Double, longitude:Double, price :Int) {
+    init(title :String ,latitude :Double, longitude:Double, price :Int, imageName:String) {
         self.title = title
         self.latitude = latitude
         self.longitude = longitude
         self.price = price
+        self.imageName = imageName
     }
     
     func getTitle() -> String {
@@ -33,5 +35,12 @@ class gasStation {
         return self.longitude
     }
 
+    
+    func getImageName() -> String {
+        
+        return imageName
+    }
+    
+    
     
 }
