@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     var zoomDistance1:Double = 7000
     var zoomDistance2:Double = 7000
@@ -21,6 +21,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         locationService()
+        addAnnotation()
     }
     
     
@@ -29,6 +30,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationService()  {
         myLocationManager.delegate = self
+        myMapview.delegate = self
         
         
             myMapview.showsUserLocation = true
@@ -50,6 +52,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
     }
         
+    func addAnnotation()  {
+        let itemss = GasStationData().getDtationData()
+
+   
+        var nebil = [MKPointAnnotation]()
+        
+        
+        for i in 0..<itemss.count {
+           
+        let gasStationnn = MKPointAnnotation()
+            gasStationnn.title = itemss[i].getTitle()
+            gasStationnn.coordinate = CLLocationCoordinate2D(latitude: itemss[i].getlatitude(), longitude: itemss[i].getlongitude())
+            gasStationnn.subtitle =  " PRICE : \(itemss[i].price)$".uppercased()
+            nebil.append(gasStationnn)
+        
+            
+          
+        }
+
+     
+        myMapview.showAnnotations(nebil, animated: true)
+        myMapview.addAnnotations(nebil)
+     
+        
+       
+        
+    }
         
     
     
@@ -101,6 +130,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
    
         }
     }
+    
+    
+    
+    
+    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        print(view.annotation?.title!)
+    
+    }
+    
+    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        
+        return nil
+        
+    }
+    
     
     
 }
