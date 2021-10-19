@@ -6,12 +6,23 @@
 //
 
 import UIKit
+import MapKit
 
 class ViewController: UIViewController {
 
+    
+    @IBOutlet var mapView: MKMapView!
+    fileprivate let locationManager:CLLocationManager = CLLocationManager()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.desiredAccuracy = kCLLocationAccuracyBest
+        locationManager.distanceFilter = kCLDistanceFilterNone
+        locationManager.startUpdatingLocation()
+        
+        mapView.showsUserLocation = true
     }
 
 
