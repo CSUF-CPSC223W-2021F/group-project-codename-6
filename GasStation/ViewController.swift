@@ -150,7 +150,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         print(view.annotation?.title!)
+        
+        
+        
+        if let price = view.annotation?.subtitle, let title  = view.annotation?.title {
+       
+        
+            var alert = UIAlertController(title: "", message: " price \(price!) and name is \(title!)".uppercased() , preferredStyle: .alert)
+        
+        
+        
+          alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+        
     
+        
+        self.present(alert, animated: true, completion: nil)
+        }
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -179,6 +194,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if let title = annotation.title, title == "costco" {
             
             annotationView?.image = UIImage(named: "costco.png")
+        
+            
         }
         
         
@@ -238,7 +255,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         
         let polyLineRenderer = MKPolylineRenderer(overlay: currentRoute.polyline)
-        polyLineRenderer.strokeColor = UIColor.orange
+        polyLineRenderer.strokeColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         polyLineRenderer.lineWidth = 8
     return polyLineRenderer
     }

@@ -36,11 +36,22 @@ class gasStation {
     }
 
     
+    func getPrice() -> Int {
+        
+        return self.price
+    }
+    
+    
     func getImageName() -> String {
         
         return imageName
     }
     
+    
+    func setPrice(price:Int)  {
+        
+        self.price = price
+    }
     
     
 }
