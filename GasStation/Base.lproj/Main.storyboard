@@ -43,6 +43,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="fromTouch:" destination="BYZ-38-t0r" eventType="touchDown" id="o6n-ED-ae7"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -62,6 +65,9 @@
                                                         </constraints>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <textInputTraits key="textInputTraits"/>
+                                                        <connections>
+                                                            <action selector="toTouch:" destination="BYZ-38-t0r" eventType="editingDidEnd" id="Lxb-AN-T88"/>
+                                                        </connections>
                                                     </textField>
                                                 </subviews>
                                             </stackView>
@@ -84,6 +90,10 @@
                             <constraint firstItem="6Ei-wS-icU" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="526" id="Xv3-fV-3ea"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="fromStart" destination="LqV-7M-eVW" id="LOo-L5-vc9"/>
+                        <outlet property="fromTo" destination="Wh7-R9-NND" id="KN0-mv-CWa"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
