@@ -10,6 +10,7 @@
 		3D69CCE3271D243D00A4F91F /* gasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69CCE2271D243D00A4F91F /* gasStation.swift */; };
 		3D69CCE8271D246C00A4F91F /* gasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69CCE7271D246C00A4F91F /* gasStationData.swift */; };
 		7A294BAA2710F5D600A13946 /* dummyData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A294BA92710F5D600A13946 /* dummyData.swift */; };
+		7AB7D3072727229600D47DD0 /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 7AB7D3062727229600D47DD0 /* .gitignore */; };
 		7AD8B6BA26FD30E60014B746 /* userLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8B6B726FD30E60014B746 /* userLocation.swift */; };
 		7AD8B6BB26FD30E60014B746 /* Display-Gas-price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8B6B826FD30E60014B746 /* Display-Gas-price.swift */; };
 		7AD8B6BC26FD30E60014B746 /* user-input.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7AD8B6B926FD30E60014B746 /* user-input.swift */; };
@@ -45,6 +46,7 @@
 		3D69CCE2271D243D00A4F91F /* gasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gasStation.swift; sourceTree = "<group>"; };
 		3D69CCE7271D246C00A4F91F /* gasStationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gasStationData.swift; sourceTree = "<group>"; };
 		7A294BA92710F5D600A13946 /* dummyData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = dummyData.swift; sourceTree = SOURCE_ROOT; };
+		7AB7D3062727229600D47DD0 /* .gitignore */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = .gitignore; sourceTree = SOURCE_ROOT; };
 		7AD8B6B726FD30E60014B746 /* userLocation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = userLocation.swift; sourceTree = "<group>"; };
 		7AD8B6B826FD30E60014B746 /* Display-Gas-price.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Display-Gas-price.swift"; sourceTree = "<group>"; };
 		7AD8B6B926FD30E60014B746 /* user-input.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "user-input.swift"; sourceTree = "<group>"; };
@@ -118,9 +120,10 @@
 				3D69CCE2271D243D00A4F91F /* gasStation.swift */,
 				3D69CCE7271D246C00A4F91F /* gasStationData.swift */,
 				7AF7A92426F7394200FDFB8D /* ViewController.swift */,
-				7AF7A92626F7394200FDFB8D /* Main.storyboard */,
-				7A294BA92710F5D600A13946 /* dummyData.swift */,
 				7AD8B6B826FD30E60014B746 /* Display-Gas-price.swift */,
+				7AF7A92626F7394200FDFB8D /* Main.storyboard */,
+				7AB7D3062727229600D47DD0 /* .gitignore */,
+				7A294BA92710F5D600A13946 /* dummyData.swift */,
 				7AD8B6B926FD30E60014B746 /* user-input.swift */,
 				7AD8B6B726FD30E60014B746 /* userLocation.swift */,
 				7AD8B6BD26FD3A180014B746 /* direction.swift */,
@@ -252,6 +255,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7AB7D3072727229600D47DD0 /* .gitignore in Resources */,
 				7AF7A92D26F7394300FDFB8D /* LaunchScreen.storyboard in Resources */,
 				7AF7A92A26F7394300FDFB8D /* Assets.xcassets in Resources */,
 				7AF7A92826F7394200FDFB8D /* Main.storyboard in Resources */,
