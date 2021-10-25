@@ -106,3 +106,5 @@ iOSInjectionProject/
 *.xcuserstate
 .DS_Store
 GasStation.xcodeproj/project.xcworkspace/xcuserdata/csuftitan.xcuserdatad/UserInterfaceState.xcuserstate
+
+/GasStation.xcodeproj/
