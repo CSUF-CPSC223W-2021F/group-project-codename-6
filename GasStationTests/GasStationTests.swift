@@ -45,7 +45,7 @@ class GasStationTests: XCTestCase {
     
     func testGasStationData()  {
         
-        let gasData = GasStationData()
+        let gasData = gasStationsData()
         
         XCTAssertEqual(gasData.arco.getTitle(), "arco")
         XCTAssertEqual(gasData.cosco.getTitle(), "costco")

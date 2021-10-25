@@ -55,7 +55,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
         
     func addAnnotation()  {
-        let itemss = GasStationData().getDtationData()
+        let itemss = gasStationsData().getDtationData()
 
    
         var nebil = [MKPointAnnotation]()
@@ -109,7 +109,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     @IBAction func cheapGasStation(_ sender: UIButton) {
     
-        let cheapestGasStation = GasStationData()
+        let cheapestGasStation = gasStationsData()
 
         
         construcRoute(userlocation: myCurrentLocation!, gasStation: cheapestGasStation.cheapest())
@@ -209,10 +209,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
    
     
-    func construcRoute(userlocation:CLLocationCoordinate2D, gasStation:gasStation)  {
+    func construcRoute(userlocation:CLLocationCoordinate2D, gasStation:gasStations)  {
         
         
-        let gastationArray = GasStationData().getDtationData()
+        let gastationArray = gasStationsData().getDtationData()
         let nebil = CLLocationCoordinate2D(latitude: gasStation.getlatitude(), longitude: gasStation.getlongitude())
         
         let directionRequest = MKDirections.Request()
