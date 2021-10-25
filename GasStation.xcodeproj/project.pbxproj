@@ -95,6 +95,7 @@
 		7AF7A91426F7394200FDFB8D = {
 			isa = PBXGroup;
 			children = (
+				7AB7D3062727229600D47DD0 /* .gitignore */,
 				7AF7A91F26F7394200FDFB8D /* GasStation */,
 				7AF7A93626F7394300FDFB8D /* GasStationTests */,
 				7AF7A94126F7394300FDFB8D /* GasStationUITests */,
@@ -122,11 +123,10 @@
 				7AF7A92426F7394200FDFB8D /* ViewController.swift */,
 				7AD8B6B826FD30E60014B746 /* Display-Gas-price.swift */,
 				7AF7A92626F7394200FDFB8D /* Main.storyboard */,
-				7AB7D3062727229600D47DD0 /* .gitignore */,
 				7A294BA92710F5D600A13946 /* dummyData.swift */,
 				7AD8B6B726FD30E60014B746 /* userLocation.swift */,
-				7AD8B6B926FD30E60014B746 /* user-input.swift */,
 				7AD8B6BD26FD3A180014B746 /* direction.swift */,
+				7AD8B6B926FD30E60014B746 /* user-input.swift */,
 				7AF7A92926F7394300FDFB8D /* Assets.xcassets */,
 				7AF7A92B26F7394300FDFB8D /* LaunchScreen.storyboard */,
 				7AF7A92E26F7394300FDFB8D /* Info.plist */,
