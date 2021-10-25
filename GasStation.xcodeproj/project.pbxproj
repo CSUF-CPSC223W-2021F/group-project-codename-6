@@ -115,6 +115,8 @@
 			children = (
 				7AF7A92026F7394200FDFB8D /* AppDelegate.swift */,
 				7AF7A92226F7394200FDFB8D /* SceneDelegate.swift */,
+				3D69CCE2271D243D00A4F91F /* gasStation.swift */,
+				3D69CCE7271D246C00A4F91F /* gasStationData.swift */,
 				7AF7A92426F7394200FDFB8D /* ViewController.swift */,
 				7AF7A92626F7394200FDFB8D /* Main.storyboard */,
 				7A294BA92710F5D600A13946 /* dummyData.swift */,
@@ -125,8 +127,6 @@
 				7AF7A92926F7394300FDFB8D /* Assets.xcassets */,
 				7AF7A92B26F7394300FDFB8D /* LaunchScreen.storyboard */,
 				7AF7A92E26F7394300FDFB8D /* Info.plist */,
-				3D69CCE2271D243D00A4F91F /* gasStation.swift */,
-				3D69CCE7271D246C00A4F91F /* gasStationData.swift */,
 			);
 			path = GasStation;
 			sourceTree = "<group>";
