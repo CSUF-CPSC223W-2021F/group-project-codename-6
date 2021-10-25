@@ -30,6 +30,40 @@ class GasStationTests: XCTestCase {
         }
     }
     
+
+    func testPrice()  {
+
+        var priceOfGas = Displaying_gas_price(price: 3)
+        
+        XCTAssertEqual(priceOfGas.getCurrentPrice(), 3)
+        
+        priceOfGas.changePrice(price: 5)
+        XCTAssertEqual(priceOfGas.getCurrentPrice(), 5)
+        
+    }
+    
+    
+    func testGasStationData()  {
+        
+        let gasData = GasStationData()
+        
+        XCTAssertEqual(gasData.arco.getTitle(), "arco")
+        XCTAssertEqual(gasData.cosco.getTitle(), "costco")
+        XCTAssertEqual(gasData.mobile.getTitle(), "mobile")
+        XCTAssertEqual(gasData.shell.getTitle(), "shell")
+        
+        XCTAssertEqual(gasData.shell.getPrice(), 8)
+        
+        gasData.shell.setPrice(price: 9)
+        
+        XCTAssertEqual(gasData.shell.getPrice(), 9)
+        
+        
+        
+        
+        
+    }
+    
     func testInput() {
         let test = userInput()
         XCTAssertEqual(test.input, "")
