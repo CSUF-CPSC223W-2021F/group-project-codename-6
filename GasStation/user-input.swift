@@ -13,4 +13,3 @@ struct userInput {
     }
 }
 //Ben Martinez
-

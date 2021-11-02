@@ -17,7 +17,7 @@ class gasStationsData {
         stationData.append(shell)
         stationData.append(arco)
         stationData.append(cosco)
-       stationData.append(chevron)
+        stationData.append(chevron)
         stationData.append(mobile)
         
         
@@ -28,13 +28,8 @@ class gasStationsData {
     var cosco = gasStations(title: "costco", latitude: 33.874856, longitude: -117.931862, price: 2, imageName: "costco.png")
     var chevron = gasStations(title: "chevron", latitude: 33.865640, longitude: -117.947448, price: 7,imageName: "chevron")
     
-    var mobile = gasStations(title: "mobile", latitude:  33.882784, longitude: -117.886305, price: 1, imageName:"")
-    
+    var mobile = gasStations(title: "mobile", latitude:  33.882784, longitude: -117.886305, price: 5, imageName:"")
 
-  
- 
-    
-    
     func getDtationData() -> [gasStations] {
         
         return stationData
@@ -43,7 +38,6 @@ class gasStationsData {
     
     func cheapest() -> gasStations {
         
-       
         var myMax = stationData[0].price
         var newI = 0
         for i in 0..<stationData.count {
@@ -53,15 +47,7 @@ class gasStationsData {
                 myMax = stationData[i].price
                 newI = i
             }
-            
-            
         }
-        
         return stationData[newI]
-        
-        
     }
-    
-    
-
 }
