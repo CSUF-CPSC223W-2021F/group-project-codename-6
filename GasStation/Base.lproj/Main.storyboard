@@ -20,14 +20,14 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </tabBar>
                     <connections>
-                        <segue destination="rnd-Uk-EfV" kind="relationship" relationship="viewControllers" id="6m5-TV-VGb"/>
                         <segue destination="BYZ-38-t0r" kind="relationship" relationship="viewControllers" id="bAZ-EV-Kr7"/>
+                        <segue destination="rnd-Uk-EfV" kind="relationship" relationship="viewControllers" id="6m5-TV-VGb"/>
                         <segue destination="Wrs-Ap-3N8" kind="relationship" relationship="viewControllers" id="bX6-yc-Deg"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="TVa-qf-QBx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-71" y="-152"/>
+            <point key="canvasLocation" x="217" y="126"/>
         </scene>
         <!--Map-->
         <scene sceneID="tne-QT-ifu">
@@ -47,7 +47,7 @@
                                         </constraints>
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
-                                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pal-bj-kFE">
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pal-bj-kFE">
                                         <rect key="frame" x="0.0" y="738" width="414" height="31"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sQa-3f-5ai">
@@ -266,7 +266,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GGC-O1-e1f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2199" y="-36"/>
+            <point key="canvasLocation" x="1652" y="126"/>
         </scene>
         <!--Gas Station-->
         <scene sceneID="IBS-HQ-JtZ">
@@ -282,7 +282,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3R-Lw-Dki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1246" y="-709"/>
+            <point key="canvasLocation" x="2404" y="126"/>
         </scene>
     </scenes>
     <resources>
