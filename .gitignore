@@ -1,3 +1,4 @@
+
 # Created by https://www.toptal.com/developers/gitignore/api/swift,xcode
 # Edit at https://www.toptal.com/developers/gitignore?templates=swift,xcode
 
@@ -104,5 +105,3 @@ iOSInjectionProject/
 
 # End of https://www.toptal.com/developers/gitignore/api/swift,xcode
 *.xcuserstate
-.DS_Store
-GasStation.xcodeproj/project.xcworkspace/xcuserdata/csuftitan.xcuserdatad/UserInterfaceState.xcuserstate

@@ -7,7 +7,7 @@
 
 import Foundation
 
-class gasStation {
+class gasStations {
     var title:String
     var latitude:Double
     var longitude:Double

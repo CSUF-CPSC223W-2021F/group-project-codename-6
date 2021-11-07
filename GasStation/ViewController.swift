@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate,UISearchBarDelegate {
 
     var zoomDistance1:Double = 7000
     var zoomDistance2:Double = 7000
@@ -18,44 +18,55 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private var destinations : [MKPointAnnotation]  = []
     private var currentRoute: MKRoute?
     
+    @IBOutlet weak var searchbar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        searchbar.delegate = self
+        searchbar.showsSearchResultsButton = true
         locationService()
         addAnnotation()
     }
     
-    
-    
-    
-    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(searchBar.text!)
+        var stored = [MKPointAnnotation]()
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = searchBar.text!
+        
+        let search = MKLocalSearch(request: request)
+        search.start { (response,error) in
+            if let response = response {
+                print(response.mapItems[0])
+                for location in response.mapItems {
+                    self.myMapview.addAnnotation(location.placemark)
+                }
+            }
+        }
+        
+    }
+
     func locationService()  {
         myLocationManager.delegate = self
         myMapview.delegate = self
         
         
-            myMapview.showsUserLocation = true
-            myLocationManager.requestAlwaysAuthorization()
-            myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
-            myLocationManager.startUpdatingLocation()
+        myMapview.showsUserLocation = true
+        myLocationManager.requestAlwaysAuthorization()
+        myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
+        myLocationManager.startUpdatingLocation()
 
         }
         
-        
-        
-        
     func zoomToCurrentLocation(coordinate : CLLocationCoordinate2D,  distance2:Double , distance1 : Double)  {
-        
         
         let currentRegine =  MKCoordinateRegion(center: coordinate, latitudinalMeters: distance1, longitudinalMeters: distance2)
         myMapview.setRegion(currentRegine, animated: true)
-        
-        
     }
         
     func addAnnotation()  {
-        let itemss = GasStationData().getDtationData()
+        let itemss = gasStationsData().getDtationData()
 
    
         var nebil = [MKPointAnnotation]()
@@ -63,29 +74,18 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         for i in 0..<itemss.count {
            
-        let gasStationnn = MKPointAnnotation()
+            let gasStationnn = MKPointAnnotation()
             gasStationnn.title = itemss[i].getTitle()
             gasStationnn.coordinate = CLLocationCoordinate2D(latitude: itemss[i].getlatitude(), longitude: itemss[i].getlongitude())
             gasStationnn.subtitle =  " PRICE : \(itemss[i].price)$".uppercased()
             nebil.append(gasStationnn)
-        
-            
-          
-        }
 
-     
+        }
         myMapview.showAnnotations(nebil, animated: true)
         myMapview.addAnnotations(nebil)
      
-        
-       
-        
     }
         
-    
-    
-    
-    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         
         
@@ -93,29 +93,38 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             myCurrentLocation = updateLocation
           zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance1, distance1: zoomDistance2)
             
-            
             //construcRoute(userlocation: updateLocation, gasStation: <#gasStation#>)
-
         }
-        
-        
-        
-        
-        
     }
    
     @IBAction func nearGasStation(_ sender: UIButton) {
+        
+        let proxmity = gasStationsData()
+        var directiontoNearest = Direction()
+        var min: Double = 0.0000
+        var nearestGas: gasStations?
+        
+        for x in proxmity.stationData {
+            
+            let distance: Double = directiontoNearest.nearest(lat1: myCurrentLocation!.latitude, lon1: myCurrentLocation!.longitude, lat2: x.latitude, lon2: x.longitude)
+            
+            if min == 0.0 {
+                min = distance
+            }
+            else if min > distance {
+                min = distance
+                nearestGas = x
+            }
+        }
+        construcRoute(userlocation: myCurrentLocation!, gasStation: nearestGas!)
     }
+        
     
     @IBAction func cheapGasStation(_ sender: UIButton) {
     
-        let cheapestGasStation = GasStationData()
+        let cheapestGasStation = gasStationsData()
 
-        
         construcRoute(userlocation: myCurrentLocation!, gasStation: cheapestGasStation.cheapest())
-
-        
-        
     }
     
     
@@ -123,46 +132,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         if let updateLocation = myCurrentLocation{
         
-      zoomDistance2 = zoomDistance2 - 500
-      zoomDistance1 = zoomDistance1 - 500
-        
-        
-      zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
-   
+          zoomDistance2 = zoomDistance2 - 500
+          zoomDistance1 = zoomDistance1 - 500
+            
+          zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
         }
-        }
+    }
     
     @IBAction func zoomOut(_ sender: UIButton) {
         if let updateLocation = myCurrentLocation{
         
-      zoomDistance2 = zoomDistance2 + 500
-      zoomDistance1 = zoomDistance1 + 500
-        
-        
-      zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
-   
+          zoomDistance2 = zoomDistance2 + 500
+          zoomDistance1 = zoomDistance1 + 500
+            
+            
+          zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
+       
         }
     }
-    
-    
-    
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         
         print(view.annotation?.title!)
         
-        
-        
         if let price = view.annotation?.subtitle, let title  = view.annotation?.title {
        
         
-            var alert = UIAlertController(title: "", message: " price \(price!) and name is \(title!)".uppercased() , preferredStyle: .alert)
-        
-        
+            var alert = UIAlertController(title: "", message: " price \(price) and name is \(title!)".uppercased() , preferredStyle: .alert)
         
           alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-        
-    
         
         self.present(alert, animated: true, completion: nil)
         }
@@ -173,12 +171,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         var annotationView = mapView.dequeueReusableAnnotationView(withIdentifier: "AnnotationView")
         
         if annotationView == nil {
-            
-           
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
-            
         }
-        
+
         
         if let title = annotation.title, title == "arco" {
             
@@ -198,21 +193,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             
         }
         
-        
         annotationView?.canShowCallout = true
         return nil
         
     }
     
-    
-    
-    
-   
-    
-    func construcRoute(userlocation:CLLocationCoordinate2D, gasStation:gasStation)  {
+    func construcRoute(userlocation:CLLocationCoordinate2D, gasStation:gasStations)  {
         
-        
-        let gastationArray = GasStationData().getDtationData()
+        let gastationArray = gasStationsData().getDtationData()
         let nebil = CLLocationCoordinate2D(latitude: gasStation.getlatitude(), longitude: gasStation.getlongitude())
         
         let directionRequest = MKDirections.Request()
@@ -238,15 +226,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 strongSelf.myMapview.setVisibleMapRect(responce.routes[0].polyline.boundingMapRect, animated: true)
                 
             }
-                
-        
-        
         }
-        
-   
     }
-    
-    
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let currentRoute = currentRoute else {
@@ -259,10 +240,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         polyLineRenderer.lineWidth = 8
     return polyLineRenderer
     }
-    
-    
-    
-    
     
 }
 
