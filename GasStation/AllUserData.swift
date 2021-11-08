@@ -13,7 +13,7 @@ import UIKit
 class AllUserData {
 
     var allUser = [UserInfo]()
-    
+    var succefulRegister = false
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Item.plist")
 
 
@@ -27,6 +27,8 @@ class AllUserData {
             
           
             guard user.getEmail() != userr.getEmail() else {
+                
+                succefulRegister = false
                 print("please use different email")
                 let message = showAlertMessageView()
                 //message.showMessage(myMessage: "please use different email")
@@ -36,6 +38,7 @@ class AllUserData {
           
         }
         
+        succefulRegister = true
         print("hello worlddddddddd")
         allUser.append(user)
         saveData()

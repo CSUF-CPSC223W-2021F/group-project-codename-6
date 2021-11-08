@@ -34,9 +34,21 @@ class Register:  UIViewController {
 
             let newUser = UserInfo(name: nameTextField.text!, email: emailTextField.text!, password: passwordTextfield.text!)
             signUpNewUser.addNewUser(user: newUser)
+           
+            if signUpNewUser.succefulRegister {
+            
+            showMessage(myMessage: "Welcome \(nameTextField.text!), You succefully registr to GasStation App")
+            }
+            else {
+                
+                
+                showMessage(myMessage: "This user already exit please use different email")
+            }
             
         }
         else {
+            showMessage(myMessage: "please fill up all Textfield")
+            
             print("please fill up all Textfield")
         }
         
@@ -50,7 +62,7 @@ class Register:  UIViewController {
     
     
     public  func showMessage(myMessage:String)  {
-         let alertContoller = UIAlertController(title: "Alert", message: myMessage, preferredStyle: .alert)
+         let alertContoller = UIAlertController(title: "GasStation", message: myMessage, preferredStyle: .alert)
      let myAction = UIAlertAction(title: "OK", style: .default) { (action:UIAlertAction) in
          print("button table from show message class")
      }

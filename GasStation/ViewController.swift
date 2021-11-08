@@ -25,7 +25,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     override func viewDidLoad() {
         super.viewDidLoad()
         if let currentName = currentUser?.getName() {
-        var fullName = "nebil"
             
             
         userLabel.text = "Welcome \(currentName)"}
