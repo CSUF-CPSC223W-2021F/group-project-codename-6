@@ -131,8 +131,7 @@ class SignInViewController: UIViewController {
      
         override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
             let dest = segue.destination as? ViewController
-       
-         //   dest?.currentUser = singUnUser
+             dest?.currentUser = singUnUser
         
         
 

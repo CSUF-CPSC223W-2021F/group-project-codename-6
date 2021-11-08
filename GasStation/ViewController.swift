@@ -9,7 +9,9 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate,UISearchBarDelegate {
-
+    var currentUser :UserInfo?
+    
+    @IBOutlet weak var userLabel: UILabel!
     var zoomDistance1:Double = 7000
     var zoomDistance2:Double = 7000
     private var myLocationManager = CLLocationManager()
@@ -22,6 +24,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if let currentName = currentUser?.getName() {
+        var fullName = "nebil"
+            
+            
+        userLabel.text = "Welcome \(currentName)"}
+      
         // Do any additional setup after loading the view.
         searchbar.delegate = self
         searchbar.showsSearchResultsButton = true

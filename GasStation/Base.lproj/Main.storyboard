@@ -246,6 +246,13 @@
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qm6-f4-E4f">
                                         <rect key="frame" x="0.0" y="44" width="414" height="694"/>
                                     </mapView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCH-OS-f4K">
+                                        <rect key="frame" x="8" y="58" width="388" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemOrangeColor"/>
                                 <constraints>
@@ -277,11 +284,12 @@
                     <connections>
                         <outlet property="myMapview" destination="Qm6-f4-E4f" id="DfR-vY-D1Q"/>
                         <outlet property="searchbar" destination="Ryn-lo-aI1" id="Kh1-Y5-gz0"/>
+                        <outlet property="userLabel" destination="zCH-OS-f4K" id="71r-bi-Wyw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1013" y="126"/>
+            <point key="canvasLocation" x="1011.5942028985507" y="125.89285714285714"/>
         </scene>
         <!--Profile-->
         <scene sceneID="0wv-xp-A5b">
