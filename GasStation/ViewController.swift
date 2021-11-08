@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate,UISearchBarDelegate {
 
     var zoomDistance1:Double = 7000
     var zoomDistance2:Double = 7000
@@ -18,14 +18,35 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private var destinations : [MKPointAnnotation]  = []
     private var currentRoute: MKRoute?
     
+    @IBOutlet weak var searchbar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        searchbar.delegate = self
+        searchbar.showsSearchResultsButton = true
         locationService()
         addAnnotation()
     }
     
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(searchBar.text!)
+        var stored = [MKPointAnnotation]()
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = searchBar.text!
+        
+        let search = MKLocalSearch(request: request)
+        search.start { (response,error) in
+            if let response = response {
+                print(response.mapItems[0])
+                for location in response.mapItems {
+                    self.myMapview.addAnnotation(location.placemark)
+                }
+            }
+        }
+        
+    }
+
     func locationService()  {
         myLocationManager.delegate = self
         myMapview.delegate = self
@@ -53,7 +74,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         for i in 0..<itemss.count {
            
-        let gasStationnn = MKPointAnnotation()
+            let gasStationnn = MKPointAnnotation()
             gasStationnn.title = itemss[i].getTitle()
             gasStationnn.coordinate = CLLocationCoordinate2D(latitude: itemss[i].getlatitude(), longitude: itemss[i].getlongitude())
             gasStationnn.subtitle =  " PRICE : \(itemss[i].price)$".uppercased()
