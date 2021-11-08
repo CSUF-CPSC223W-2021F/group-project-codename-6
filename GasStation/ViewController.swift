@@ -31,14 +31,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(searchBar.text!)
-        var stored = [MKPointAnnotation]()
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchBar.text!
         
         let search = MKLocalSearch(request: request)
         search.start { (response,error) in
             if let response = response {
-                print(response.mapItems[0])
                 for location in response.mapItems {
                     self.myMapview.addAnnotation(location.placemark)
                 }
