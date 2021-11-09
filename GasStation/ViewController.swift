@@ -5,29 +5,28 @@
 //  Created by csuftitan on 9/19/21.
 //
 
-import UIKit
 import MapKit
+import UIKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate,UISearchBarDelegate {
-    var currentUser :UserInfo?
+class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate {
+    var currentUser: UserInfo?
     
-    @IBOutlet weak var userLabel: UILabel!
-    var zoomDistance1:Double = 7000
-    var zoomDistance2:Double = 7000
+    @IBOutlet var userLabel: UILabel!
+    var zoomDistance1: Double = 7000
+    var zoomDistance2: Double = 7000
     private var myLocationManager = CLLocationManager()
     private var myCurrentLocation: CLLocationCoordinate2D?
-    @IBOutlet weak var myMapview: MKMapView!
-    private var destinations : [MKPointAnnotation]  = []
+    @IBOutlet var myMapview: MKMapView!
+    private var destinations: [MKPointAnnotation] = []
     private var currentRoute: MKRoute?
-    
-    @IBOutlet weak var searchbar: UISearchBar!
+    private var newData = searchResult()
+    @IBOutlet var searchbar: UISearchBar!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if let currentName = currentUser?.getName() {
-            
-            
-        userLabel.text = "Welcome \(currentName)"}
+            userLabel.text = "Welcome \(currentName)"
+        }
       
         // Do any additional setup after loading the view.
         searchbar.delegate = self
@@ -37,80 +36,67 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        print(searchBar.text!)
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchBar.text!
         
         let search = MKLocalSearch(request: request)
-        search.start { (response,error) in
+        search.start { response, _ in
             if let response = response {
                 for location in response.mapItems {
-                    self.myMapview.addAnnotation(location.placemark)
+                    self.newData.addtoList(location)
                 }
+                self.myMapview.addAnnotations(self.newData.placeStation)
             }
         }
-        
     }
 
-    func locationService()  {
+    func locationService() {
         myLocationManager.delegate = self
         myMapview.delegate = self
-        
         
         myMapview.showsUserLocation = true
         myLocationManager.requestAlwaysAuthorization()
         myLocationManager.desiredAccuracy = kCLLocationAccuracyBest
         myLocationManager.startUpdatingLocation()
-
-        }
+    }
         
-    func zoomToCurrentLocation(coordinate : CLLocationCoordinate2D,  distance2:Double , distance1 : Double)  {
-        
-        let currentRegine =  MKCoordinateRegion(center: coordinate, latitudinalMeters: distance1, longitudinalMeters: distance2)
+    func zoomToCurrentLocation(coordinate: CLLocationCoordinate2D, distance2: Double, distance1: Double) {
+        let currentRegine = MKCoordinateRegion(center: coordinate, latitudinalMeters: distance1, longitudinalMeters: distance2)
         myMapview.setRegion(currentRegine, animated: true)
     }
         
-    func addAnnotation()  {
+    func addAnnotation() {
         let itemss = gasStationsData().getDtationData()
 
-   
         var nebil = [MKPointAnnotation]()
         
-        
-        for i in 0..<itemss.count {
-           
+        for i in 0 ..< itemss.count {
             let gasStationnn = MKPointAnnotation()
             gasStationnn.title = itemss[i].getTitle()
             gasStationnn.coordinate = CLLocationCoordinate2D(latitude: itemss[i].getlatitude(), longitude: itemss[i].getlongitude())
-            gasStationnn.subtitle =  " PRICE : \(itemss[i].price)$".uppercased()
+            gasStationnn.subtitle = " PRICE : \(itemss[i].price)$".uppercased()
             nebil.append(gasStationnn)
-
         }
         myMapview.showAnnotations(nebil, animated: true)
         myMapview.addAnnotations(nebil)
-     
     }
         
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        
-        
         if let updateLocation = locations.first?.coordinate {
             myCurrentLocation = updateLocation
-          zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance1, distance1: zoomDistance2)
+            zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance1, distance1: zoomDistance2)
             
-            //construcRoute(userlocation: updateLocation, gasStation: <#gasStation#>)
+            // construcRoute(userlocation: updateLocation, gasStation: <#gasStation#>)
         }
     }
    
     @IBAction func nearGasStation(_ sender: UIButton) {
-        
         let proxmity = gasStationsData()
         var directiontoNearest = Direction()
         var min: Double = 0.0000
         var nearestGas: gasStations?
         
         for x in proxmity.stationData {
-            
             let distance: Double = directiontoNearest.nearest(lat1: myCurrentLocation!.latitude, lon1: myCurrentLocation!.longitude, lat2: x.latitude, lon2: x.longitude)
             
             if min == 0.0 {
@@ -124,50 +110,39 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         construcRoute(userlocation: myCurrentLocation!, gasStation: nearestGas!)
     }
         
-    
     @IBAction func cheapGasStation(_ sender: UIButton) {
-    
         let cheapestGasStation = gasStationsData()
 
         construcRoute(userlocation: myCurrentLocation!, gasStation: cheapestGasStation.cheapest())
     }
     
-    
     @IBAction func zoomIn(_ sender: UIButton) {
-        
-        if let updateLocation = myCurrentLocation{
-        
-          zoomDistance2 = zoomDistance2 - 500
-          zoomDistance1 = zoomDistance1 - 500
+        if let updateLocation = myCurrentLocation {
+            zoomDistance2 = zoomDistance2 - 500
+            zoomDistance1 = zoomDistance1 - 500
             
-          zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
+            zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
         }
     }
     
     @IBAction func zoomOut(_ sender: UIButton) {
-        if let updateLocation = myCurrentLocation{
-        
-          zoomDistance2 = zoomDistance2 + 500
-          zoomDistance1 = zoomDistance1 + 500
+        if let updateLocation = myCurrentLocation {
+            zoomDistance2 = zoomDistance2 + 500
+            zoomDistance1 = zoomDistance1 + 500
             
-            
-          zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
-       
+            zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
         }
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        
         print(view.annotation?.title!)
         
-        if let price = view.annotation?.subtitle, let title  = view.annotation?.title {
-       
+        if let price = view.annotation?.subtitle, let title = view.annotation?.title {
+            var alert = UIAlertController(title: "", message: " price \(price) and name is \(title!)".uppercased(), preferredStyle: .alert)
         
-            var alert = UIAlertController(title: "", message: " price \(price) and name is \(title!)".uppercased() , preferredStyle: .alert)
+            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
         
-          alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-        
-        self.present(alert, animated: true, completion: nil)
+            present(alert, animated: true, completion: nil)
         }
     }
     
@@ -179,32 +154,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
         }
 
-        
         if let title = annotation.title, title == "arco" {
-            
             annotationView?.image = UIImage(named: "argo.jpg")
         }
         
-        
         if let title = annotation.title, title == "shell" {
-            
             annotationView?.image = UIImage(named: "shell.png")
         }
         
         if let title = annotation.title, title == "costco" {
-            
             annotationView?.image = UIImage(named: "costco.png")
-        
-            
         }
         
         annotationView?.canShowCallout = true
         return nil
-        
     }
     
-    func construcRoute(userlocation:CLLocationCoordinate2D, gasStation:gasStations)  {
-        
+    func construcRoute(userlocation: CLLocationCoordinate2D, gasStation: gasStations) {
         let gastationArray = gasStationsData().getDtationData()
         let nebil = CLLocationCoordinate2D(latitude: gasStation.getlatitude(), longitude: gasStation.getlongitude())
         
@@ -217,34 +183,29 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         let direction = MKDirections(request: directionRequest)
         
-        direction.calculate {[weak self] (directionResponce, error) in
+        direction.calculate { [weak self] directionResponce, error in
             
-            guard let strongSelf = self else { return}
+            guard let strongSelf = self else { return }
         
             if let error = error {
                 print(error.localizedDescription)
             }
-            else if let responce = directionResponce, (responce.routes.count > 0) {
-                
+            else if let responce = directionResponce, responce.routes.count > 0 {
                 strongSelf.currentRoute = responce.routes[0]
                 strongSelf.myMapview.addOverlay(responce.routes[0].polyline)
                 strongSelf.myMapview.setVisibleMapRect(responce.routes[0].polyline.boundingMapRect, animated: true)
-                
             }
         }
     }
     
     func mapView(_ mapView: MKMapView, rendererFor overlay: MKOverlay) -> MKOverlayRenderer {
         guard let currentRoute = currentRoute else {
-            
             return MKOverlayRenderer()
         }
         
         let polyLineRenderer = MKPolylineRenderer(overlay: currentRoute.polyline)
         polyLineRenderer.strokeColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
         polyLineRenderer.lineWidth = 8
-    return polyLineRenderer
+        return polyLineRenderer
     }
-    
 }
-
