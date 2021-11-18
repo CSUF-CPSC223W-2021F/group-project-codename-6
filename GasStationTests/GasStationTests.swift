@@ -114,5 +114,19 @@ class GasStationTests: XCTestCase {
         let interface = userLocation()
         XCTAssertEqual(interface.displayUserName(), "")
     }
+    
+    func testvalidGasName(){
+        let direction = Direction()
+        
+        XCTAssertEqual(direction.checkValid("Arco"),true)
+        XCTAssertEqual(direction.checkValid("Shell"),true)
+        XCTAssertEqual(direction.checkValid("Chevron"),true)
+        XCTAssertEqual(direction.checkValid("Mobil"),true)
+        
+        XCTAssertEqual(direction.checkValid("John's Pizza"),false)
+        XCTAssertEqual(direction.checkValid("Gas station"),false)
+        XCTAssertEqual(direction.checkValid("Gas"),false)
+        XCTAssertEqual(direction.checkValid("Station"),false)
+    }
 }
 

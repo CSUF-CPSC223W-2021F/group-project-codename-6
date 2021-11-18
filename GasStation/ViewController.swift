@@ -19,7 +19,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet var myMapview: MKMapView!
     private var destinations: [MKPointAnnotation] = []
     private var currentRoute: MKRoute?
-    private var newData = searchResult()
+    public var newData = searchResult()
     @IBOutlet var searchbar: UISearchBar!
     
     override func viewDidLoad() {
@@ -37,17 +37,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = searchBar.text!
+        request.naturalLanguageQuery = searchBar.text
         
-        let search = MKLocalSearch(request: request)
-        search.start { response, _ in
-            if let response = response {
-                for location in response.mapItems {
-                    self.newData.addtoList(location)
-                }
-                self.myMapview.addAnnotations(self.newData.placeStation)
-            }
-        }
+        let direction = Direction()
+        direction.search(request,self)
     }
 
     func locationService() {
@@ -92,7 +85,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
    
     @IBAction func nearGasStation(_ sender: UIButton) {
         let proxmity = gasStationsData()
-        var directiontoNearest = Direction()
+        let directiontoNearest = Direction()
         var min: Double = 0.0000
         var nearestGas: gasStations?
         
