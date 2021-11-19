@@ -32,6 +32,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // Do any additional setup after loading the view.
         searchbar.delegate = self
         searchbar.showsSearchResultsButton = true
+        addAnnotation()
         locationService()
         addAnnotation()
     }
@@ -39,13 +40,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
         print(searchBar.text!)
         var stored = [MKPointAnnotation]()
+       
+        
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = searchBar.text!
         
         let search = MKLocalSearch(request: request)
         search.start { (response,error) in
             if let response = response {
-                print(response.mapItems[0])
+                print(response.mapItems[0].name)
                 for location in response.mapItems {
                     self.myMapview.addAnnotation(location.placemark)
                 }
@@ -71,8 +74,69 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let currentRegine =  MKCoordinateRegion(center: coordinate, latitudinalMeters: distance1, longitudinalMeters: distance2)
         myMapview.setRegion(currentRegine, animated: true)
     }
-        
+    
+    
+    var gokdemirxxxxx = [MKPointAnnotation]()
+
     func addAnnotation()  {
+        
+        
+    
+    
+
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = "arco"
+        
+    
+        
+        let search = MKLocalSearch(request: request)
+        search.start { (response,error) in
+            if let response = response {
+                print(response.mapItems[1])
+               
+                for location in response.mapItems {
+                    let xx = MKPointAnnotation()
+                    
+
+                    print("hello wokr \(location.placemark.name)")
+                    xx.coordinate = location.placemark.coordinate
+                    xx.title = location.name
+                 
+                    
+                    //  self.myMapview.addAnnotation(location.placemark)
+                    
+                    
+                    
+                    self.gokdemirxxxxx.append(xx)
+                    print("size of gokdmeir is \(self.gokdemirxxxxx)")
+
+                    
+                }
+                
+               
+                
+                print("size of gokdmeir is =++++================== \(self.gokdemirxxxxx.count)")
+
+            }
+            self.myMapview.showAnnotations(self.gokdemirxxxxx, animated: true)
+            
+            self.myMapview.addAnnotations(self.gokdemirxxxxx)
+        }
+       
+        //myMapview.showAnnotations(gokdemirxxxxx, animated: true)
+        
+      //  myMapview.addAnnotations(gokdemirxxxxx)
+
+        print("size of gokdmeir is =================== \(gokdemirxxxxx.count)")
+
+        
+        
+        ///////
+        
+        
+        
+        
+        
         let itemss = gasStationsData().getDtationData()
 
    
@@ -88,8 +152,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             nebil.append(gasStationnn)
 
         }
-        myMapview.showAnnotations(nebil, animated: true)
-        myMapview.addAnnotations(nebil)
+       // myMapview.showAnnotations(nebil, animated: true)
+       // myMapview.addAnnotations(nebil)
      
     }
         
