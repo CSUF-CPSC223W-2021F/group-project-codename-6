@@ -14,14 +14,20 @@ class gasStationsData {
     init() {
         
         stationData = [gasStations]()
+      
+        
+        
+        /*
         stationData.append(shell)
         stationData.append(arco)
         stationData.append(cosco)
         stationData.append(chevron)
         stationData.append(mobile)
+    */
         
         
     }
+    
     var shell = gasStations(title: "shell", latitude: 33.876236, longitude: -117.933154, price: 8, imageName: "shell.png")
 
     var arco = gasStations(title: "arco", latitude: 33.874731, longitude: -117.934920, price: 3, imageName: "argo.jpg")
@@ -35,6 +41,16 @@ class gasStationsData {
         return stationData
     }
     
+    func AddGasstationToData(newGasStation:gasStations)  {
+    
+        self.stationData.append(newGasStation)
+    }
+    
+    
+    func printNumberOFGasStation() -> Int {
+        
+        return self.stationData.count
+    }
     
     func cheapest() -> gasStations {
         
