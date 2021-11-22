@@ -9,8 +9,10 @@ import UIKit
 import MapKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate,UISearchBarDelegate {
-    var currentUser :UserInfo?
     
+    
+    var currentUser :UserInfo?
+        
     @IBOutlet weak var userLabel: UILabel!
     var zoomDistance1:Double = 7000
     var zoomDistance2:Double = 7000
@@ -32,13 +34,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // Do any additional setup after loading the view.
         searchbar.delegate = self
         searchbar.showsSearchResultsButton = true
-        addAnnotation(nameOFGasstation: "Argo")
+        //addAnnotation(nameOFGasstation: "Argo")
         locationService()
-        addAnnotation(nameOFGasstation: "Mobile")
-        addAnnotation(nameOFGasstation: "Shell")
-        addAnnotation(nameOFGasstation: "Chevron")
-        addAnnotation(nameOFGasstation: "Costco")
+       // addAnnotation(nameOFGasstation: "Mobile")
+        //addAnnotation(nameOFGasstation: "Shell")
+        //addAnnotation(nameOFGasstation: "Chevron")
+      
         
+        
+        addAnnotation(nameOFGasstation: "Costco")
+        addAnnotation(nameOFGasstation: "Argo")
+        addAnnotation(nameOFGasstation: "Mobile")
+       
+        
+        itemxxx.saveGasStationData()
+        itemxxx.getGasStationData()
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -264,11 +274,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     var nebil = [MKPointAnnotation]()
     var itemxxx = gasStationsData()
+    
     func addAnnotation(nameOFGasstation:String)  {
         
 
        
-        
+        itemxxx.getGasStationData()
+
         
                let gasStationnn = MKPointAnnotation()
          let request = MKLocalSearch.Request()
@@ -296,29 +308,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 }
             }
         
-            
 
 
             for i  in 0..<itemxxx.getDtationData().count {
                 
               
-                print("title xxx    \(itemxxx.getDtationData()[i].getTitle()) ")
-                print(" \(itemxxx.getDtationData()[i].getlatitude())")
-                print(" \(itemxxx.getDtationData()[i].getlongitude())")
+              
                 
                 let gasGokdemir = MKPointAnnotation()
                 
-                                      itemxxx.getDtationData()[i].setPrice(price: 10)
+                                    
                 
+        
                 gasGokdemir.subtitle = "\(itemxxx.getDtationData()[i].getPrice())"
-                gasGokdemir.title = itemxxx.getDtationData()[i].getTitle()
-              
                 gasGokdemir.title = itemxxx.getDtationData()[i].getTitle()
                 gasGokdemir.coordinate = CLLocationCoordinate2D(latitude: itemxxx.getDtationData()[i].getlatitude(), longitude: itemxxx.getDtationData()[i].getlongitude())
                 
                 nebil.append(gasGokdemir)
                 
-                print("nebil size is \(nebil.count)")
             }
             
             
@@ -509,27 +516,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let location = view.annotation?.coordinate
            
             
-            if gasStation.title == "Argo" {
-                gasStation.setPrice(price: 1000)
-            }
+         
             
-            
-            myMapview.addAnnotations(nebil)
-        
-          //  myMapview.showAnnotations(nebil, animated: true)
+           
             
             
             if gasStation.getlatitude() == location?.latitude && gasStation.getlongitude() == location?.longitude {
                 
-                gasStation.setPrice(price: 10000)
-                print("sdfksdfnksdfklsdkfl")
+               
       
             
-                print(gasStation.getTitle())
-                print(gasStation.getlatitude())
-                print(gasStation.getlongitude())
-                print(gasStation.getPrice())
+                gasStation.setPrice(price: 56)
+                
+               // gasStation.settitle(title: "neden ben")
+                
+                itemxxx.saveGasStationData()
+             //   itemxxx.getGasStationData()
+                
+                //myMapview.addAnnotations(nebil)
             
+              // myMapview.showAnnotations(nebil, animated: true)
+             var path =    itemxxx.dataFilePath
+            print(path)
             }
             
             

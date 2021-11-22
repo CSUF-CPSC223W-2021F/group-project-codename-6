@@ -83,39 +83,18 @@ class AllUserData {
             
             do {
                 
-               
-      
                 
                 
             let x =    try decoder.decode([UserInfo].self, from: datax)
                 
                 allUser = x
-                
-             
-    
-                
-                
+            
                 
             }catch {
                 print("error \(error)")
             }
             
-            
         }
-        
-      
-
-        
-       
-            
-            
-            
-         
-            
-            
-            
-            
-        
             
         }
         

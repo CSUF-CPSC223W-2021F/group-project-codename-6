@@ -7,7 +7,7 @@
 
 import Foundation
 
-class gasStations {
+class gasStations :Codable {
     var title:String
     var latitude:Double
     var longitude:Double
