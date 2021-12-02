@@ -32,8 +32,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // Do any additional setup after loading the view.
         searchbar.delegate = self
         searchbar.showsSearchResultsButton = true
+        //addAnnotation(nameOFGasstation: "Argo")
         locationService()
-        addAnnotation()
+       // addAnnotation(nameOFGasstation: "Mobile")
+        //addAnnotation(nameOFGasstation: "Shell")
+        //addAnnotation(nameOFGasstation: "Chevron")
+      
+        
+        
+        addAnnotation(nameOFGasstation: "Costco")
+        addAnnotation(nameOFGasstation: "Argo")
+        addAnnotation(nameOFGasstation: "Mobile")
+       
+        
+        itemxxx.saveGasStationData()
+        itemxxx.getGasStationData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -45,8 +58,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        print(searchBar.text!)
+        var stored = [MKPointAnnotation]()
+       
+        
         let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = searchBar.text
+        request.naturalLanguageQuery = searchBar.text!
+        
+        let search = MKLocalSearch(request: request)
+        search.start { (response,error) in
+            if let response = response {
+                print(response.mapItems[0].name)
+                for location in response.mapItems {
+                  
+                    
+                    
+                    self.myMapview.addAnnotation(location.placemark)
+                }
+            }
+        }
         
         let direction = Direction()
         direction.search(request,self)
@@ -66,23 +96,358 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let currentRegine = MKCoordinateRegion(center: coordinate, latitudinalMeters: distance1, longitudinalMeters: distance2)
         myMapview.setRegion(currentRegine, animated: true)
     }
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    /*
+    
+    
+    var itemxxx = gasStationsData()
+    func addAnnotation()  {
         
-    func addAnnotation() {
-        let itemss = gasStationsData().getDtationData()
 
         var nebil = [MKPointAnnotation]()
         
+        
+               let gasStationnn = MKPointAnnotation()
+        
+
+        let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = "Gas station"
+        
+    
+       
+
+        var i = 0
+
+        
+        let search = MKLocalSearch(request: request)
+        search.start { [self] (response,error) in
+
+            
+            if let response = response {
+
+                
+                for location in response.mapItems {
+                    
+                    let gasStationxb = gasStations()
+
+
+                    
+                    let coordinatexx = location.placemark.coordinate
+                   
+                    gasStationxb.settitle(title: "nebil \(i)")
+                    gasStationxb.setlongitude(longitude: coordinatexx.longitude)
+                    gasStationxb.setLatitude(latitude: coordinatexx.latitude)
+                    
+                    self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
+                   
+                    
+                   
+                    
+                
+                }
+            }
+        
+            
+
+
+            for i  in 0..<itemxxx.getDtationData().count {
+                
+              
+                print("title xxx    \(itemxxx.getDtationData()[i].getTitle()) ")
+                print(" \(itemxxx.getDtationData()[i].getlatitude())")
+                print(" \(itemxxx.getDtationData()[i].getlongitude())")
+                
+                let gasGokdemir = MKPointAnnotation()
+                
+                                      itemxxx.getDtationData()[i].setPrice(price: 10)
+                
+                gasGokdemir.subtitle = "\(itemxxx.getDtationData()[i].getPrice())"
+                gasGokdemir.title = itemxxx.getDtationData()[i].getTitle()
+              
+                
+                gasGokdemir.coordinate = CLLocationCoordinate2D(latitude: itemxxx.getDtationData()[i].getlatitude(), longitude: itemxxx.getDtationData()[i].getlongitude())
+                
+                nebil.append(gasGokdemir)
+                
+                print("nebil size is \(nebil.count)")
+            }
+            
+            
+            myMapview.addAnnotations(nebil)
+            
+            
+            myMapview.showAnnotations(nebil, animated: true)
+
+            
+                
+                                                       
+
+        }
+        
+       // print("nebil array size is \(nebil.count)")
+        
+                  
+                  
+
+
+       
+
+     //   print("i hope it is work \(itemxxx.printNumberOFGasStation())")
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       /*
+        
+        
+        
+        let itemss = gasStationsData().getDtationData()
+
+   
+       // var nebil = [MKPointAnnotation]()
+
+        
         for i in 0 ..< itemss.count {
             let gasStationnn = MKPointAnnotation()
+            
+            
+            
             gasStationnn.title = itemss[i].getTitle()
+            
+            
+            
+            
+            
             gasStationnn.coordinate = CLLocationCoordinate2D(latitude: itemss[i].getlatitude(), longitude: itemss[i].getlongitude())
             gasStationnn.subtitle = " PRICE : \(itemss[i].price)$".uppercased()
             nebil.append(gasStationnn)
         }
-        myMapview.showAnnotations(nebil, animated: true)
-        myMapview.addAnnotations(nebil)
-    }
+
+       // myMapview.showAnnotations(nebil, animated: true)
+       // myMapview.addAnnotations(nebil)
         
+        
+        
+        
+        */
+        
+        
+        
+        
+        
+     
+    }
+    
+    
+    
+    */
+    
+    
+
+    
+    
+    
+    ///////////////////////
+    
+    var nebil = [MKPointAnnotation]()
+    var itemxxx = gasStationsData()
+    
+    func addAnnotation(nameOFGasstation:String)  {
+        
+
+       
+        itemxxx.getGasStationData()
+
+        
+               let gasStationnn = MKPointAnnotation()
+         let request = MKLocalSearch.Request()
+        request.naturalLanguageQuery = nameOFGasstation
+        let search = MKLocalSearch(request: request)
+        search.start { [self] (response,error) in
+
+            
+            if let response = response {
+
+                
+                for location in response.mapItems {
+                    
+                    let gasStationxb = gasStations()
+
+
+                    
+                    let coordinatexx = location.placemark.coordinate
+                   
+                    gasStationxb.title = nameOFGasstation
+                    gasStationxb.setlongitude(longitude: coordinatexx.longitude)
+                    gasStationxb.setLatitude(latitude: coordinatexx.latitude)
+                    
+                    self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
+                }
+            }
+        
+
+
+            for i  in 0..<itemxxx.getDtationData().count {
+                
+              
+              
+                
+                let gasGokdemir = MKPointAnnotation()
+                
+                                    
+                
+        
+                gasGokdemir.subtitle = "\(itemxxx.getDtationData()[i].getPrice())"
+                gasGokdemir.title = itemxxx.getDtationData()[i].getTitle()
+                gasGokdemir.coordinate = CLLocationCoordinate2D(latitude: itemxxx.getDtationData()[i].getlatitude(), longitude: itemxxx.getDtationData()[i].getlongitude())
+                
+                nebil.append(gasGokdemir)
+                
+            }
+            
+            
+            myMapview.addAnnotations(nebil)
+        
+            myMapview.showAnnotations(nebil, animated: true)
+
+            
+                
+                                                       
+
+        }
+        
+       // print("nebil array size is \(nebil.count)")
+        
+                  
+                  
+
+
+       
+
+     //   print("i hope it is work \(itemxxx.printNumberOFGasStation())")
+        
+      
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+       /*
+        
+        
+        
+        let itemss = gasStationsData().getDtationData()
+
+   
+       // var nebil = [MKPointAnnotation]()
+        
+        
+        for i in 0..<itemss.count {
+           
+            let gasStationnn = MKPointAnnotation()
+            
+            
+            
+            gasStationnn.title = itemss[i].getTitle()
+            
+            
+            
+            
+            
+            gasStationnn.coordinate = CLLocationCoordinate2D(latitude: itemss[i].getlatitude(), longitude: itemss[i].getlongitude())
+            gasStationnn.subtitle =  " PRICE : \(itemss[i].price)$".uppercased()
+            nebil.append(gasStationnn)
+
+        }
+       // myMapview.showAnnotations(nebil, animated: true)
+       // myMapview.addAnnotations(nebil)
+        
+        
+        
+        
+        */
+        
+        
+        
+        
+        
+     
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         if let updateLocation = locations.first?.coordinate {
             myCurrentLocation = updateLocation
@@ -139,16 +504,69 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+        
+        
+        for gasStation in itemxxx.getDtationData() {
+            
+            let location = view.annotation?.coordinate
+           
+            
+         
+            
+           
+            
+            
+            if gasStation.getlatitude() == location?.latitude && gasStation.getlongitude() == location?.longitude {
+                
+               
+      
+            
+                gasStation.setPrice(price: 56)
+                
+               // gasStation.settitle(title: "neden ben")
+                
+                itemxxx.saveGasStationData()
+             //   itemxxx.getGasStationData()
+                
+                //myMapview.addAnnotations(nebil)
+            
+              // myMapview.showAnnotations(nebil, animated: true)
+             var path =    itemxxx.dataFilePath
+            print(path)
+            }
+            
+            
+      
+            
+            
+            
+    }
+       
+        
+        
+        
+        
+        
         print(view.annotation?.title!)
         
-        if let price = view.annotation?.subtitle, let title = view.annotation?.title {
-            var alert = UIAlertController(title: "", message: " price \(price) and name is \(title!)".uppercased(), preferredStyle: .alert)
+        if let price = view.annotation?.subtitle, let title  = view.annotation?.title {
+            view.annotation?.coordinate
+            
+        
+            var alert = UIAlertController(title: "", message: " price \(price) and name is \(title!)".uppercased() , preferredStyle: .alert)
         
             alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
         
             present(alert, animated: true, completion: nil)
         }
     }
+    
+    
+    
+    
+    
+    
+    
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         // to show annotation image
