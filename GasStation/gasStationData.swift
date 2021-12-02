@@ -10,46 +10,31 @@ import Foundation
 class gasStationsData {
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Item2.plist")
    
-    var stationData : [gasStations] = [gasStations]()
+    var stationData = [gasStations]()
     
     init() {
-        
-      //  stationData = [gasStations]()
-        //saveGasStationData()
+        //  stationData = [gasStations]()
+        // saveGasStationData()
         getGasStationData()
-      
-        
-
-        
-        
     }
     
-    
-
     func getDtationData() -> [gasStations] {
-        
         return stationData
     }
     
-    func AddGasstationToData(newGasStation:gasStations)  {
-    
-        self.stationData.append(newGasStation)
+    func AddGasstationToData(newGasStation: gasStations) {
+        stationData.append(newGasStation)
     }
     
-    
     func printNumberOFGasStation() -> Int {
-        
-        return self.stationData.count
+        return stationData.count
     }
     
     func cheapest() -> gasStations {
-        
         var myMax = stationData[0].price
         var newI = 0
-        for i in 0..<stationData.count {
-            
+        for i in 0 ..< stationData.count {
             if stationData[i].price < myMax {
-                
                 myMax = stationData[i].price
                 newI = i
             }
@@ -57,62 +42,30 @@ class gasStationsData {
         return stationData[newI]
     }
     
-    
-    func saveGasStationData()  {
+    func saveGasStationData() {
         let encoder = PropertyListEncoder()
         
         do {
-
-        
             let data = try encoder.encode(stationData)
             try data.write(to: dataFilePath)
             
-           
-            
-            
-        }catch {
-        
+        } catch {
             print("error occur\(error)")
-        
-        
         }
-        
     }
     
-    
-    
-    
-    
-    
-    func getGasStationData()  {
-        
+    func getGasStationData() {
         if let datax = try? Data(contentsOf: dataFilePath) {
-            
             let decoder = PropertyListDecoder()
          
-            
             do {
-                
-                
-                
-          
-                let x =    try decoder.decode([gasStations].self, from: datax)
+                let x = try decoder.decode([gasStations].self, from: datax)
                 
                 stationData = x
             
-                
-            }catch {
+            } catch {
                 print("error \(error)")
             }
-            
         }
-            
-        }
-    
-    
-    
-    
-    
-
-    
+    }
 }

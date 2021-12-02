@@ -7,23 +7,22 @@
 
 import Foundation
 
-class gasStations :Codable {
-    var title:String
-    var latitude:Double
-    var longitude:Double
-    var price :Int
-    var imageName:String
+class gasStations: Codable {
+    var title: String
+    var latitude: Double
+    var longitude: Double
+    var price: Int
+    var imageName: String
     
     init() {
-        title = ""
-        latitude = 0.0
-        longitude = 0.0
-        price = 0
-        imageName = ""
-    
+        self.title = ""
+        self.latitude = 0.0
+        self.longitude = 0.0
+        self.price = 0
+        self.imageName = ""
     }
     
-    init(title :String ,latitude :Double, longitude:Double, price :Int, imageName:String) {
+    init(title: String, latitude: Double, longitude: Double, price: Int, imageName: String) {
         self.title = title
         self.latitude = latitude
         self.longitude = longitude
@@ -32,54 +31,41 @@ class gasStations :Codable {
     }
     
     func getTitle() -> String {
-        
         return self.title
     }
+
     func getlatitude() -> Double {
-        
         return self.latitude
     }
+
     func getlongitude() -> Double {
-        
         return self.longitude
     }
 
-    
     func getPrice() -> Int {
-        
         return self.price
     }
     
-    
     func getImageName() -> String {
-        
-        return imageName
+        return self.imageName
     }
     
-    
-    func setPrice(price:Int)  {
-        
+    func setPrice(price: Int) {
         self.price = price
     }
     
-    func settitle(title:String)  {
-        
+    func settitle(title: String) {
         self.title = title
     }
     
-    
-    
-    
-    func setLatitude(latitude:Double)  {
+    func setLatitude(latitude: Double) {
         self.latitude = latitude
     }
-    func setlongitude(longitude:Double)  {
-        
-        self.longitude =  longitude
+
+    func setlongitude(longitude: Double) {
+        self.longitude = longitude
     }
  
-   // var latitude:Double
-   // var longitude:Double
-    
-    
+    // var latitude:Double
+    // var longitude:Double
 }
