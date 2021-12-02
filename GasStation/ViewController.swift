@@ -10,7 +10,6 @@ import UIKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate {
     var currentUser: UserInfo?
-    
     @IBOutlet var userLabel: UILabel!
     var zoomDistance1: Double = 7000
     var zoomDistance2: Double = 7000
@@ -20,7 +19,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     private var destinations: [MKPointAnnotation] = []
     private var currentRoute: MKRoute?
     public var newData = searchResult()
+    public var routeDirection: MKRoute!
     @IBOutlet var searchbar: UISearchBar!
+    @IBOutlet weak var routeButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +34,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         searchbar.showsSearchResultsButton = true
         locationService()
         addAnnotation()
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "routeName" {
+            let newVC: RouteDirectionController = segue.destination as! RouteDirectionController
+            newVC.currentRoute = routeDirection
+        }
+
     }
     
     func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
@@ -101,12 +110,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             }
         }
         construcRoute(userlocation: myCurrentLocation!, gasStation: nearestGas!)
+        routeButton.isHidden = false
     }
         
     @IBAction func cheapGasStation(_ sender: UIButton) {
         let cheapestGasStation = gasStationsData()
 
         construcRoute(userlocation: myCurrentLocation!, gasStation: cheapestGasStation.cheapest())
+        routeButton.isHidden = false
     }
     
     @IBAction func zoomIn(_ sender: UIButton) {
@@ -146,17 +157,16 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if annotationView == nil {
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
         }
-
-        if let title = annotation.title, title == "arco" {
-            annotationView?.image = UIImage(named: "argo.jpg")
-        }
         
-        if let title = annotation.title, title == "shell" {
+        if let title = annotation.title, title == "ARCO" {
+            annotationView?.image = UIImage(named: "arco.png")
+            return annotationView
+        } else if let title = annotation.title, title == "Shell" {
             annotationView?.image = UIImage(named: "shell.png")
-        }
-        
-        if let title = annotation.title, title == "costco" {
+            return annotationView
+        } else if let title = annotation.title, title == "Costco" {
             annotationView?.image = UIImage(named: "costco.png")
+            return annotationView
         }
         
         annotationView?.canShowCallout = true
@@ -188,6 +198,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 strongSelf.myMapview.addOverlay(responce.routes[0].polyline)
                 strongSelf.myMapview.setVisibleMapRect(responce.routes[0].polyline.boundingMapRect, animated: true)
             }
+            self?.routeDirection = directionResponce!.routes[0]
         }
     }
     
@@ -197,7 +208,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
         
         let polyLineRenderer = MKPolylineRenderer(overlay: currentRoute.polyline)
-        polyLineRenderer.strokeColor = #colorLiteral(red: 0.2588235438, green: 0.7568627596, blue: 0.9686274529, alpha: 1)
+        polyLineRenderer.strokeColor = #colorLiteral(red: 0.007509642746, green: 0.4820441008, blue: 0.9983070493, alpha: 1)
         polyLineRenderer.lineWidth = 8
         return polyLineRenderer
     }
