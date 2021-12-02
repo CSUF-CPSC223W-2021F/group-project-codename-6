@@ -30,7 +30,6 @@ class AllUserData {
                 
                 succefulRegister = false
                 print("please use different email")
-                let message = showAlertMessageView()
                 //message.showMessage(myMessage: "please use different email")
                 //self.showMessage(myMessage: "please use different email")
                 return
@@ -84,39 +83,18 @@ class AllUserData {
             
             do {
                 
-               
-      
                 
                 
             let x =    try decoder.decode([UserInfo].self, from: datax)
                 
                 allUser = x
-                
-             
-    
-                
-                
+            
                 
             }catch {
                 print("error \(error)")
             }
             
-            
         }
-        
-      
-
-        
-       
-            
-            
-            
-         
-            
-            
-            
-            
-        
             
         }
         

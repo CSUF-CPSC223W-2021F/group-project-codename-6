@@ -6,22 +6,43 @@
 //  Anthony Ngon
 
 import Foundation
+import MapKit
 
 struct Direction {
     var valid: Bool = true
     var street_address: String = ""
-    var possibleGasStation: [String] = ["none"]
 
-    func checkStreetAddress() -> String {
-        return street_address
+//    func checkStreetAddress() -> String {
+//        return street_address
+//    }
+//
+    func checkValid(_ searchingFor: String?) -> Bool {
+        let validGasStation = ["Arco","Mobil","Shell","Chevron"]
+        if validGasStation.contains(searchingFor!) {
+            
+            return true
+        }
+        return false
     }
-
-    func checkValid() -> Bool {
-        return valid
-    }
-
-    func checkPossibleGasStation() -> [String] {
-        return possibleGasStation
+//
+//    func checkPossibleGasStation() -> [String] {
+//        return possibleGasStation
+//    }
+    
+    func search(_ parameter: MKLocalSearch.Request,_ view: ViewController) {
+        if !checkValid(parameter.naturalLanguageQuery) {
+            return
+        }
+        
+        let search = MKLocalSearch(request: parameter)
+        search.start { response, _ in
+            if let response = response {
+                for location in response.mapItems {
+                    view.newData.addtoList(location)
+                }
+                view.myMapview.addAnnotations(view.newData.placeStation)
+            }
+        }
     }
     
     //Code origin https://rosettacode.org/wiki/Haversine_formula#Swift
