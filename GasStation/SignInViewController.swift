@@ -18,17 +18,7 @@ class SignInViewController: UIViewController {
         
         let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Item.plist")
         
-     
-      
-        
-    
-   
-     
-        
         @IBOutlet weak var passworldTextfield: UITextField!
-        
-     
-        
         
         @IBOutlet weak var emailTextfield: UITextField!
      
@@ -51,7 +41,7 @@ class SignInViewController: UIViewController {
                 
              
                 guard emailTextfield.text == user.getEmail() || passworldTextfield.text == user.getPassword() else {
-              showMessage(myMessage: "your Email or password is wrong")
+                 showMessage(myMessage: "your Email or password is wrong")
                     return
                 }
                 

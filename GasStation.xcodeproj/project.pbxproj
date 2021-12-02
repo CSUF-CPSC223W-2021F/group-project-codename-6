@@ -11,7 +11,6 @@
 		3D67F89F273897440099B3C8 /* UserInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D67F89E273897440099B3C8 /* UserInfo.swift */; };
 		3D67F8A427389DF10099B3C8 /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D67F8A327389DF10099B3C8 /* Register.swift */; };
 		3D67F8A927389ECE0099B3C8 /* AllUserData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D67F8A827389ECE0099B3C8 /* AllUserData.swift */; };
-		3D67F8AE2738A5730099B3C8 /* showAlertMessageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D67F8AD2738A5730099B3C8 /* showAlertMessageView.swift */; };
 		3D69CCE3271D243D00A4F91F /* gasStation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69CCE2271D243D00A4F91F /* gasStation.swift */; };
 		3D69CCE8271D246C00A4F91F /* gasStationData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3D69CCE7271D246C00A4F91F /* gasStationData.swift */; };
 		7A03DBE72727607700A472EB /* amritpaul.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7A03DBE62727607700A472EB /* amritpaul.swift */; };
@@ -56,7 +55,6 @@
 		3D67F89E273897440099B3C8 /* UserInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserInfo.swift; sourceTree = "<group>"; };
 		3D67F8A327389DF10099B3C8 /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		3D67F8A827389ECE0099B3C8 /* AllUserData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllUserData.swift; sourceTree = "<group>"; };
-		3D67F8AD2738A5730099B3C8 /* showAlertMessageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = showAlertMessageView.swift; sourceTree = "<group>"; };
 		3D69CCE2271D243D00A4F91F /* gasStation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gasStation.swift; sourceTree = "<group>"; };
 		3D69CCE7271D246C00A4F91F /* gasStationData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = gasStationData.swift; sourceTree = "<group>"; };
 		7A03DBE62727607700A472EB /* amritpaul.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = amritpaul.swift; sourceTree = "<group>"; };
@@ -316,7 +314,6 @@
 				7A03DBE9272760BB00A472EB /* benmartinez.swift in Sources */,
 				7A294BAA2710F5D600A13946 /* dummyData.swift in Sources */,
 				3D67F89A273896E60099B3C8 /* SignInViewController.swift in Sources */,
-				3D67F8AE2738A5730099B3C8 /* showAlertMessageView.swift in Sources */,
 				7AD8B6BB26FD30E60014B746 /* Display-Gas-price.swift in Sources */,
 				7AD8B6BE26FD3A180014B746 /* direction.swift in Sources */,
 				7AF7A92526F7394200FDFB8D /* ViewController.swift in Sources */,
