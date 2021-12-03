@@ -26,20 +26,18 @@ class profile: UIViewController {
     var mybirthDate = String()
     var myEmail = String()
     var myuserName = String()
+    var userInfo: UserInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firstnameLabel.text = myfirstName
+        firstnameLabel.text = userInfo?.name
         lastnameLabel.text = mylastName
         phonenumberLabel.text = myphoneNumber
         homeaddressLabel.text = myhomeAddress
         birthdateLabel.text = mybirthDate
         emailLabel.text = myEmail
         usernameLabel.text = myuserName
-        
-        
-        
     }
     
     @IBAction func editButton(_ sender: UIButton) {

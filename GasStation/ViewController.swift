@@ -9,7 +9,7 @@ import MapKit
 import UIKit
 
 class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate {
-    var currentUser: UserInfo?
+    var currentUsers: UserInfo?
     @IBOutlet var userLabel: UILabel!
     var zoomDistance1: Double = 7000
     var zoomDistance2: Double = 7000
@@ -22,13 +22,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     public var routeDirection: MKRoute!
     @IBOutlet var searchbar: UISearchBar!
     @IBOutlet var routeButton: UIButton!
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let currentName = currentUser?.getName() {
+        if let currentName = currentUsers?.getName() {
             userLabel.text = "Welcome \(currentName)"
         }
-      
+        
         // Do any additional setup after loading the view.
         searchbar.delegate = self
         searchbar.showsSearchResultsButton = true
@@ -50,6 +50,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if segue.identifier == "routeName" {
             let newVC: RouteDirectionController = segue.destination as! RouteDirectionController
             newVC.currentRoute = routeDirection
+        } else if segue.identifier == "userProfile" {
+            let direction = segue.destination as! profile
+            direction.userInfo = self.currentUsers!
+        
         }
     }
     

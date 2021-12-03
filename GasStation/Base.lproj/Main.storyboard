@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wgI-aZ-SR2">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jRK-xH-VdD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -9,11 +9,12 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Tab Bar Controller-->
+        <!--Tab Controller-->
         <scene sceneID="VRm-em-dbo">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wgI-aZ-SR2" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="wgI-aZ-SR2" customClass="tabController" customModule="GasStation" customModuleProvider="target" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="PT0-VR-1SO"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="QiQ-nb-KQh">
                         <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -92,7 +93,7 @@
                     <connections>
                         <outlet property="emailTextfield" destination="ZKA-gN-zyZ" id="nMZ-2F-Elk"/>
                         <outlet property="passworldTextfield" destination="DIZ-wB-de6" id="rsP-1z-Od6"/>
-                        <segue destination="BYZ-38-t0r" kind="show" identifier="mapViewiD" id="ic0-gw-9C5"/>
+                        <segue destination="wgI-aZ-SR2" kind="show" identifier="mapViewiD" id="HbY-ye-mT8"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="P4C-rX-JrL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -102,9 +103,9 @@
         <!--Register-->
         <scene sceneID="xwb-bh-Wff">
             <objects>
-                <viewController id="ap6-FD-FQ1" customClass="Register" customModule="GasStation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ap6-FD-FQ1" customClass="Register" customModule="GasStation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="MiO-D2-2q8">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haE-kP-kqU">
@@ -175,13 +176,13 @@
         <!--Map-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="GasStation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="BYZ-38-t0r" customClass="ViewController" customModule="GasStation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lty-Le-1tt">
-                                <rect key="frame" x="0.0" y="44" width="414" height="769"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="759"/>
                                 <subviews>
                                     <searchBar contentMode="redraw" showsSearchResultsButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ryn-lo-aI1">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="44"/>
@@ -191,11 +192,11 @@
                                         <textInputTraits key="textInputTraits"/>
                                     </searchBar>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pal-bj-kFE">
-                                        <rect key="frame" x="0.0" y="717" width="414" height="52"/>
+                                        <rect key="frame" x="0.0" y="717" width="414" height="42"/>
                                         <color key="backgroundColor" systemColor="systemBlueColor"/>
                                     </view>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="Qm6-f4-E4f">
-                                        <rect key="frame" x="0.0" y="44" width="414" height="725"/>
+                                        <rect key="frame" x="0.0" y="44" width="414" height="715"/>
                                     </mapView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zCH-OS-f4K">
                                         <rect key="frame" x="8" y="58" width="388" height="53"/>
@@ -295,6 +296,7 @@
                         <outlet property="routeButton" destination="8TP-Rg-M0b" id="Sw1-AK-xWa"/>
                         <outlet property="searchbar" destination="Ryn-lo-aI1" id="Kh1-Y5-gz0"/>
                         <outlet property="userLabel" destination="zCH-OS-f4K" id="71r-bi-Wyw"/>
+                        <segue destination="m6W-yR-f0B" kind="show" identifier="userProfile" id="78l-ij-RlE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -306,7 +308,7 @@
             <objects>
                 <viewController id="Wrs-Ap-3N8" customClass="benmartinez" customModule="GasStation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="vJB-gO-cgK">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="yckAnbydi" translatesAutoresizingMaskIntoConstraints="NO" id="tVc-Uq-aXW">
@@ -573,7 +575,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="otY-NN-5Ns" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1933" y="794"/>
+            <point key="canvasLocation" x="1843" y="1051"/>
         </scene>
         <!--Edit-->
         <scene sceneID="GUX-hx-yeu">
@@ -716,8 +718,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="Z7f-Fa-zBL"/>
-        <segue reference="bAZ-EV-Kr7"/>
+        <segue reference="78l-ij-RlE"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dollarsign.square" catalog="system" width="128" height="114"/>
