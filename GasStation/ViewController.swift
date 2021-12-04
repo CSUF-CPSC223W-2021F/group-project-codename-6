@@ -164,6 +164,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     @IBAction func cheapGasStation(_ sender: UIButton) {
         let cheapestGasStation = gasStationsData()
+        
+        itemxxx.saveGasStationData()
+        itemxxx.getGasStationData()
 
         construcRoute(userlocation: myCurrentLocation!, gasStation: cheapestGasStation.cheapest())
         routeButton.isHidden = false
@@ -187,37 +190,114 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         }
     }
     
+    
+    
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        for gasStation in itemxxx.getDtationData() {
-            let location = view.annotation?.coordinate
-
-            if gasStation.getlatitude() == location?.latitude, gasStation.getlongitude() == location?.longitude {
-                gasStation.setPrice(price: 56)
-                
-                // gasStation.settitle(title: "neden ben")
-                
-                itemxxx.saveGasStationData()
+           
+           var newPrice = 0
+           for gasStation in itemxxx.getDtationData() {
+               
+               let location = view.annotation?.coordinate
+              
+               
+            
+               
+              
+               
+               
+               if gasStation.getlatitude() == location?.latitude && gasStation.getlongitude() == location?.longitude {
+                   
+                  
+         
+               
+                   gasStation.setPrice(price: -8999999001)
+                   
+                   newPrice = gasStation.getPrice()
+                   
+                   
+                  // gasStation.settitle(title: "neden ben")
+                   
+                   itemxxx.saveGasStationData()
                 //   itemxxx.getGasStationData()
+                   
+                   //myMapview.addAnnotations(nebil)
+               
+                 // myMapview.showAnnotations(nebil, animated: true)
+                var path =    itemxxx.dataFilePath
+               print(path)
+               }
+               
+               
+             
+               
+       }
+          
+           
+           
+           
+           
+           
+           print(view.annotation?.title!)
+           
+           if let price = view.annotation?.subtitle, let title  = view.annotation?.title {
+               print(price)
+               
+               view.annotation?.coordinate
+               
+    var myTextField = UITextField()
+              
+            var alert = UIAlertController(title: "", message: " Current Price \(newPrice)".uppercased() , preferredStyle: .alert)
+           
+             //  alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
+            
+            
+            let action = UIAlertAction(title: "yes", style: .default) { (alertAction) in
                 
-                // myMapview.addAnnotations(nebil)
-            
-                // myMapview.showAnnotations(nebil, animated: true)
-                var path = itemxxx.dataFilePath
-                print(path)
+                
+                
+                print(myTextField.text!)
             }
-        }
-        print(view.annotation?.title!)
-        
-        if let price = view.annotation?.subtitle, let title = view.annotation?.title {
-            view.annotation?.coordinate
             
-            var alert = UIAlertController(title: "", message: " price \(price) and name is \(title!)".uppercased(), preferredStyle: .alert)
-        
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-        
-            present(alert, animated: true, completion: nil)
-        }
-    }
+         
+            
+            
+            let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
+                   //cancel code
+               }
+            
+           
+            
+            alert.addTextField { (textField) -> Void in
+                textField.textColor = UIColor.blue
+                textField.placeholder = "Type Price"
+               
+                myTextField = textField
+                
+            
+            }
+            
+            alert.addAction(action)
+            alert.addAction(cancelAction)
+           
+
+               present(alert, animated: true, completion: nil)
+           }
+           
+           
+           
+         
+           
+           //self.myMapview.reloadInputViews()
+           
+       }
+       
+       
+       
+       
+
+    
+    
+  
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         // to show annotation image
@@ -243,10 +323,17 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func construcRoute(userlocation: CLLocationCoordinate2D, gasStation: gasStations) {
+        
+        
         let gastationArray = gasStationsData().getDtationData()
         let nebil = CLLocationCoordinate2D(latitude: gasStation.getlatitude(), longitude: gasStation.getlongitude())
         
         let directionRequest = MKDirections.Request()
+        
+        //
+        
+      //  directionRequest.requestsAlternateRoutes = false
+        //
         directionRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: userlocation))
         directionRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: nebil))
         
