@@ -195,67 +195,68 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
            
            var newPrice = 0
-           for gasStation in itemxxx.getDtationData() {
-               
-               let location = view.annotation?.coordinate
-              
-               
+   
+        var myTextField = UITextField()
+           
+           
+        for gasStation in itemxxx.getDtationData() {
             
-               
-              
-               
-               
-               if gasStation.getlatitude() == location?.latitude && gasStation.getlongitude() == location?.longitude {
-                   
-                  
-         
-               
-                   gasStation.setPrice(price: -8999999001)
-                   
-                   newPrice = gasStation.getPrice()
-                   
-                   
-                  // gasStation.settitle(title: "neden ben")
-                   
-                   itemxxx.saveGasStationData()
-                //   itemxxx.getGasStationData()
-                   
-                   //myMapview.addAnnotations(nebil)
-               
-                 // myMapview.showAnnotations(nebil, animated: true)
-                var path =    itemxxx.dataFilePath
-               print(path)
-               }
-               
-               
-             
-               
-       }
-          
+            let location = view.annotation?.coordinate
+ 
+            if gasStation.getlatitude() == location?.latitude && gasStation.getlongitude() == location?.longitude {
+                newPrice = gasStation.getPrice()
+
+            }
+            
+            
+        }
            
            
-           
-           
-           
-           print(view.annotation?.title!)
            
            if let price = view.annotation?.subtitle, let title  = view.annotation?.title {
-               print(price)
                
-               view.annotation?.coordinate
-               
-    var myTextField = UITextField()
+
               
-            var alert = UIAlertController(title: "", message: " Current Price \(newPrice)".uppercased() , preferredStyle: .alert)
+//            var alert = UIAlertController(title: "", message: " Current Price \(newPrice)".uppercased() , preferredStyle: .alert)
            
              //  alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
             
             
-            let action = UIAlertAction(title: "yes", style: .default) { (alertAction) in
+            let action = UIAlertAction(title: "yes", style: .default) { [self] (alertAction) in
                 
                 
                 
-                print(myTextField.text!)
+                for gasStation in itemxxx.getDtationData() {
+                    
+                    let location = view.annotation?.coordinate
+         
+                    if gasStation.getlatitude() == location?.latitude && gasStation.getlongitude() == location?.longitude {
+                        
+                       
+                    
+                        
+                        let result = Int(myTextField.text!)
+                        
+                        print(result)
+                        
+                        if result != nil {
+                            
+                            
+                            gasStation.setPrice(price: result!)
+                            print("price is change")
+
+                        }
+                        newPrice = gasStation.getPrice()
+                        
+                        self.itemxxx.saveGasStationData()
+                     
+                
+                    }
+                 
+            }
+                
+                
+                
             }
             
          
@@ -265,7 +266,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                    //cancel code
                }
             
-           
+            var alert = UIAlertController(title: "", message: " Current Price \(newPrice)".uppercased() , preferredStyle: .alert)
             
             alert.addTextField { (textField) -> Void in
                 textField.textColor = UIColor.blue
@@ -286,8 +287,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
            
            
          
-           
-           //self.myMapview.reloadInputViews()
+
            
        }
        
