@@ -38,7 +38,7 @@ class SignInViewController: UIViewController {
         getData()
         for user in allUser {
             guard emailTextfield.text == user.getEmail() || passworldTextfield.text == user.getPassword() else {
-                showMessage(myMessage: "your Email or password is wrong")
+                showMessage(myMessage: "Your Email or password is incorrect")
                 return
             }
                 
