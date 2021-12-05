@@ -396,7 +396,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3R-Lw-Dki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2402.898550724638" y="125.89285714285714"/>
+            <point key="canvasLocation" x="2777" y="140"/>
         </scene>
         <!--Route-->
         <scene sceneID="LRH-lF-PhH">
@@ -729,7 +729,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="78l-ij-RlE"/>
+        <segue reference="X9f-Xd-fKo"/>
+        <segue reference="I19-iU-r13"/>
+        <segue reference="Z7f-Fa-zBL"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dollarsign.square" catalog="system" width="128" height="114"/>

@@ -38,12 +38,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // addAnnotation(nameOFGasstation: "Shell")
         // addAnnotation(nameOFGasstation: "Chevron")
       
-        addAnnotation(nameOFGasstation: "Costco")
-        addAnnotation(nameOFGasstation: "Arco")
+//        addAnnotation(nameOFGasstation: "Costco")
+//        addAnnotation(nameOFGasstation: "Arco")
         addAnnotation(nameOFGasstation: "Mobile")
        
-        itemxxx.saveGasStationData()
-        itemxxx.getGasStationData()
+       // itemxxx.saveGasStationData()
+        //itemxxx.getGasStationData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -96,8 +96,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     var nebil = [MKPointAnnotation]()
     var itemxxx = gasStationsData()
     
+   
+    
+    
     func addAnnotation(nameOFGasstation: String) {
-        itemxxx.getGasStationData()
+       // itemxxx.getGasStationData()
 
         let gasStationnn = MKPointAnnotation()
         let request = MKLocalSearch.Request()
