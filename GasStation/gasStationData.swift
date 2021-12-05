@@ -16,6 +16,8 @@ class gasStationsData {
         //  stationData = [gasStations]()
         // saveGasStationData()
         getGasStationData()
+        
+        print("dataFilePath \(dataFilePath)")
     }
     
     func getDtationData() -> [gasStations] {

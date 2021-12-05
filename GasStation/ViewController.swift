@@ -112,6 +112,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                     let coordinatexx = location.placemark.coordinate
                
                     gasStationxb.title = nameOFGasstation
+                  //  gasStationxb.setPrice(price: 5)
                     gasStationxb.setlongitude(longitude: coordinatexx.longitude)
                     gasStationxb.setLatitude(latitude: coordinatexx.latitude)
                 
@@ -165,33 +166,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBAction func cheapGasStation(_ sender: UIButton) {
         let cheapestGasStation = gasStationsData()
         
-        itemxxx.saveGasStationData()
-        itemxxx.getGasStationData()
+        //itemxxx.saveGasStationData()
+      //  itemxxx.getGasStationData()
 
         construcRoute(userlocation: myCurrentLocation!, gasStation: cheapestGasStation.cheapest())
         routeButton.isHidden = false
     }
-    
-    @IBAction func zoomIn(_ sender: UIButton) {
-        if let updateLocation = myCurrentLocation {
-            zoomDistance2 = zoomDistance2 - 500
-            zoomDistance1 = zoomDistance1 - 500
-            
-            zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
-        }
-    }
-    
-    @IBAction func zoomOut(_ sender: UIButton) {
-        if let updateLocation = myCurrentLocation {
-            zoomDistance2 = zoomDistance2 + 500
-            zoomDistance1 = zoomDistance1 + 500
-            
-            zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
-        }
-    }
-    
-    
-    
+ 
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
            
            var newPrice = 0
@@ -215,11 +196,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
            
            if let price = view.annotation?.subtitle, let title  = view.annotation?.title {
                
-
-              
-//            var alert = UIAlertController(title: "", message: " Current Price \(newPrice)".uppercased() , preferredStyle: .alert)
-           
-             //  alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
             
             
             let action = UIAlertAction(title: "yes", style: .default) { [self] (alertAction) in
@@ -367,4 +343,37 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         polyLineRenderer.lineWidth = 8
         return polyLineRenderer
     }
+    
+    
+    
+    
+    
+    
+    
+    /*
+      @IBAction func zoomIn(_ sender: UIButton) {
+          if let updateLocation = myCurrentLocation {
+              zoomDistance2 = zoomDistance2 - 500
+              zoomDistance1 = zoomDistance1 - 500
+              
+              zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
+          }
+      }
+      
+      @IBAction func zoomOut(_ sender: UIButton) {
+          if let updateLocation = myCurrentLocation {
+              zoomDistance2 = zoomDistance2 + 500
+              zoomDistance1 = zoomDistance1 + 500
+              
+              zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
+          }
+      }
+      
+      
+      */
+    
+    
+    
+    
+    
 }
