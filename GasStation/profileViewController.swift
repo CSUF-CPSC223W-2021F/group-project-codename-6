@@ -7,16 +7,6 @@
 
 import UIKit
 
-extension String {
-    func capitalizingFirstLetter() -> String {
-        return prefix(1).capitalized + dropFirst()
-    }
-
-    mutating func capitalizeFirstLetter() {
-        self = self.capitalizingFirstLetter()
-    }
-}
-
 class profileViewController: UIViewController {
 
         
@@ -30,7 +20,7 @@ class profileViewController: UIViewController {
     @IBOutlet var saveButton: UIButton!
     
     var editUserInfo: UserInfo?
-    var backtoView: UIViewController?
+    
     
     @IBAction func saveButton(_ sender: Any) {
         guard firstnameField.text != nil else {
@@ -55,19 +45,18 @@ class profileViewController: UIViewController {
             return
         }
         
+        performSegue(withIdentifier: "backToProfile", sender: self)
         
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let editDest = segue.destination as! profile
         editDest.userInfo = editUserInfo
-
-        let transferInfo = editDest.tabBarController?.viewControllers![0] as! ViewController
+        
         if firstnameField.text == ""  {
             editDest.userInfo?.firstname = editUserInfo!.firstname
         } else {
-            editUserInfo?.firstname = firstnameField.text!.capitalizingFirstLetter()
-            transferInfo.userLabel.text = "Welcome \(firstnameField.text!.capitalizingFirstLetter())"
+        editUserInfo?.firstname = firstnameField.text!
         }
         if lastnameField.text == ""  {
             editDest.userInfo?.lastname = editUserInfo!.lastname
@@ -107,7 +96,6 @@ class profileViewController: UIViewController {
         editDest.phonenumberLabel?.text = editUserInfo?.phonenumber
         editDest.homeaddressLabel?.text = editUserInfo?.homeaddress
         editDest.birthdateLabel?.text = editUserInfo?.birthdate
-        
         
     }
     
