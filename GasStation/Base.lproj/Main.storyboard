@@ -448,7 +448,9 @@
                     <tabBarItem key="tabBarItem" title="Gas Station" image="dollarsign.square" catalog="system" id="0e1-ys-t8t"/>
                     <navigationItem key="navigationItem" id="MJb-Qz-q9X"/>
                     <connections>
-                        <outlet property="regulerPrice" destination="1m2-rA-aXv" id="rZr-sE-G2r"/>
+                        <outlet property="midPrice" destination="Gm3-XD-BN6" id="JcN-V4-1uE"/>
+                        <outlet property="premiumPrice" destination="0ET-Qh-i1b" id="vBM-Hl-GSJ"/>
+                        <outlet property="regularPrice" destination="1m2-rA-aXv" id="1ET-eq-96C"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3R-Lw-Dki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -798,6 +800,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="I19-iU-r13"/>
         <segue reference="78l-ij-RlE"/>
         <segue reference="Oja-A8-2DX"/>
     </inferredMetricsTieBreakers>

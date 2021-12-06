@@ -23,7 +23,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet var routeButton: UIButton!
     var addedAnnotation: Bool = false
     var currentMarker: MKAnnotationView?
-    
+    var selectedAnnotation = ["Lat": 0.0, "Lon":0.0]
     var nebil = [MKPointAnnotation]()
     var itemxxx = gasStationsData()
     
@@ -62,6 +62,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let direction = segue.destination as! benmartinez
             direction.currentWaypoint = currentMarker
             direction.allAnnotation = itemxxx
+            direction.incomingAnnotation = selectedAnnotation
         }
     }
     
@@ -126,7 +127,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                         gasStationxb.title = nameOFGasstation
                         gasStationxb.setlongitude(longitude: coordinatexx.longitude)
                         gasStationxb.setLatitude(latitude: coordinatexx.latitude)
-                        
                         self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
                     }
                 }
@@ -192,6 +192,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         currentMarker = view
+        selectedAnnotation["Lat"] = currentMarker?.annotation?.coordinate.latitude
+        selectedAnnotation["Lon"] = currentMarker?.annotation?.coordinate.longitude
         performSegue(withIdentifier: "benSegue", sender: self)
         
         print("changeRegulerPrice \(changeRegulerPrice)")
@@ -214,8 +216,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         } else if let title = annotation.title, title == "Costco" {
             annotationView?.image = UIImage(named: "costco.png")
             return annotationView
+        } else if let title = annotation.title, title == "Mobil" {
+            annotationView?.image = UIImage(named: "mobil.png")
+            return annotationView
         }
-        
         annotationView?.canShowCallout = true
         return nil
     }

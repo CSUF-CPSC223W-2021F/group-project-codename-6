@@ -22,11 +22,19 @@ class tabController: UITabBarController,UITabBarControllerDelegate {
     
     func tabBarController(_ tabBarController: UITabBarController, didSelect viewController: UIViewController) {
         let currentView = viewController.tabBarItem.title!
-        
+        print(currentView)
         if currentView == "Gas Station" {
             let mainView = self.viewControllers![0] as! ViewController
-            let stationView = self.viewControllers![2] as! benmartinez
-            stationView.allAnnotation = mainView.itemxxx
+            let stationView = self.viewControllers![1] as! benmartinez
+            
+            stationView.incomingAnnotation = mainView.selectedAnnotation
+            for x in mainView.itemxxx.getDtationData() {
+                if mainView.selectedAnnotation["Lat"] == x.latitude && mainView.selectedAnnotation["Lon"] == x.longitude {
+                    stationView.regularPrice.text = "\(x.price["Regular"]!)"
+                    stationView.midPrice.text = "\(x.price["Mid"]!)"
+                    stationView.premiumPrice.text = "\(x.price["Premium"]!)"
+                }
+            }
         }
     }
 }

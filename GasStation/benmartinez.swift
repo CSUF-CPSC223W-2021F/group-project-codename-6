@@ -9,13 +9,31 @@ import MapKit
 import UIKit
 
 class benmartinez: UIViewController {
-    @IBOutlet var regulerPrice: UITextField!
+    @IBOutlet var regularPrice: UITextField!
+    @IBOutlet var midPrice: UITextField!
+    @IBOutlet var premiumPrice: UITextField!
+    
     var currentWaypoint: MKAnnotationView!
     var allAnnotation = gasStationsData()
     var currentPrice:Float?
+    var incomingAnnotation = ["Lat": 0.0, "Lon":0.0]
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        checkList()
+
         // Do any additional setup after loading the view.
+    }
+    
+    func checkList() {
+        for station in allAnnotation.getDtationData() {
+            if incomingAnnotation["Lat"] == station.latitude && incomingAnnotation["Lon"] == station.longitude {
+                regularPrice.text = "\(station.price["Regular"]!)"
+                midPrice.text = "\(station.price["Mid"]!)"
+                premiumPrice.text = "\(station.price["Premium"]!)"
+                
+            }
+        }
     }
     
     func changeDatabase() {
@@ -24,9 +42,14 @@ class benmartinez: UIViewController {
  
             if gasStation.getlatitude() == location?.latitude, gasStation.getlongitude() == location?.longitude {
                 
+                currentPrice = Float(regularPrice.text!)
+                gasStation.price["Regular"] = currentPrice
+                currentPrice = Float(midPrice.text!)
+                gasStation.price["Mid"] = currentPrice
+                currentPrice = Float(premiumPrice.text!)
+                gasStation.price["Premium"] = currentPrice
                 
                 print("price is change")
-                gasStation.price["Regular"] = currentPrice
                 self.allAnnotation.saveGasStationData()
             }
         }
@@ -41,8 +64,6 @@ class benmartinez: UIViewController {
         
         let des = segue.destination as? ViewController
 //            des!.changeRegulerPrice = 10
-        let current:String = regulerPrice.text!
-        currentPrice = Float(current)!
         changeDatabase()
         des?.itemxxx = allAnnotation
         des?.addedAnnotation = true

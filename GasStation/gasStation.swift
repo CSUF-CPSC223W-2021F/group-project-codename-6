@@ -26,7 +26,7 @@ class gasStations: Codable {
         self.latitude = latitude
         self.longitude = longitude
         self.imageName = imageName
-        
+
         stationPrice()
     }
 
@@ -95,7 +95,7 @@ class gasStations: Codable {
     func setlongitude(longitude: Double) {
         self.longitude = longitude
     }
-
+    
     // var latitude:Double
     // var longitude:Double
 }
