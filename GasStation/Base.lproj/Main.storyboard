@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="19162" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jRK-xH-VdD">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
@@ -439,7 +438,7 @@
                                 <state key="normal" title="ChangePrice"/>
                                 <connections>
                                     <action selector="changePrice:" destination="Wrs-Ap-3N8" eventType="touchUpInside" id="ode-Ep-m7D"/>
-                                    <segue destination="BYZ-38-t0r" kind="show" identifier="changePricesegue" id="Wuv-Iq-x5a"/>
+                                    <segue destination="Snm-Bc-aEt" kind="unwind" unwindAction="unwindWith_seg:" id="slO-my-c2z"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -453,6 +452,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3R-Lw-Dki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="Snm-Bc-aEt" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2133" y="238"/>
         </scene>
@@ -798,10 +798,8 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="I19-iU-r13"/>
         <segue reference="78l-ij-RlE"/>
         <segue reference="Oja-A8-2DX"/>
-        <segue reference="Wuv-Iq-x5a"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dollarsign.square" catalog="system" width="128" height="114"/>
