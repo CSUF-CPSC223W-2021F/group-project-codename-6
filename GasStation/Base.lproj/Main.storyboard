@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jRK-xH-VdD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wgI-aZ-SR2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -349,6 +349,7 @@
                         <outlet property="searchbar" destination="Ryn-lo-aI1" id="Kh1-Y5-gz0"/>
                         <outlet property="userLabel" destination="zCH-OS-f4K" id="71r-bi-Wyw"/>
                         <segue destination="m6W-yR-f0B" kind="show" identifier="userProfile" id="78l-ij-RlE"/>
+                        <segue destination="Wrs-Ap-3N8" kind="show" identifier="benSegue" id="Oja-A8-2DX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -429,15 +430,29 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBt-9X-Srr">
+                                <rect key="frame" x="59" y="758" width="282" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="ChangePrice"/>
+                                <connections>
+                                    <action selector="changePrice:" destination="Wrs-Ap-3N8" eventType="touchUpInside" id="ode-Ep-m7D"/>
+                                    <segue destination="BYZ-38-t0r" kind="show" identifier="changePricesegue" id="Wuv-Iq-x5a"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nBg-IW-5qX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Gas Station" image="dollarsign.square" catalog="system" id="0e1-ys-t8t"/>
+                    <navigationItem key="navigationItem" id="MJb-Qz-q9X"/>
+                    <connections>
+                        <outlet property="regulerPrice" destination="1m2-rA-aXv" id="rZr-sE-G2r"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3R-Lw-Dki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2402.898550724638" y="125.89285714285714"/>
+            <point key="canvasLocation" x="2133" y="238"/>
         </scene>
         <!--Route-->
         <scene sceneID="LRH-lF-PhH">
@@ -488,7 +503,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="m6W-yR-f0B" customClass="profile" customModule="GasStation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="mDJ-U1-KUT">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" fixedFrame="YES" image="person.crop.rectangle" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="zL6-5c-AVQ">
@@ -780,7 +795,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="QWY-iW-fHQ"/>
+        <segue reference="I19-iU-r13"/>
+        <segue reference="78l-ij-RlE"/>
+        <segue reference="Oja-A8-2DX"/>
+        <segue reference="Wuv-Iq-x5a"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dollarsign.square" catalog="system" width="128" height="114"/>
