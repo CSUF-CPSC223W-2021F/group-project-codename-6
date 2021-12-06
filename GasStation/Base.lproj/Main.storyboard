@@ -432,10 +432,10 @@
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBt-9X-Srr">
-                                <rect key="frame" x="59" y="758" width="282" height="50"/>
+                                <rect key="frame" x="66" y="580" width="282" height="50"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="30"/>
-                                <state key="normal" title="ChangePrice"/>
+                                <state key="normal" title="Change Price"/>
                                 <connections>
                                     <action selector="changePrice:" destination="Wrs-Ap-3N8" eventType="touchUpInside" id="ode-Ep-m7D"/>
                                     <segue destination="Snm-Bc-aEt" kind="unwind" unwindAction="unwindsWith_seg:" id="SO5-Vj-zNY"/>
