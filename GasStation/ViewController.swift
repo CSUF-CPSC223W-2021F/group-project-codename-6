@@ -21,7 +21,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     public var routeDirection: MKRoute!
     @IBOutlet var searchbar: UISearchBar!
     @IBOutlet var routeButton: UIButton!
-
+    var addedAnnotation: Bool = false
+    var currentMarker: MKAnnotationView?
+    
+    var nebil = [MKPointAnnotation]()
+    var itemxxx = gasStationsData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
@@ -40,10 +45,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
       
 //        addAnnotation(nameOFGasstation: "Costco")
 //        addAnnotation(nameOFGasstation: "Arco")
-        addAnnotation(nameOFGasstation: "Mobile")
-       
-       // itemxxx.saveGasStationData()
-        //itemxxx.getGasStationData()
+        addAnnotation(nameOFGasstation: "Mobil")
+        
+        // itemxxx.saveGasStationData()
+        // itemxxx.getGasStationData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,8 +57,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             newVC.currentRoute = routeDirection
         } else if segue.identifier == "userProfile" {
             let direction = segue.destination as! profile
-            direction.userInfo = self.currentUsers!
-        
+            direction.userInfo = currentUsers!
+        } else if segue.identifier == "benSegue" {
+            let direction = segue.destination as! benmartinez
+            direction.currentWaypoint = currentMarker
+            direction.allAnnotation = itemxxx
         }
     }
     
@@ -67,7 +75,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let search = MKLocalSearch(request: request)
         search.start { response, _ in
             if let response = response {
-                print(response.mapItems[0].name)
                 for location in response.mapItems {
                     self.myMapview.addAnnotation(location.placemark)
                 }
@@ -93,35 +100,32 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         myMapview.setRegion(currentRegine, animated: true)
     }
     
-    var nebil = [MKPointAnnotation]()
-    var itemxxx = gasStationsData()
-    
-   
-    
-    
     func addAnnotation(nameOFGasstation: String) {
-       // itemxxx.getGasStationData()
-
+        // itemxxx.getGasStationData()
         let gasStationnn = MKPointAnnotation()
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = nameOFGasstation
         let search = MKLocalSearch(request: request)
+        
         search.start { [self] response, _ in
+            
+            if addedAnnotation == false {
+                if let response = response {
+                    for location in response.mapItems {
+                        let gasStationxb = gasStations()
 
-            if let response = response {
-                for location in response.mapItems {
-                    let gasStationxb = gasStations()
-
-                    let coordinatexx = location.placemark.coordinate
-               
-                    gasStationxb.title = nameOFGasstation
-                  //  gasStationxb.setPrice(price: 5)
-                    gasStationxb.setlongitude(longitude: coordinatexx.longitude)
-                    gasStationxb.setLatitude(latitude: coordinatexx.latitude)
-                
-                    self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
+                        let coordinatexx = location.placemark.coordinate
+                   
+                        gasStationxb.title = nameOFGasstation
+                        //  gasStationxb.setPrice(price: 5)
+                        gasStationxb.setlongitude(longitude: coordinatexx.longitude)
+                        gasStationxb.setLatitude(latitude: coordinatexx.latitude)
+                    
+                        self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
+                    }
                 }
             }
+            
             for i in 0 ..< itemxxx.getDtationData().count {
                 let gasGokdemir = MKPointAnnotation()
 
@@ -167,145 +171,23 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
         
     @IBAction func cheapGasStation(_ sender: UIButton) {
-        let cheapestGasStation = gasStationsData()
+        let cheapestGasStation = itemxxx
         
-        //itemxxx.saveGasStationData()
-      //  itemxxx.getGasStationData()
+        // itemxxx.saveGasStationData()
+        //  itemxxx.getGasStationData()
 
         construcRoute(userlocation: myCurrentLocation!, gasStation: cheapestGasStation.cheapest())
         routeButton.isHidden = false
     }
  
-    
-    var changeRegulerPrice:Int?
+    var changeRegulerPrice: Int?
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-      
+        currentMarker = view
         performSegue(withIdentifier: "benSegue", sender: self)
         
-        
-        
-        
-        
-        
         print("changeRegulerPrice \(changeRegulerPrice)")
-        
-        
-           var newPrice = 0
-   
-        var myTextField = UITextField()
-           
-           
-        for gasStation in itemxxx.getDtationData() {
-            
-            let location = view.annotation?.coordinate
- 
-            if gasStation.getlatitude() == location?.latitude && gasStation.getlongitude() == location?.longitude {
-                newPrice = gasStation.getPrice()
-
-            }
-            
-            
-        }
-           
-           
-           
-           if let price = view.annotation?.subtitle, let title  = view.annotation?.title {
-               
-            
-            
-            let action = UIAlertAction(title: "yes", style: .default) { [self] (alertAction) in
-                
-                
-                
-                for gasStation in itemxxx.getDtationData() {
-                    
-                    let location = view.annotation?.coordinate
-         
-                    if gasStation.getlatitude() == location?.latitude && gasStation.getlongitude() == location?.longitude {
-                        
-                       
-                    
-                        
-                        let result = Int(myTextField.text!)
-                        
-                        print(result)
-                        
-                        if result != nil {
-                            
-                            
-                            gasStation.setPrice(price: result!)
-                            print("price is change")
-                            
-                            
-                            
-                            
-                            
-                            
-                            
-
-                        }
-                        newPrice = gasStation.getPrice()
-                        
-                        self.itemxxx.saveGasStationData()
-                     
-                
-                    }
-                 
-            }
-                
-                
-                
-            }
-            
-         
-            
-            
-            let cancelAction: UIAlertAction = UIAlertAction(title: "Cancel", style: .cancel) { action -> Void in
-                   //cancel code
-               }
-            
-            var alert = UIAlertController(title: "", message: " Current Price \(newPrice)".uppercased() , preferredStyle: .alert)
-            
-            alert.addTextField { (textField) -> Void in
-                textField.textColor = UIColor.blue
-                textField.placeholder = "Type Price"
-               
-                myTextField = textField
-                
-            
-            }
-            
-            alert.addAction(action)
-            alert.addAction(cancelAction)
-           
-
-              //present(alert, animated: true, completion: nil)
-           }
-           
-           
-           
-         
-   //     performSegue(withIdentifier: "benSegue", sender: self)
-
-      //  self.performSegue(withIdentifier: "benSegue", sender: self)
-
-        
-//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
-//
-//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "benSegue") as! benmartinez
-//        self.present(nextViewController, animated:true, completion:nil)
-        
-           
-       }
-       
-       
-       
-       
-
-    
-    
-  
+    }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         // to show annotation image
@@ -331,8 +213,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
     
     func construcRoute(userlocation: CLLocationCoordinate2D, gasStation: gasStations) {
-        
-        
         let gastationArray = gasStationsData().getDtationData()
         let nebil = CLLocationCoordinate2D(latitude: gasStation.getlatitude(), longitude: gasStation.getlongitude())
         
@@ -340,7 +220,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
         //
         
-      //  directionRequest.requestsAlternateRoutes = false
+        //  directionRequest.requestsAlternateRoutes = false
         //
         directionRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: userlocation))
         directionRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: nebil))
@@ -376,36 +256,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         return polyLineRenderer
     }
     
-    
-    
-    
-    
-    
-    
     /*
-      @IBAction func zoomIn(_ sender: UIButton) {
-          if let updateLocation = myCurrentLocation {
-              zoomDistance2 = zoomDistance2 - 500
-              zoomDistance1 = zoomDistance1 - 500
+     @IBAction func zoomIn(_ sender: UIButton) {
+         if let updateLocation = myCurrentLocation {
+             zoomDistance2 = zoomDistance2 - 500
+             zoomDistance1 = zoomDistance1 - 500
               
-              zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
-          }
-      }
+             zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
+         }
+     }
       
-      @IBAction func zoomOut(_ sender: UIButton) {
-          if let updateLocation = myCurrentLocation {
-              zoomDistance2 = zoomDistance2 + 500
-              zoomDistance1 = zoomDistance1 + 500
+     @IBAction func zoomOut(_ sender: UIButton) {
+         if let updateLocation = myCurrentLocation {
+             zoomDistance2 = zoomDistance2 + 500
+             zoomDistance1 = zoomDistance1 + 500
               
-              zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
-          }
-      }
+             zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
+         }
+     }
       
-      
-      */
-    
-    
-    
-    
-    
+     */
 }
