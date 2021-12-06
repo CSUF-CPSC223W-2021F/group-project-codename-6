@@ -223,6 +223,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                             
                             gasStation.setPrice(price: result!)
                             print("price is change")
+                            
+                            
+                            
+                            
+                            
+                            
+                            
 
                         }
                         newPrice = gasStation.getPrice()
@@ -260,13 +267,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             alert.addAction(cancelAction)
            
 
-               present(alert, animated: true, completion: nil)
+            //   present(alert, animated: true, completion: nil)
            }
            
            
            
          
+        performSegue(withIdentifier: "benSegue", sender: self)
 
+      //  self.performSegue(withIdentifier: "benSegue", sender: self)
+
+        
+//        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+//
+//        let nextViewController = storyBoard.instantiateViewController(withIdentifier: "benSegue") as! benmartinez
+//        self.present(nextViewController, animated:true, completion:nil)
+        
            
        }
        

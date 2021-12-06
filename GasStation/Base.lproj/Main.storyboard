@@ -308,11 +308,12 @@
                         <outlet property="searchbar" destination="Ryn-lo-aI1" id="Kh1-Y5-gz0"/>
                         <outlet property="userLabel" destination="zCH-OS-f4K" id="71r-bi-Wyw"/>
                         <segue destination="m6W-yR-f0B" kind="show" identifier="userProfile" id="78l-ij-RlE"/>
+                        <segue destination="Wrs-Ap-3N8" kind="show" identifier="benSegue" id="5wX-L9-XMW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011.5942028985507" y="125.89285714285714"/>
+            <point key="canvasLocation" x="1328" y="141"/>
         </scene>
         <!--Gas Station-->
         <scene sceneID="IBS-HQ-JtZ">
@@ -388,15 +389,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bes-ic-gSZ">
+                                <rect key="frame" x="92" y="761" width="181" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Save Change"/>
+                                <connections>
+                                    <action selector="saveChange:" destination="Wrs-Ap-3N8" eventType="touchUpInside" id="5NS-0h-pGf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nBg-IW-5qX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Gas Station" image="dollarsign.square" catalog="system" id="0e1-ys-t8t"/>
+                    <navigationItem key="navigationItem" id="mde-YQ-1II"/>
+                    <connections>
+                        <outlet property="MIdPrice" destination="Gm3-XD-BN6" id="fah-n5-Ysv"/>
+                        <outlet property="premiumPrice" destination="0ET-Qh-i1b" id="y4j-oe-Fdj"/>
+                        <outlet property="regulerPrice" destination="1m2-rA-aXv" id="Zpc-Yz-7aB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3R-Lw-Dki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2777" y="140"/>
+            <point key="canvasLocation" x="2615.9420289855075" y="113.83928571428571"/>
         </scene>
         <!--Route-->
         <scene sceneID="LRH-lF-PhH">
@@ -729,9 +745,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="X9f-Xd-fKo"/>
         <segue reference="I19-iU-r13"/>
-        <segue reference="Z7f-Fa-zBL"/>
+        <segue reference="78l-ij-RlE"/>
+        <segue reference="5wX-L9-XMW"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="dollarsign.square" catalog="system" width="128" height="114"/>
