@@ -8,11 +8,16 @@
 import UIKit
 
 class SignInViewController: UIViewController {
+    
+    
     var allUser = [UserInfo]()
         
     var singUnUser: UserInfo?
         
     let dataFilePath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!.appendingPathComponent("Item.plist")
+    
+    @IBOutlet var signIn:UIButton!
+    @IBOutlet var register:UIButton!
         
     @IBOutlet var passworldTextfield: UITextField!
         
@@ -20,7 +25,11 @@ class SignInViewController: UIViewController {
      
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        signIn.layer.cornerRadius = 22
+        register.layer.cornerRadius = 22
+        passworldTextfield.layer.cornerRadius = 22
+        emailTextfield.layer.cornerRadius = 22
+        
         print(dataFilePath)
         // Do any additional setup after loading the view.
     }

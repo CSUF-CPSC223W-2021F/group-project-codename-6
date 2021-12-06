@@ -17,31 +17,31 @@ class profile: UIViewController {
     @IBOutlet var birthdateLabel: UILabel!
     @IBOutlet var emailLabel: UILabel!
     @IBOutlet var usernameLabel: UILabel!
-    
-    
-    var myfirstName = String()
-    var mylastName = String()
-    var myphoneNumber = String()
-    var myhomeAddress = String()
-    var mybirthDate = String()
-    var myEmail = String()
-    var myuserName = String()
+    @IBOutlet var editButton: UIButton!
+
     var userInfo: UserInfo?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        firstnameLabel.text = userInfo?.name
-        lastnameLabel.text = mylastName
-        phonenumberLabel.text = myphoneNumber
-        homeaddressLabel.text = myhomeAddress
-        birthdateLabel.text = mybirthDate
-        emailLabel.text = myEmail
-        usernameLabel.text = myuserName
+        editButton.layer.cornerRadius = 22
+        
+        firstnameLabel.text = userInfo?.firstname
+        lastnameLabel.text = userInfo?.lastname
+        phonenumberLabel.text = userInfo?.phonenumber
+        homeaddressLabel.text = userInfo?.homeaddress
+        birthdateLabel.text = userInfo?.birthdate
+        emailLabel.text = userInfo?.email
+        usernameLabel.text = userInfo?.username
     }
     
     @IBAction func editButton(_ sender: UIButton) {
-        performSegue(withIdentifier: "segue", sender: self)
+        performSegue(withIdentifier: "Edit", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let nextDest = segue.destination as! profileViewController
+        nextDest.editUserInfo = userInfo
     }
 }
 
