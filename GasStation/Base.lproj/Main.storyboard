@@ -438,7 +438,7 @@
                                 <state key="normal" title="ChangePrice"/>
                                 <connections>
                                     <action selector="changePrice:" destination="Wrs-Ap-3N8" eventType="touchUpInside" id="ode-Ep-m7D"/>
-                                    <segue destination="Snm-Bc-aEt" kind="unwind" unwindAction="unwindWith_seg:" id="slO-my-c2z"/>
+                                    <segue destination="Snm-Bc-aEt" kind="unwind" unwindAction="unwindsWith_seg:" id="SO5-Vj-zNY"/>
                                 </connections>
                             </button>
                         </subviews>
