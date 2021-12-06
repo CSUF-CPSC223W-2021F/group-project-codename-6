@@ -15,7 +15,10 @@ class gasStationsData {
     init() {
         //  stationData = [gasStations]()
         // saveGasStationData()
+        
         getGasStationData()
+        
+        print("dataFilePath \(dataFilePath)")
     }
     
     func getDtationData() -> [gasStations] {
@@ -24,6 +27,7 @@ class gasStationsData {
     
     func AddGasstationToData(newGasStation: gasStations) {
         stationData.append(newGasStation)
+        saveGasStationData()
     }
     
     func printNumberOFGasStation() -> Int {
@@ -61,8 +65,12 @@ class gasStationsData {
             do {
                 let x = try decoder.decode([gasStations].self, from: datax)
                 
+                
                 stationData = x
-            
+         
+                
+                
+                
             } catch {
                 print("error \(error)")
             }

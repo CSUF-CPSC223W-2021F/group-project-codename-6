@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jRK-xH-VdD">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="wgI-aZ-SR2">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17703"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -34,7 +34,7 @@
             <objects>
                 <viewController modalPresentationStyle="fullScreen" id="jRK-xH-VdD" customClass="SignInViewController" customModule="GasStation" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zNa-V2-9FU">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Gas Stations" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mkr-YL-WPI">
@@ -91,7 +91,7 @@
                         <viewLayoutGuide key="safeArea" id="wtl-BH-EP7"/>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     </view>
-                    <navigationItem key="navigationItem" id="vGZ-ft-shj"/>
+                    <navigationItem key="navigationItem" id="fmb-0d-TJz"/>
                     <connections>
                         <outlet property="emailTextfield" destination="ZKA-gN-zyZ" id="nMZ-2F-Elk"/>
                         <outlet property="passworldTextfield" destination="DIZ-wB-de6" id="rsP-1z-Od6"/>
@@ -142,6 +142,15 @@
                                     <action selector="signUp:" destination="ap6-FD-FQ1" eventType="touchUpInside" id="ztR-Vh-A4b"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DzB-xb-WUK">
+                                <rect key="frame" x="20" y="44" width="161" height="55"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                <state key="normal" title="Go back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jRK-xH-VdD" kind="show" id="22y-nr-Vvj"/>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Phone Number" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="dXV-vl-VY9">
                                 <rect key="frame" x="61" y="462" width="254" height="34"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -349,11 +358,12 @@
                         <outlet property="searchbar" destination="Ryn-lo-aI1" id="Kh1-Y5-gz0"/>
                         <outlet property="userLabel" destination="zCH-OS-f4K" id="71r-bi-Wyw"/>
                         <segue destination="m6W-yR-f0B" kind="show" identifier="userProfile" id="78l-ij-RlE"/>
+                        <segue destination="Wrs-Ap-3N8" kind="show" identifier="benSegue" id="5wX-L9-XMW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1011.5942028985507" y="125.89285714285714"/>
+            <point key="canvasLocation" x="1328" y="141"/>
         </scene>
         <!--Gas Station-->
         <scene sceneID="IBS-HQ-JtZ">
@@ -429,15 +439,30 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bes-ic-gSZ">
+                                <rect key="frame" x="92" y="761" width="181" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                <state key="normal" title="Save Change"/>
+                                <connections>
+                                    <action selector="saveChange:" destination="Wrs-Ap-3N8" eventType="touchUpInside" id="5NS-0h-pGf"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="nBg-IW-5qX"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Gas Station" image="dollarsign.square" catalog="system" id="0e1-ys-t8t"/>
+                    <navigationItem key="navigationItem" id="mde-YQ-1II"/>
+                    <connections>
+                        <outlet property="MIdPrice" destination="Gm3-XD-BN6" id="fah-n5-Ysv"/>
+                        <outlet property="premiumPrice" destination="0ET-Qh-i1b" id="y4j-oe-Fdj"/>
+                        <outlet property="regulerPrice" destination="1m2-rA-aXv" id="Zpc-Yz-7aB"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="V3R-Lw-Dki" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2402.898550724638" y="125.89285714285714"/>
+            <point key="canvasLocation" x="2615.9420289855075" y="113.83928571428571"/>
         </scene>
         <!--Route-->
         <scene sceneID="LRH-lF-PhH">
@@ -780,6 +805,9 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="I19-iU-r13"/>
+        <segue reference="78l-ij-RlE"/>
+        <segue reference="5wX-L9-XMW"/>
         <segue reference="QWY-iW-fHQ"/>
     </inferredMetricsTieBreakers>
     <resources>
@@ -796,6 +824,9 @@
         </systemColor>
         <systemColor name="systemBlueColor">
             <color red="0.0" green="0.47843137254901963" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+        <systemColor name="systemTealColor">
+            <color red="0.35294117647058826" green="0.78431372549019607" blue="0.98039215686274506" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
