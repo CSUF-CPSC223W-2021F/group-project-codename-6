@@ -50,15 +50,13 @@ class benmartinez: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        if segue.identifier == "changePricesegue" {
-            let des = segue.destination as? ViewController
+        let des = segue.destination as? ViewController
 //            des!.changeRegulerPrice = 10
-            let d:String = regulerPrice.text!
-            test = Int(d)!
-            changeDatabase()
-            des?.itemxxx = allAnnotation
-            des?.addedAnnotation = true
-        }
+        let d:String = regulerPrice.text!
+        test = Int(d)!
+        changeDatabase()
+        des?.itemxxx = allAnnotation
+        des?.addedAnnotation = true
     }
     
     @IBAction func changePrice(_ sender: UIButton) {}
