@@ -38,11 +38,11 @@ class gasStationsData {
     }
     
     func cheapest() -> gasStations {
-        var myMax = stationData[0].price
+        var myMax:Float = stationData[0].price["Regular"]!
         var newI = 0
         for i in 0 ..< stationData.count {
-            if stationData[i].price < myMax {
-                myMax = stationData[i].price
+            if stationData[i].price["Regular"]! < myMax {
+                myMax = stationData[i].price["Regular"]!
                 newI = i
             }
         }

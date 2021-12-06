@@ -37,6 +37,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // Do any additional setup after loading the view.
         searchbar.delegate = self
         searchbar.showsSearchResultsButton = true
+        
         // addAnnotation(nameOFGasstation: "Argo")
         locationService()
         // addAnnotation(nameOFGasstation: "Mobile")
@@ -45,7 +46,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
       
 //        addAnnotation(nameOFGasstation: "Costco")
 //        addAnnotation(nameOFGasstation: "Arco")
-        addAnnotation(nameOFGasstation: "Mobil")
         
         // itemxxx.saveGasStationData()
         // itemxxx.getGasStationData()
@@ -84,7 +84,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let direction = Direction()
         direction.search(request, self)
     }
-
+    
     @IBAction func unwinds (_seg: UIStoryboardSegue) {
         print("Unwind")
     }
@@ -106,9 +106,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func addAnnotation(nameOFGasstation: String) {
         // itemxxx.getGasStationData()
+        let currentRegine = MKCoordinateRegion(center: myCurrentLocation!, latitudinalMeters: zoomDistance1, longitudinalMeters: zoomDistance2)
+        
         let gasStationnn = MKPointAnnotation()
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = nameOFGasstation
+        request.region = currentRegine
         let search = MKLocalSearch(request: request)
         
         search.start { [self] response, _ in
@@ -121,20 +124,21 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                         let coordinatexx = location.placemark.coordinate
                    
                         gasStationxb.title = nameOFGasstation
-                        //  gasStationxb.setPrice(price: 5)
                         gasStationxb.setlongitude(longitude: coordinatexx.longitude)
                         gasStationxb.setLatitude(latitude: coordinatexx.latitude)
-                    
+                        
                         self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
                     }
                 }
             }
             
+            addedAnnotation = true
+            
             for i in 0 ..< itemxxx.getDtationData().count {
                 let gasGokdemir = MKPointAnnotation()
 
-                gasGokdemir.subtitle = "\(itemxxx.getDtationData()[i].getPrice())"
                 gasGokdemir.title = itemxxx.getDtationData()[i].getTitle()
+                gasGokdemir.subtitle = "\(itemxxx.getDtationData()[i].getPrice("Regular"))"
                 gasGokdemir.coordinate = CLLocationCoordinate2D(latitude: itemxxx.getDtationData()[i].getlatitude(), longitude: itemxxx.getDtationData()[i].getlongitude())
                 
                 nebil.append(gasGokdemir)
@@ -149,7 +153,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if let updateLocation = locations.first?.coordinate {
             myCurrentLocation = updateLocation
             zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance1, distance1: zoomDistance2)
-            
+            addAnnotation(nameOFGasstation: "Mobil")
             // construcRoute(userlocation: updateLocation, gasStation: <#gasStation#>)
         }
     }
