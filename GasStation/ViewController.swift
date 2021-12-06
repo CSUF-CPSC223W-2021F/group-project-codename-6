@@ -4,7 +4,6 @@
 //
 //  Created by csuftitan on 9/19/21.
 //
-
 import MapKit
 import UIKit
 
@@ -30,7 +29,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let currentName = currentUsers?.getfirstName() {
+       
+        if let currentName = currentUsers?.getUsername() {
             userLabel.text = "Welcome \(currentName)"
         }
         
@@ -42,11 +42,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // addAnnotation(nameOFGasstation: "Mobile")
         // addAnnotation(nameOFGasstation: "Shell")
         // addAnnotation(nameOFGasstation: "Chevron")
+      
 //        addAnnotation(nameOFGasstation: "Costco")
 //        addAnnotation(nameOFGasstation: "Arco")
         addAnnotation(nameOFGasstation: "Mobil")
         
         // itemxxx.saveGasStationData()
+        // itemxxx.getGasStationData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -111,6 +113,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
                 if let response = response {
                     for location in response.mapItems {
                         let gasStationxb = gasStations()
+
                         let coordinatexx = location.placemark.coordinate
                    
                         gasStationxb.title = nameOFGasstation
@@ -252,4 +255,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         polyLineRenderer.lineWidth = 8
         return polyLineRenderer
     }
+    
+    /*
+     @IBAction func zoomIn(_ sender: UIButton) {
+         if let updateLocation = myCurrentLocation {
+             zoomDistance2 = zoomDistance2 - 500
+             zoomDistance1 = zoomDistance1 - 500
+              
+             zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
+         }
+     }
+      
+     @IBAction func zoomOut(_ sender: UIButton) {
+         if let updateLocation = myCurrentLocation {
+             zoomDistance2 = zoomDistance2 + 500
+             zoomDistance1 = zoomDistance1 + 500
+              
+             zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
+         }
+     }
+      
+     */
 }
