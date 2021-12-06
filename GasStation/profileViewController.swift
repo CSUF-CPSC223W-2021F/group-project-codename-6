@@ -54,8 +54,6 @@ class profileViewController: UIViewController {
         guard usernameField.text != nil else {
             return
         }
-        
-        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

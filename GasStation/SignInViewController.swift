@@ -37,16 +37,10 @@ class SignInViewController: UIViewController {
     @IBAction func signIn(_ sender: UIButton) {
         getData()
         for user in allUser {
-            guard emailTextfield.text == user.getEmail() else {
-                showMessage(myMessage: "Your Email or password is incorrect")
+            guard emailTextfield.text == user.getEmail() || passworldTextfield.text == user.getPassword() else {
+                showMessage(myMessage: "your Email or password is wrong")
                 return
             }
-            guard passworldTextfield.text == user.getPassword() else {
-                showMessage(myMessage: "Your Email or password is incorrect")
-                return
-            }
-            
-            
                 
             if emailTextfield.text == user.getEmail(), passworldTextfield.text == user.getPassword() {
                 //  showMessage(myMessage: "Welcome \(user.getName().uppercased())")
