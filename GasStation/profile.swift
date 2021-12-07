@@ -33,16 +33,25 @@ class profile: UIViewController {
         birthdateLabel.text = userInfo?.birthdate
         emailLabel.text = userInfo?.email
         usernameLabel.text = userInfo?.username
-    }
     
+    }
+    @IBAction func unwind (_seg: UIStoryboardSegue) {
+        print("Unwind")
+    }
     @IBAction func editButton(_ sender: UIButton) {
         performSegue(withIdentifier: "Edit", sender: self)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let nextDest = segue.destination as! profileViewController
-        nextDest.editUserInfo = userInfo
+        if segue.identifier == "Edit" {
+            let nextDest = segue.destination as! profileViewController
+            nextDest.editUserInfo = userInfo
+        }
+
+        
+        
     }
+    
 }
 
 
