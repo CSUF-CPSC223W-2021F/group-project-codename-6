@@ -29,7 +29,7 @@ class RouteDirectionController: UIViewController, MKMapViewDelegate {
         }
         
         textView.text += "Distance: \(miles) miles\n"
-        textView.text += "ETA: \(time/60) minutes\n"
+        textView.text += "ETA: \(round(time/60) / 100) minutes\n"
         
     }
 }
