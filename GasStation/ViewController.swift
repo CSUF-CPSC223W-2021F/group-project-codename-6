@@ -4,7 +4,6 @@
 //
 //  Created by csuftitan on 9/19/21.
 //
-
 import MapKit
 import UIKit
 
@@ -22,28 +21,34 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     public var routeDirection: MKRoute!
     @IBOutlet var searchbar: UISearchBar!
     @IBOutlet var routeButton: UIButton!
-
+    var addedAnnotation: Bool = false
+    var currentMarker: MKAnnotationView?
+    var selectedAnnotation = ["Lat": 0.0, "Lon":0.0]
+    var nebil = [MKPointAnnotation]()
+    var itemxxx = gasStationsData()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        if let currentName = currentUsers?.getfirstName() {
+       
+        if let currentName = currentUsers?.getUsername() {
             userLabel.text = "Welcome \(currentName)"
         }
         
         // Do any additional setup after loading the view.
         searchbar.delegate = self
         searchbar.showsSearchResultsButton = true
+        
         // addAnnotation(nameOFGasstation: "Argo")
         locationService()
         // addAnnotation(nameOFGasstation: "Mobile")
         // addAnnotation(nameOFGasstation: "Shell")
         // addAnnotation(nameOFGasstation: "Chevron")
       
-        addAnnotation(nameOFGasstation: "Costco")
-        addAnnotation(nameOFGasstation: "Arco")
-        addAnnotation(nameOFGasstation: "Mobile")
-       
-        itemxxx.saveGasStationData()
-        itemxxx.getGasStationData()
+//        addAnnotation(nameOFGasstation: "Costco")
+//        addAnnotation(nameOFGasstation: "Arco")
+        
+        // itemxxx.saveGasStationData()
+        // itemxxx.getGasStationData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -52,8 +57,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             newVC.currentRoute = routeDirection
         } else if segue.identifier == "userProfile" {
             let direction = segue.destination as! profile
-            direction.userInfo = self.currentUsers!
-        
+            direction.userInfo = currentUsers!
+        } else if segue.identifier == "benSegue" {
+            let direction = segue.destination as! benmartinez
+            direction.currentWaypoint = currentMarker
+            direction.allAnnotation = itemxxx
+            direction.incomingAnnotation = selectedAnnotation
         }
     }
     
@@ -67,7 +76,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let search = MKLocalSearch(request: request)
         search.start { response, _ in
             if let response = response {
-                print(response.mapItems[0].name)
                 for location in response.mapItems {
                     self.myMapview.addAnnotation(location.placemark)
                 }
@@ -77,7 +85,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let direction = Direction()
         direction.search(request, self)
     }
-
+    
+    @IBAction func unwinds (_seg: UIStoryboardSegue) {
+        print("Unwind")
+    }
+    
     func locationService() {
         myLocationManager.delegate = self
         myMapview.delegate = self
@@ -93,36 +105,40 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         myMapview.setRegion(currentRegine, animated: true)
     }
     
-    var nebil = [MKPointAnnotation]()
-    var itemxxx = gasStationsData()
-    
     func addAnnotation(nameOFGasstation: String) {
-        itemxxx.getGasStationData()
-
+        // itemxxx.getGasStationData()
+        let currentRegine = MKCoordinateRegion(center: myCurrentLocation!, latitudinalMeters: zoomDistance1, longitudinalMeters: zoomDistance2)
+        
         let gasStationnn = MKPointAnnotation()
         let request = MKLocalSearch.Request()
         request.naturalLanguageQuery = nameOFGasstation
+        request.region = currentRegine
         let search = MKLocalSearch(request: request)
+        
         search.start { [self] response, _ in
+            
+            if addedAnnotation == false {
+                if let response = response {
+                    for location in response.mapItems {
+                        let gasStationxb = gasStations()
 
-            if let response = response {
-                for location in response.mapItems {
-                    let gasStationxb = gasStations()
-
-                    let coordinatexx = location.placemark.coordinate
-               
-                    gasStationxb.title = nameOFGasstation
-                    gasStationxb.setlongitude(longitude: coordinatexx.longitude)
-                    gasStationxb.setLatitude(latitude: coordinatexx.latitude)
-                
-                    self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
+                        let coordinatexx = location.placemark.coordinate
+                   
+                        gasStationxb.title = nameOFGasstation
+                        gasStationxb.setlongitude(longitude: coordinatexx.longitude)
+                        gasStationxb.setLatitude(latitude: coordinatexx.latitude)
+                        self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
+                    }
                 }
             }
+            
+            addedAnnotation = true
+            
             for i in 0 ..< itemxxx.getDtationData().count {
                 let gasGokdemir = MKPointAnnotation()
 
-                gasGokdemir.subtitle = "\(itemxxx.getDtationData()[i].getPrice())"
                 gasGokdemir.title = itemxxx.getDtationData()[i].getTitle()
+                gasGokdemir.subtitle = "\(itemxxx.getDtationData()[i].getPrice("Regular"))"
                 gasGokdemir.coordinate = CLLocationCoordinate2D(latitude: itemxxx.getDtationData()[i].getlatitude(), longitude: itemxxx.getDtationData()[i].getlongitude())
                 
                 nebil.append(gasGokdemir)
@@ -137,7 +153,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if let updateLocation = locations.first?.coordinate {
             myCurrentLocation = updateLocation
             zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance1, distance1: zoomDistance2)
-            
+            addAnnotation(nameOFGasstation: "Mobil")
             // construcRoute(userlocation: updateLocation, gasStation: <#gasStation#>)
         }
     }
@@ -163,60 +179,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
         
     @IBAction func cheapGasStation(_ sender: UIButton) {
-        let cheapestGasStation = gasStationsData()
+        let cheapestGasStation = itemxxx
+        
+        // itemxxx.saveGasStationData()
+        //  itemxxx.getGasStationData()
 
         construcRoute(userlocation: myCurrentLocation!, gasStation: cheapestGasStation.cheapest())
         routeButton.isHidden = false
     }
-    
-    @IBAction func zoomIn(_ sender: UIButton) {
-        if let updateLocation = myCurrentLocation {
-            zoomDistance2 = zoomDistance2 - 500
-            zoomDistance1 = zoomDistance1 - 500
-            
-            zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
-        }
-    }
-    
-    @IBAction func zoomOut(_ sender: UIButton) {
-        if let updateLocation = myCurrentLocation {
-            zoomDistance2 = zoomDistance2 + 500
-            zoomDistance1 = zoomDistance1 + 500
-            
-            zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
-        }
-    }
+ 
+    var changeRegulerPrice: Int?
     
     func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
-        for gasStation in itemxxx.getDtationData() {
-            let location = view.annotation?.coordinate
-
-            if gasStation.getlatitude() == location?.latitude, gasStation.getlongitude() == location?.longitude {
-                gasStation.setPrice(price: 56)
-                
-                // gasStation.settitle(title: "neden ben")
-                
-                itemxxx.saveGasStationData()
-                //   itemxxx.getGasStationData()
-                
-                // myMapview.addAnnotations(nebil)
-            
-                // myMapview.showAnnotations(nebil, animated: true)
-                var path = itemxxx.dataFilePath
-                print(path)
-            }
-        }
-        print(view.annotation?.title!)
+        currentMarker = view
+        selectedAnnotation["Lat"] = currentMarker?.annotation?.coordinate.latitude
+        selectedAnnotation["Lon"] = currentMarker?.annotation?.coordinate.longitude
+        performSegue(withIdentifier: "benSegue", sender: self)
         
-        if let price = view.annotation?.subtitle, let title = view.annotation?.title {
-            view.annotation?.coordinate
-            
-            var alert = UIAlertController(title: "", message: " price \(price) and name is \(title!)".uppercased(), preferredStyle: .alert)
-        
-            alert.addAction(UIAlertAction(title: "Yes", style: .default, handler: nil))
-        
-            present(alert, animated: true, completion: nil)
-        }
+        print("changeRegulerPrice \(changeRegulerPrice)")
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -236,8 +216,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         } else if let title = annotation.title, title == "Costco" {
             annotationView?.image = UIImage(named: "costco.png")
             return annotationView
+        } else if let title = annotation.title, title == "Mobil" {
+            annotationView?.image = UIImage(named: "mobil.png")
+            return annotationView
         }
-        
         annotationView?.canShowCallout = true
         return nil
     }
@@ -247,6 +229,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         let nebil = CLLocationCoordinate2D(latitude: gasStation.getlatitude(), longitude: gasStation.getlongitude())
         
         let directionRequest = MKDirections.Request()
+        
+        //
+        
+        //  directionRequest.requestsAlternateRoutes = false
+        //
         directionRequest.source = MKMapItem(placemark: MKPlacemark(coordinate: userlocation))
         directionRequest.destination = MKMapItem(placemark: MKPlacemark(coordinate: nebil))
         
@@ -280,4 +267,25 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         polyLineRenderer.lineWidth = 8
         return polyLineRenderer
     }
+    
+    /*
+     @IBAction func zoomIn(_ sender: UIButton) {
+         if let updateLocation = myCurrentLocation {
+             zoomDistance2 = zoomDistance2 - 500
+             zoomDistance1 = zoomDistance1 - 500
+              
+             zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
+         }
+     }
+      
+     @IBAction func zoomOut(_ sender: UIButton) {
+         if let updateLocation = myCurrentLocation {
+             zoomDistance2 = zoomDistance2 + 500
+             zoomDistance1 = zoomDistance1 + 500
+              
+             zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance2, distance1: zoomDistance1)
+         }
+     }
+      
+     */
 }
