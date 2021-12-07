@@ -21,9 +21,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     public var routeDirection: MKRoute!
     @IBOutlet var searchbar: UISearchBar!
     @IBOutlet var routeButton: UIButton!
-    var addedAnnotation: Bool = false
     var currentMarker: MKAnnotationView?
-    var selectedAnnotation = ["Lat": 0.0, "Lon":0.0]
+    var selectedAnnotation = ["Lat": 0.0, "Lon": 0.0]
     var nebil = [MKPointAnnotation]()
     var itemxxx = gasStationsData()
     
@@ -43,7 +42,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // addAnnotation(nameOFGasstation: "Mobile")
         // addAnnotation(nameOFGasstation: "Shell")
         // addAnnotation(nameOFGasstation: "Chevron")
-      
 //        addAnnotation(nameOFGasstation: "Costco")
 //        addAnnotation(nameOFGasstation: "Arco")
         
@@ -70,23 +68,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         print(searchBar.text!)
         var stored = [MKPointAnnotation]()
        
-        let request = MKLocalSearch.Request()
-        request.naturalLanguageQuery = searchBar.text!
-        
-        let search = MKLocalSearch(request: request)
-        search.start { response, _ in
-            if let response = response {
-                for location in response.mapItems {
-                    self.myMapview.addAnnotation(location.placemark)
-                }
-            }
-        }
-        
         let direction = Direction()
-        direction.search(request, self)
+        direction.search(searchBar.text!,self)
     }
     
-    @IBAction func unwinds (_seg: UIStoryboardSegue) {
+    @IBAction func unwinds(_seg: UIStoryboardSegue) {
         print("Unwind")
     }
     
@@ -107,7 +93,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     
     func addAnnotation(nameOFGasstation: String) {
         // itemxxx.getGasStationData()
-        let currentRegine = MKCoordinateRegion(center: myCurrentLocation!, latitudinalMeters: zoomDistance1, longitudinalMeters: zoomDistance2)
+        let university = CLLocationCoordinate2D(latitude: 33.881074, longitude: -117.884964)
+        let currentRegine = MKCoordinateRegion(center: university, latitudinalMeters: zoomDistance1, longitudinalMeters: zoomDistance2)
         
         let gasStationnn = MKPointAnnotation()
         let request = MKLocalSearch.Request()
@@ -115,24 +102,24 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         request.region = currentRegine
         let search = MKLocalSearch(request: request)
         
+        if itemxxx.getDtationData().contains(where: { $0.title == nameOFGasstation }) {
+            return
+        }
+        
         search.start { [self] response, _ in
             
-            if addedAnnotation == false {
-                if let response = response {
-                    for location in response.mapItems {
-                        let gasStationxb = gasStations()
-
-                        let coordinatexx = location.placemark.coordinate
+            if let response = response {
+                for location in response.mapItems {
+                    let gasStationxb = gasStations()
+                    
+                    let coordinatexx = location.placemark.coordinate
                    
-                        gasStationxb.title = nameOFGasstation
-                        gasStationxb.setlongitude(longitude: coordinatexx.longitude)
-                        gasStationxb.setLatitude(latitude: coordinatexx.latitude)
-                        self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
-                    }
+                    gasStationxb.title = nameOFGasstation
+                    gasStationxb.setlongitude(longitude: coordinatexx.longitude)
+                    gasStationxb.setLatitude(latitude: coordinatexx.latitude)
+                    self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
                 }
             }
-            
-            addedAnnotation = true
             
             for i in 0 ..< itemxxx.getDtationData().count {
                 let gasGokdemir = MKPointAnnotation()
@@ -153,22 +140,22 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         if let updateLocation = locations.first?.coordinate {
             myCurrentLocation = updateLocation
             zoomToCurrentLocation(coordinate: updateLocation, distance2: zoomDistance1, distance1: zoomDistance2)
-            addAnnotation(nameOFGasstation: "Mobil")
             // construcRoute(userlocation: updateLocation, gasStation: <#gasStation#>)
         }
     }
    
     @IBAction func nearGasStation(_ sender: UIButton) {
-        let proxmity = gasStationsData()
+        let proxmity = itemxxx.getDtationData()
         let directiontoNearest = Direction()
         var min: Double = 0.0000
         var nearestGas: gasStations?
         
-        for x in proxmity.stationData {
+        for x in proxmity {
             let distance: Double = directiontoNearest.nearest(lat1: myCurrentLocation!.latitude, lon1: myCurrentLocation!.longitude, lat2: x.latitude, lon2: x.longitude)
             
             if min == 0.0 {
                 min = distance
+                nearestGas = x
             } else if min > distance {
                 min = distance
                 nearestGas = x
@@ -207,7 +194,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             annotationView = MKAnnotationView(annotation: annotation, reuseIdentifier: "AnnotationView")
         }
         
-        if let title = annotation.title, title == "ARCO" {
+        if let title = annotation.title, title == "Arco" {
             annotationView?.image = UIImage(named: "arco.png")
             return annotationView
         } else if let title = annotation.title, title == "Shell" {
@@ -249,6 +236,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             if let error = error {
                 print(error.localizedDescription)
             } else if let responce = directionResponce, responce.routes.count > 0 {
+                if strongSelf.myMapview.overlays.count > 0 {
+                    for route in strongSelf.myMapview.overlays {
+                        strongSelf.myMapview.removeOverlay(route)
+                    }
+                }
                 strongSelf.currentRoute = responce.routes[0]
                 strongSelf.myMapview.addOverlay(responce.routes[0].polyline)
                 strongSelf.myMapview.setVisibleMapRect(responce.routes[0].polyline.boundingMapRect, animated: true)
