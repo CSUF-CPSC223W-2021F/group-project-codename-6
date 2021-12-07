@@ -66,7 +66,6 @@ class benmartinez: UIViewController {
 //            des!.changeRegulerPrice = 10
         changeDatabase()
         des?.itemxxx = allAnnotation
-        des?.addedAnnotation = true
     }
     
     @IBAction func changePrice(_ sender: UIButton) {}

@@ -17,12 +17,6 @@ class gasStationsData {
         // saveGasStationData()
 //        getGasStationData()
         
-        do {
-            try FileManager.default.removeItem(at: dataFilePath)
-            
-        } catch {
-            print("file doesnt exist")
-        }
     }
     
     func getDtationData() -> [gasStations] {

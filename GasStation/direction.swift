@@ -29,20 +29,11 @@ struct Direction {
 //        return possibleGasStation
 //    }
     
-    func search(_ parameter: MKLocalSearch.Request,_ view: ViewController) {
-        if !checkValid(parameter.naturalLanguageQuery) {
+    func search(_ parameter: String,_ view: ViewController) {
+        if !checkValid(parameter) {
             return
         }
-        
-        let search = MKLocalSearch(request: parameter)
-        search.start { response, _ in
-            if let response = response {
-                for location in response.mapItems {
-                    view.newData.addtoList(location)
-                }
-                view.myMapview.addAnnotations(view.newData.placeStation)
-            }
-        }
+        view.addAnnotation(nameOFGasstation: parameter)
     }
     
     //Code origin https://rosettacode.org/wiki/Haversine_formula#Swift
