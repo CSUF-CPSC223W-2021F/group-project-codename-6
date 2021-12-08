@@ -14,6 +14,9 @@ class gasStationsData {
     
     init() {
        
+        getGasStationData()
+        saveGasStationData()
+        print(dataFilePath)
         //  stationData = [gasStations]()
         // saveGasStationData()
 //        getGasStationData()
@@ -26,6 +29,8 @@ class gasStationsData {
     
     func AddGasstationToData(newGasStation: gasStations) {
         stationData.append(newGasStation)
+        
+
     }
     
     func printNumberOFGasStation() -> Int {
@@ -49,7 +54,11 @@ class gasStationsData {
         
         do {
             let data = try encoder.encode(stationData)
+          
+            
             try data.write(to: dataFilePath)
+          
+            
             
         } catch {
             print("error occur\(error)")

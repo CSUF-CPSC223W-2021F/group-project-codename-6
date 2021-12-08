@@ -65,7 +65,7 @@ class benmartinez: UIViewController {
         let des = segue.destination as? ViewController
 //            des!.changeRegulerPrice = 10
         changeDatabase()
-        des?.itemxxx = allAnnotation
+        des?.gasStationDataClass = allAnnotation
     }
     
     @IBAction func changePrice(_ sender: UIButton) {}

@@ -23,12 +23,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     @IBOutlet var routeButton: UIButton!
     var currentMarker: MKAnnotationView?
     var selectedAnnotation = ["Lat": 0.0, "Lon": 0.0]
-    var nebil = [MKPointAnnotation]()
-    var itemxxx = gasStationsData()
+    var annotationArray = [MKPointAnnotation]()
+    var gasStationDataClass = gasStationsData()
     
     override func viewDidLoad() {
-        super.viewDidLoad()
-       
+        super.viewDidLoad()       
         if let currentName = currentUsers?.getUsername() {
             userLabel.text = "Welcome \(currentName)"
         }
@@ -46,7 +45,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
 //        addAnnotation(nameOFGasstation: "Arco")
         
         // itemxxx.saveGasStationData()
-        // itemxxx.getGasStationData()
+         gasStationDataClass.getGasStationData()
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -59,7 +58,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         } else if segue.identifier == "benSegue" {
             let direction = segue.destination as! benmartinez
             direction.currentWaypoint = currentMarker
-            direction.allAnnotation = itemxxx
+            direction.allAnnotation = gasStationDataClass
             direction.incomingAnnotation = selectedAnnotation
         }
     }
@@ -101,39 +100,42 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         request.naturalLanguageQuery = nameOFGasstation
         request.region = currentRegine
         let search = MKLocalSearch(request: request)
-        
-        if itemxxx.getDtationData().contains(where: { $0.title == nameOFGasstation }) {
+ 
+    
+    if gasStationDataClass.getDtationData().contains(where: { $0.title == nameOFGasstation }) {
             return
         }
+
+ 
         
       
         search.start { [self] response, _ in
             
             if let response = response {
                 for location in response.mapItems {
-                    let gasStationxb = gasStations()
+                    let gasStationObject = gasStations()
                     
                     let coordinatexx = location.placemark.coordinate
                    
-                    gasStationxb.title = nameOFGasstation
-                    gasStationxb.setlongitude(longitude: coordinatexx.longitude)
-                    gasStationxb.setLatitude(latitude: coordinatexx.latitude)
-                    self.itemxxx.AddGasstationToData(newGasStation: gasStationxb)
+                    gasStationObject.title = nameOFGasstation
+                    gasStationObject.setlongitude(longitude: coordinatexx.longitude)
+                    gasStationObject.setLatitude(latitude: coordinatexx.latitude)
+                    self.gasStationDataClass.AddGasstationToData(newGasStation: gasStationObject)
                 }
             }
             
-            for i in 0 ..< itemxxx.getDtationData().count {
-                let gasGokdemir = MKPointAnnotation()
+            for i in 0 ..< gasStationDataClass.getDtationData().count {
+                let annotationOfGasStation = MKPointAnnotation()
 
-                gasGokdemir.title = itemxxx.getDtationData()[i].getTitle()
-                gasGokdemir.subtitle = "\(itemxxx.getDtationData()[i].getPrice("Regular"))"
-                gasGokdemir.coordinate = CLLocationCoordinate2D(latitude: itemxxx.getDtationData()[i].getlatitude(), longitude: itemxxx.getDtationData()[i].getlongitude())
+                annotationOfGasStation.title = gasStationDataClass.getDtationData()[i].getTitle()
+                annotationOfGasStation.subtitle = "\(gasStationDataClass.getDtationData()[i].getPrice("Regular"))"
+                annotationOfGasStation.coordinate = CLLocationCoordinate2D(latitude: gasStationDataClass.getDtationData()[i].getlatitude(), longitude: gasStationDataClass.getDtationData()[i].getlongitude())
                 
-                nebil.append(gasGokdemir)
+                annotationArray.append(annotationOfGasStation)
             }
 
-            myMapview.addAnnotations(nebil)
-            myMapview.showAnnotations(nebil, animated: true)
+            myMapview.addAnnotations(annotationArray)
+            myMapview.showAnnotations(annotationArray, animated: true)
         }
     }
 
@@ -146,7 +148,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
    
     @IBAction func nearGasStation(_ sender: UIButton) {
-        let proxmity = itemxxx.getDtationData()
+        let proxmity = gasStationDataClass.getDtationData()
         let directiontoNearest = Direction()
         var min: Double = 0.0000
         var nearestGas: gasStations?
@@ -167,7 +169,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     }
         
     @IBAction func cheapGasStation(_ sender: UIButton) {
-        let cheapestGasStation = itemxxx
+        let cheapestGasStation = gasStationDataClass
         
         // itemxxx.saveGasStationData()
         //  itemxxx.getGasStationData()
@@ -182,9 +184,13 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         currentMarker = view
         selectedAnnotation["Lat"] = currentMarker?.annotation?.coordinate.latitude
         selectedAnnotation["Lon"] = currentMarker?.annotation?.coordinate.longitude
+       
         performSegue(withIdentifier: "benSegue", sender: self)
         
-        print("changeRegulerPrice \(changeRegulerPrice)")
+        gasStationDataClass.saveGasStationData()
+   
+    
+    
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
