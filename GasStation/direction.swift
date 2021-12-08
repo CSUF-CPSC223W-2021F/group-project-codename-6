@@ -17,7 +17,7 @@ struct Direction {
 //    }
 //
     func checkValid(_ searchingFor: String?) -> Bool {
-        let validGasStation = ["Arco","Mobil","Shell","Chevron"]
+        let validGasStation = ["Arco","Mobil","Shell","Chevron","Costco","76"]
         if validGasStation.contains(searchingFor!) {
             
             return true

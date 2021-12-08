@@ -206,7 +206,14 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         } else if let title = annotation.title, title == "Mobil" {
             annotationView?.image = UIImage(named: "mobil.png")
             return annotationView
+        } else if let title = annotation.title, title == "76" {
+            annotationView?.image = UIImage(named: "76.png")
+            return annotationView
+        } else if let title = annotation.title, title == "Chevron" {
+            annotationView?.image = UIImage(named: "chevron.png")
+            return annotationView
         }
+        
         annotationView?.canShowCallout = true
         return nil
     }
