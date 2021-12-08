@@ -72,7 +72,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         direction.search(searchBar.text!,self)
     }
     
-    @IBAction func unwinds(_seg: UIStoryboardSegue) {
+    @IBAction func unwinds(_ seg: UIStoryboardSegue) {
         print("Unwind")
     }
     

@@ -10,6 +10,7 @@ import UIKit
 class tabController: UITabBarController,UITabBarControllerDelegate {
 
     var currentUser: UserInfo?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
@@ -28,11 +29,15 @@ class tabController: UITabBarController,UITabBarControllerDelegate {
             let stationView = self.viewControllers![1] as! benmartinez
             
             stationView.incomingAnnotation = mainView.selectedAnnotation
-            for x in mainView.itemxxx.getDtationData() {
-                if mainView.selectedAnnotation["Lat"] == x.latitude && mainView.selectedAnnotation["Lon"] == x.longitude {
-                    stationView.regularPrice.text = "\(x.price["Regular"]!)"
-                    stationView.midPrice.text = "\(x.price["Mid"]!)"
-                    stationView.premiumPrice.text = "\(x.price["Premium"]!)"
+            stationView.allAnnotation = mainView.itemxxx
+            stationView.currentWaypoint = mainView.currentMarker
+            
+            for station in mainView.itemxxx.getDtationData() {
+                if mainView.selectedAnnotation["Lat"] == station.latitude && mainView.selectedAnnotation["Lon"] == station.longitude {
+                    stationView.regularPrice.text = "\(station.price["Regular"]!)"
+                    stationView.midPrice.text = "\(station.price["Mid"]!)"
+                    stationView.premiumPrice.text = "\(station.price["Premium"]!)"
+                    break
                 }
             }
         }
