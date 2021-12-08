@@ -13,6 +13,7 @@ class gasStationsData {
     var stationData = [gasStations]()
     
     init() {
+       
         //  stationData = [gasStations]()
         // saveGasStationData()
 //        getGasStationData()
