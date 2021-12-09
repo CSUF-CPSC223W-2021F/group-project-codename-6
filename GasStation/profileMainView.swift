@@ -8,7 +8,7 @@
 import UIKit
 import MapKit
 
-class profile: UIViewController {
+class profileMainView: UIViewController {
     
     @IBOutlet var firstnameLabel: UILabel!
     @IBOutlet var lastnameLabel: UILabel!

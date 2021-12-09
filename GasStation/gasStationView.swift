@@ -8,7 +8,7 @@
 import MapKit
 import UIKit
 
-class benmartinez: UIViewController {
+class gasStationView: UIViewController {
     @IBOutlet var regularPrice: UITextField!
     @IBOutlet var midPrice: UITextField!
     @IBOutlet var premiumPrice: UITextField!
@@ -63,7 +63,7 @@ class benmartinez: UIViewController {
         // Get the new view controller using segue.destination.
         // Pass the selected object to the new view controller.
         
-        let des = segue.destination as? ViewController
+        let des = segue.destination as? mapView
 //            des!.changeRegulerPrice = 10
         changeDatabase()
         des?.gasStationDataClass = allAnnotation
