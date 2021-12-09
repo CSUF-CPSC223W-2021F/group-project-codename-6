@@ -12,19 +12,6 @@ class gasStationsData {
    
     var stationData = [gasStations]()
     
-    init() {
-        //  stationData = [gasStations]()
-        // saveGasStationData()
-//        getGasStationData()
-        
-        do {
-            try FileManager.default.removeItem(at: dataFilePath)
-            
-        } catch {
-            print("file doesnt exist")
-        }
-    }
-    
     func getDtationData() -> [gasStations] {
         return stationData
     }
@@ -38,11 +25,11 @@ class gasStationsData {
     }
     
     func cheapest() -> gasStations {
-        var myMax = stationData[0].price
+        var myMax: Float = stationData[0].price["Regular"]!
         var newI = 0
         for i in 0 ..< stationData.count {
-            if stationData[i].price < myMax {
-                myMax = stationData[i].price
+            if stationData[i].price["Regular"]! < myMax {
+                myMax = stationData[i].price["Regular"]!
                 newI = i
             }
         }
@@ -54,8 +41,9 @@ class gasStationsData {
         
         do {
             let data = try encoder.encode(stationData)
+          
             try data.write(to: dataFilePath)
-            
+          
         } catch {
             print("error occur\(error)")
         }
