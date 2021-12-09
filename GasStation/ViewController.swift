@@ -27,7 +27,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
     var gasStationDataClass = gasStationsData()
     
     override func viewDidLoad() {
-        super.viewDidLoad()       
+        super.viewDidLoad()
         if let currentName = currentUsers?.getUsername() {
             userLabel.text = "Welcome \(currentName)"
         }
@@ -43,11 +43,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         // addAnnotation(nameOFGasstation: "Chevron")
 //        addAnnotation(nameOFGasstation: "Costco")
 //        addAnnotation(nameOFGasstation: "Arco")
-        
         // itemxxx.saveGasStationData()
-         gasStationDataClass.getGasStationData()
+//        gasStationDataClass.getGasStationData()
     }
     
+
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "routeName" {
             let newVC: RouteDirectionController = segue.destination as! RouteDirectionController
@@ -68,7 +68,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         var stored = [MKPointAnnotation]()
        
         let direction = Direction()
-        direction.search(searchBar.text!,self)
+        direction.search(searchBar.text!, self)
     }
     
     @IBAction func unwinds(_ seg: UIStoryboardSegue) {
@@ -100,15 +100,28 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         request.naturalLanguageQuery = nameOFGasstation
         request.region = currentRegine
         let search = MKLocalSearch(request: request)
- 
-    
-    if gasStationDataClass.getDtationData().contains(where: { $0.title == nameOFGasstation }) {
+        
+        
+        if gasStationDataClass.getDtationData().contains(where: { $0.title == nameOFGasstation }) {
+            for i in 0 ..< gasStationDataClass.getDtationData().count {
+                let annotationOfGasStation = MKPointAnnotation()
+                
+                if gasStationDataClass.getDtationData()[i].getTitle() == nameOFGasstation {
+                    annotationOfGasStation.title = gasStationDataClass.getDtationData()[i].getTitle()
+                    annotationOfGasStation.subtitle = "\(gasStationDataClass.getDtationData()[i].getPrice("Regular"))"
+                    annotationOfGasStation.coordinate = CLLocationCoordinate2D(latitude: gasStationDataClass.getDtationData()[i].getlatitude(), longitude: gasStationDataClass.getDtationData()[i].getlongitude())
+                    
+                    annotationArray.append(annotationOfGasStation)
+                }
+
+            }
+
+            myMapview.addAnnotations(annotationArray)
+            myMapview.showAnnotations(annotationArray, animated: true)
             return
         }
-
- 
         
-      
+        
         search.start { [self] response, _ in
             
             if let response = response {
@@ -170,9 +183,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         
     @IBAction func cheapGasStation(_ sender: UIButton) {
         let cheapestGasStation = gasStationDataClass
-        
-        // itemxxx.saveGasStationData()
-        //  itemxxx.getGasStationData()
+        cheapestGasStation.getGasStationData()
 
         construcRoute(userlocation: myCurrentLocation!, gasStation: cheapestGasStation.cheapest())
         routeButton.isHidden = false
@@ -184,13 +195,8 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
         currentMarker = view
         selectedAnnotation["Lat"] = currentMarker?.annotation?.coordinate.latitude
         selectedAnnotation["Lon"] = currentMarker?.annotation?.coordinate.longitude
-       
-        performSegue(withIdentifier: "benSegue", sender: self)
         
-        gasStationDataClass.saveGasStationData()
-   
-    
-    
+        performSegue(withIdentifier: "benSegue", sender: self)
     }
     
     func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

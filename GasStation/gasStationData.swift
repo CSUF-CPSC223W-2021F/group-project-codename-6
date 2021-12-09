@@ -14,8 +14,8 @@ class gasStationsData {
     
     init() {
        
-        getGasStationData()
-        saveGasStationData()
+//        getGasStationData()
+//        saveGasStationData()
         print(dataFilePath)
         //  stationData = [gasStations]()
         // saveGasStationData()
