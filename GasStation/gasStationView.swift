@@ -15,8 +15,8 @@ class gasStationView: UIViewController {
     
     var currentWaypoint: MKAnnotationView!
     var allAnnotation = gasStationsData()
-    var currentPrice:Float?
-    var incomingAnnotation = ["Lat": 0.0, "Lon":0.0]
+    var currentPrice: Float?
+    var incomingAnnotation = ["Lat": 0.0, "Lon": 0.0]
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -26,13 +26,11 @@ class gasStationView: UIViewController {
     }
     
     func checkList() {
-        
         for station in allAnnotation.getDtationData() {
-            if incomingAnnotation["Lat"] == station.latitude && incomingAnnotation["Lon"] == station.longitude {
+            if incomingAnnotation["Lat"] == station.latitude, incomingAnnotation["Lon"] == station.longitude {
                 regularPrice.text = "\(station.price["Regular"]!)"
                 midPrice.text = "\(station.price["Mid"]!)"
                 premiumPrice.text = "\(station.price["Premium"]!)"
-                
             }
         }
     }
@@ -42,7 +40,6 @@ class gasStationView: UIViewController {
             let location = currentWaypoint.annotation?.coordinate
  
             if gasStation.getlatitude() == location?.latitude, gasStation.getlongitude() == location?.longitude {
-                
                 currentPrice = Float(regularPrice.text!)
                 gasStation.price["Regular"] = currentPrice
                 currentPrice = Float(midPrice.text!)
@@ -53,23 +50,15 @@ class gasStationView: UIViewController {
                 print("price is change")
             }
         }
-        self.allAnnotation.saveGasStationData()
+        allAnnotation.saveGasStationData()
     }
     
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
+    //Pass back to mapView our data changes
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-        
         let des = segue.destination as? mapView
-//            des!.changeRegulerPrice = 10
         changeDatabase()
         des?.gasStationDataClass = allAnnotation
     }
     
-    @IBAction func changePrice(_ sender: UIButton) {
-        
-    }
+    @IBAction func changePrice(_ sender: UIButton) {}
 }

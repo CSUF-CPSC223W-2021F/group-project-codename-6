@@ -65,7 +65,7 @@ class profileViewController: UIViewController {
             editDest.userInfo?.firstname = editUserInfo!.firstname
         } else {
             editUserInfo?.firstname = firstnameField.text!.capitalizingFirstLetter()
-            transferInfo.userLabel.text = "Welcome \(firstnameField.text!.capitalizingFirstLetter())"
+            transferInfo.userLabel.text = "Welcome \(usernameField.text!.capitalizingFirstLetter())"
         }
         if lastnameField.text == ""  {
             editDest.userInfo?.lastname = editUserInfo!.lastname

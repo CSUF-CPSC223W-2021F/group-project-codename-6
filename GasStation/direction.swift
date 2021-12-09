@@ -12,10 +12,6 @@ struct Direction {
     var valid: Bool = true
     var street_address: String = ""
 
-//    func checkStreetAddress() -> String {
-//        return street_address
-//    }
-//
     func checkValid(_ searchingFor: String?) -> Bool {
         let validGasStation = ["Arco","Mobil","Shell","Chevron","Costco","76"]
         if validGasStation.contains(searchingFor!) {
@@ -24,12 +20,9 @@ struct Direction {
         }
         return false
     }
-//
-//    func checkPossibleGasStation() -> [String] {
-//        return possibleGasStation
-//    }
     
     func search(_ parameter: String,_ view: mapView) {
+        //check if the entered text inside the textfield is a gas station
         if !checkValid(parameter) {
             return
         }
