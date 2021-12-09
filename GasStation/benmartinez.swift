@@ -26,6 +26,7 @@ class benmartinez: UIViewController {
     }
     
     func checkList() {
+        
         for station in allAnnotation.getDtationData() {
             if incomingAnnotation["Lat"] == station.latitude && incomingAnnotation["Lon"] == station.longitude {
                 regularPrice.text = "\(station.price["Regular"]!)"
@@ -50,9 +51,9 @@ class benmartinez: UIViewController {
                 gasStation.price["Premium"] = currentPrice
                 
                 print("price is change")
-                self.allAnnotation.saveGasStationData()
             }
         }
+        self.allAnnotation.saveGasStationData()
     }
     
     // MARK: - Navigation
@@ -65,8 +66,10 @@ class benmartinez: UIViewController {
         let des = segue.destination as? ViewController
 //            des!.changeRegulerPrice = 10
         changeDatabase()
-        des?.itemxxx = allAnnotation
+        des?.gasStationDataClass = allAnnotation
     }
     
-    @IBAction func changePrice(_ sender: UIButton) {}
+    @IBAction func changePrice(_ sender: UIButton) {
+        
+    }
 }

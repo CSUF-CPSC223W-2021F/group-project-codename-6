@@ -29,10 +29,10 @@ class tabController: UITabBarController,UITabBarControllerDelegate {
             let stationView = self.viewControllers![1] as! benmartinez
             
             stationView.incomingAnnotation = mainView.selectedAnnotation
-            stationView.allAnnotation = mainView.itemxxx
+            stationView.allAnnotation = mainView.gasStationDataClass
             stationView.currentWaypoint = mainView.currentMarker
             
-            for station in mainView.itemxxx.getDtationData() {
+            for station in mainView.gasStationDataClass.getDtationData() {
                 if mainView.selectedAnnotation["Lat"] == station.latitude && mainView.selectedAnnotation["Lon"] == station.longitude {
                     stationView.regularPrice.text = "\(station.price["Regular"]!)"
                     stationView.midPrice.text = "\(station.price["Mid"]!)"
