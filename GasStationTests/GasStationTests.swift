@@ -30,6 +30,7 @@ class GasStationTests: XCTestCase {
         }
     }
     
+    let user = UserInfo(firstname: "my", lastname: "name", username: "is", email: "123@gmail.com", password: "1234", phonenumber: "9091258400", address: "16728 Milky Way Drive", birthdate: "11/22/21")
 
     func testPrice()  {
 
@@ -58,61 +59,85 @@ class GasStationTests: XCTestCase {
         
         XCTAssertEqual(gasData.shell.getPrice(), 9)
     }
-    
+ 
     func testInput() {
         let test = userInput()
         XCTAssertEqual(test.input, "")
     }
     
-    func testinit() {
-            let interface = userLocation(user: "Amritpaul Sidhu", userName: "Demonslaayer", location: "Cal State Fullerton")
-            XCTAssertEqual(interface.user, "Amritpaul Sidhu")
-            XCTAssertEqual(interface.userName, "Demonslaayer")
-            XCTAssertEqual(interface.location, "Cal State Fullerton")
+    func testUserinit() {
+        XCTAssertEqual(user.firstname, "my")
+        XCTAssertEqual(user.lastname, "name")
+        XCTAssertEqual(user.username, "is")
+        XCTAssertEqual(user.email, "123@gmail.com")
+        XCTAssertEqual(user.password, "1234")
+        XCTAssertEqual(user.phonenumber, "9091258400")
+        XCTAssertEqual(user.homeaddress, "16728 Milky Way Drive")
+        XCTAssertEqual(user.birthdate, "11/22/21")
         }
-
-    func testUser() {
-        let interface = userLocation()
-        XCTAssertEqual(user1.firstName, "Amritpaul")
-        XCTAssertEqual(user1.lastName, "Sidhu")
-        XCTAssertEqual(user1.phoneNumber, 9099048124)
-        XCTAssertEqual(user1.birthDate, "10-22-2001")
-        XCTAssertEqual(user1.email, "asidhu2001@gmail.com")
-        XCTAssertEqual(interface.user, "")
+    
+    func testFirstName() {
+        XCTAssertEqual(user.firstname, "my")
     }
-
-    func testLocation() {
-        let interface = userLocation()
-        XCTAssertEqual(gas3.address,  "327 beach st")
-        XCTAssertEqual(user1.homeAddress, "You dont need to know this")
-        XCTAssertEqual(user2.homeAddress, "12123 deex bin street")
-        XCTAssertEqual(gas1.coordinates,  ["Latitude": 11, "Longitude": 0])
-        XCTAssertEqual(interface.location, "")
+    
+    func testLastName() {
+        XCTAssertEqual(user.lastname, "name")
     }
-
+    
     func testUserName() {
-        let interface = userLocation()
-        XCTAssertEqual(gas5.name,  "76")
-        XCTAssertEqual(user1.userName, "DemonSlayer")
-        XCTAssertEqual(interface.userName, "")
+        XCTAssertEqual(user.username, "is")
     }
     
-    func testfindUser()
-    {
-        let interface = userLocation()
-        XCTAssertEqual(interface.findUser(), "")
+    func testEmail() {
+        XCTAssertEqual(user.email, "123@gmail.com")
     }
     
-    func testfindLocation()
-    {
-        let interface = userLocation()
-        XCTAssertEqual(interface.findLocation(), "")
+    func testPassword() {
+        XCTAssertEqual(user.password, "1234")
     }
     
-    func testdisplayUserName()
-    {
-        let interface = userLocation()
-        XCTAssertEqual(interface.displayUserName(), "")
+    func testPhoneNumber() {
+        XCTAssertEqual(user.phonenumber, "9091258400")
+    }
+    
+    func testHomeaddress() {
+        XCTAssertEqual(user.homeaddress, "16728 Milky Way Drive")
+    }
+    
+    func testBirthdate() {
+        XCTAssertEqual(user.birthdate, "11/22/21")
+    }
+    
+    func testGetfirstname(){
+        XCTAssertEqual(user.getfirstName(), "my")
+    }
+    
+    func testGetlastname() {
+        XCTAssertEqual(user.getlastName(), "name")
+    }
+    
+    func testGetusername(){
+        XCTAssertEqual(user.getUsername(), "is")
+    }
+    
+    func testGetemail(){
+        XCTAssertEqual(user.getEmail(), "123@gmail.com")
+    }
+    
+    func testGetpassword(){
+        XCTAssertEqual(user.getPassword(), "1234")
+    }
+    
+    func testGetphonenumber() {
+        XCTAssertEqual(user.getPhone(), "9091258400")
+    }
+    
+    func testGetaddress() {
+        XCTAssertEqual(user.getAddress(), "16728 Milky Way Drive")
+    }
+    
+    func testGetbirthdate(){
+        XCTAssertEqual(user.getBirthDate(), "11/22/21")
     }
     
     func testvalidGasName(){
