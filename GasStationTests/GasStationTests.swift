@@ -48,16 +48,16 @@ class GasStationTests: XCTestCase {
         
         let gasData = gasStationsData()
         
-        XCTAssertEqual(gasData.arco.getTitle(), "arco")
-        XCTAssertEqual(gasData.cosco.getTitle(), "costco")
-        XCTAssertEqual(gasData.mobile.getTitle(), "mobile")
-        XCTAssertEqual(gasData.shell.getTitle(), "shell")
-        
-        XCTAssertEqual(gasData.shell.getPrice(), 8)
-        
-        gasData.shell.setPrice(price: 9)
-        
-        XCTAssertEqual(gasData.shell.getPrice(), 9)
+//        XCTAssertEqual(gasData.arco.getTitle(), "arco")
+//        XCTAssertEqual(gasData.cosco.getTitle(), "costco")
+//        XCTAssertEqual(gasData.mobile.getTitle(), "mobile")
+//        XCTAssertEqual(gasData.shell.getTitle(), "shell")
+//
+//        XCTAssertEqual(gasData.shell.getPrice(), 8)
+//
+//        gasData.shell.setPrice(price: 9)
+//
+//        XCTAssertEqual(gasData.shell.getPrice(), 9)
     }
  
     func testInput() {

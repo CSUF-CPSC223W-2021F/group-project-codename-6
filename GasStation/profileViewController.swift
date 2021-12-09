@@ -57,10 +57,10 @@ class profileViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let editDest = segue.destination as! profile
+        let editDest = segue.destination as! profileMainView
         editDest.userInfo = editUserInfo
 
-        let transferInfo = editDest.tabBarController?.viewControllers![0] as! ViewController
+        let transferInfo = editDest.tabBarController?.viewControllers![0] as! mapView
         if firstnameField.text == ""  {
             editDest.userInfo?.firstname = editUserInfo!.firstname
         } else {

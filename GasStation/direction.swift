@@ -29,7 +29,7 @@ struct Direction {
 //        return possibleGasStation
 //    }
     
-    func search(_ parameter: String,_ view: ViewController) {
+    func search(_ parameter: String,_ view: mapView) {
         if !checkValid(parameter) {
             return
         }

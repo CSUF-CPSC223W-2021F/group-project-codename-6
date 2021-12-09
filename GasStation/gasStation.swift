@@ -27,7 +27,7 @@ class gasStations: Codable {
         self.longitude = longitude
         self.imageName = imageName
 
-        stationPrice()
+        self.stationPrice()
     }
 
     func getTitle() -> String {
@@ -41,9 +41,9 @@ class gasStations: Codable {
     func getlongitude() -> Double {
         return self.longitude
     }
-    
+
     func stationPrice() {
-        switch(title) {
+        switch self.title {
         case "Chevron":
             self.price["Regular"] = 4.27
             self.price["Mid"] = 4.57
@@ -69,11 +69,12 @@ class gasStations: Codable {
             self.price["Mid"] = 4.15
             self.price["Premium"] = 4.45
         default:
-        print("No gas station located")
+            print("No gas station located")
         }
     }
+
     func getPrice(_ gasType: String) {
-        stationPrice()
+        self.stationPrice()
     }
 
     func getImageName() -> String {
@@ -95,7 +96,7 @@ class gasStations: Codable {
     func setlongitude(longitude: Double) {
         self.longitude = longitude
     }
-    
+
     // var latitude:Double
     // var longitude:Double
 }

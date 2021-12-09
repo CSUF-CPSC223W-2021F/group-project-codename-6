@@ -7,7 +7,7 @@
 import MapKit
 import UIKit
 
-class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate {
+class mapView: UIViewController, CLLocationManagerDelegate, MKMapViewDelegate, UISearchBarDelegate {
     var currentUsers: UserInfo?
     @IBOutlet var userLabel: UILabel!
     var zoomDistance1: Double = 7000
@@ -53,10 +53,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate, MKMapViewDele
             let newVC: RouteDirectionController = segue.destination as! RouteDirectionController
             newVC.currentRoute = routeDirection
         } else if segue.identifier == "userProfile" {
-            let direction = segue.destination as! profile
+            let direction = segue.destination as! profileMainView
             direction.userInfo = currentUsers!
         } else if segue.identifier == "benSegue" {
-            let direction = segue.destination as! benmartinez
+            let direction = segue.destination as! gasStationView
             direction.currentWaypoint = currentMarker
             direction.allAnnotation = gasStationDataClass
             direction.incomingAnnotation = selectedAnnotation

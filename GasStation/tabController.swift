@@ -14,9 +14,9 @@ class tabController: UITabBarController,UITabBarControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.delegate = self
-        let transferInfo = self.viewControllers![0] as! ViewController
+        let transferInfo = self.viewControllers![0] as! mapView
         transferInfo.currentUsers = currentUser
-        let transferProfile = self.viewControllers![2] as! profile
+        let transferProfile = self.viewControllers![2] as! profileMainView
         transferProfile.userInfo = currentUser
         // Do any additional setup after loading the view.
     }
@@ -25,8 +25,8 @@ class tabController: UITabBarController,UITabBarControllerDelegate {
         let currentView = viewController.tabBarItem.title!
         print(currentView)
         if currentView == "Gas Station" {
-            let mainView = self.viewControllers![0] as! ViewController
-            let stationView = self.viewControllers![1] as! benmartinez
+            let mainView = self.viewControllers![0] as! mapView
+            let stationView = self.viewControllers![1] as! gasStationView
             
             stationView.incomingAnnotation = mainView.selectedAnnotation
             stationView.allAnnotation = mainView.gasStationDataClass
