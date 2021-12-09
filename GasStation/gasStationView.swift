@@ -13,13 +13,14 @@ class gasStationView: UIViewController {
     @IBOutlet var midPrice: UITextField!
     @IBOutlet var premiumPrice: UITextField!
     
+    @IBOutlet weak var gasStationImage: UIImageView!
     var currentWaypoint: MKAnnotationView!
     var allAnnotation = gasStationsData()
     var currentPrice: Float?
     var incomingAnnotation = ["Lat": 0.0, "Lon": 0.0]
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        gasStationImage.image = UIImage(named: "gasStation")
         checkList()
 
         // Do any additional setup after loading the view.
